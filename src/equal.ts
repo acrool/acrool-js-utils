@@ -48,7 +48,7 @@ export function isNotEmpty(value: any, checkOption?: {
  * @returns {boolean}
  */
 export function isDate(str: string) {
-    const re = new RegExp('^([0-9]{4})[.-]{1}([0-9]{1,2})[.-]{1}([0-9]{1,2})$');
+    const re = new RegExp('^([0-9]{4})[/.-]{1}([0-9]{1,2})[/.-]{1}([0-9]{1,2})$');
     let infoValidation = true;
 
     const strDataValue = re.exec(str);

@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643371573709" clover="3.2.0">
-  <project timestamp="1643371573709" name="All files">
-    <metrics statements="108" coveredstatements="83" conditionals="38" coveredconditionals="27" methods="28" coveredmethods="23" elements="174" coveredelements="133" complexity="0" loc="108" ncloc="108" packages="1" files="1" classes="1"/>
+<coverage generated="1643372496899" clover="3.2.0">
+  <project timestamp="1643372496899" name="All files">
+    <metrics statements="142" coveredstatements="111" conditionals="104" coveredconditionals="86" methods="33" coveredmethods="27" elements="279" coveredelements="224" complexity="0" loc="142" ncloc="142" packages="1" files="2" classes="2"/>
+    <file name="equal.ts" path="/Users/imagine/project/test/js-utils/src/equal.ts">
+      <metrics statements="34" coveredstatements="28" conditionals="66" coveredconditionals="59" methods="5" coveredmethods="4"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="12" count="26" type="stmt"/>
+      <line num="16" count="26" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="36" count="13" type="stmt"/>
+      <line num="40" count="13" type="stmt"/>
+      <line num="50" count="1" type="stmt"/>
+      <line num="51" count="6" type="stmt"/>
+      <line num="52" count="6" type="stmt"/>
+      <line num="54" count="6" type="stmt"/>
+      <line num="55" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="57" count="4" type="stmt"/>
+      <line num="58" count="4" type="cond" truecount="2" falsecount="1"/>
+      <line num="60" count="0" type="stmt"/>
+      <line num="62" count="4" type="stmt"/>
+      <line num="63" count="4" type="cond" truecount="3" falsecount="0"/>
+      <line num="65" count="1" type="stmt"/>
+      <line num="67" count="4" type="stmt"/>
+      <line num="68" count="4" type="cond" truecount="3" falsecount="0"/>
+      <line num="70" count="1" type="stmt"/>
+      <line num="73" count="2" type="stmt"/>
+      <line num="75" count="6" type="stmt"/>
+      <line num="83" count="1" type="stmt"/>
+      <line num="84" count="0" type="stmt"/>
+      <line num="86" count="0" type="cond" truecount="0" falsecount="6"/>
+      <line num="87" count="0" type="stmt"/>
+      <line num="89" count="0" type="stmt"/>
+      <line num="97" count="1" type="stmt"/>
+      <line num="98" count="2" type="stmt"/>
+      <line num="99" count="2" type="stmt"/>
+      <line num="100" count="1" type="cond" truecount="4" falsecount="0"/>
+      <line num="101" count="1" type="stmt"/>
+      <line num="104" count="1" type="stmt"/>
+      <line num="106" count="0" type="stmt"/>
+    </file>
     <file name="format.ts" path="/Users/imagine/project/test/js-utils/src/format.ts">
       <metrics statements="108" coveredstatements="83" conditionals="38" coveredconditionals="27" methods="28" coveredmethods="23"/>
       <line num="7" count="1" type="stmt"/>
