@@ -4,6 +4,7 @@
   "description": "Common tools and methods for project development",
   "keywords": [
     "typescript",
+    "javscript",
     "utils"
   ],
   "author": "imagine10255",
@@ -14,6 +15,9 @@
   },
   "workspaces": [
     "packages/*"
+  ],
+  "files": [
+    "dist"
   ],
   "engines": {
     "node": ">=10"

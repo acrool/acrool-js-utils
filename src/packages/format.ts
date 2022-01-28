@@ -291,4 +291,3 @@ export function toBoolean(value: any, checkOption?: {isNotBooleanToUndefined?: b
     return false;
 }
 
-export default toBoolean;
