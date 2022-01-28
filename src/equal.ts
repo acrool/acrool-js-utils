@@ -1,3 +1,11 @@
+/**
+ * 正則表達式條件參數
+ */
+export const regPattern = {
+    number: /^[\d]*$/,
+    email: /^[A-Za-z0-9._-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/,
+};
+
 
 /**
  * 判定是否為空
@@ -80,7 +88,7 @@ export function isDate(str: string): boolean {
  * @param ip
  * @returns {boolean}
  */
-export function isIp(ip: string): boolean {
+export function isIP(ip: string): boolean {
     const reg = /^(\d+)\.(\d+)\.(\d+)\.(\d+)$/;
     // @ts-ignore
     if (reg.test(ip) && RegExp.$1 < 256 && RegExp.$2 < 256 && RegExp.$3 < 256 && RegExp.$4 < 256) {
