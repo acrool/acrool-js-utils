@@ -1,7 +1,0 @@
-{
-  "name": "imagine-js-utils/format",
-  "private": true,
-  "main": "../dist/format.js",
-  "module": "../dist/format.modern.js",
-  "types": "../dist/format.d.ts"
-}

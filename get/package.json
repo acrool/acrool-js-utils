@@ -1,7 +1,0 @@
-{
-  "name": "imagine-js-utils/get",
-  "private": true,
-  "main": "../dist/get.js",
-  "module": "../dist/get.modern.js",
-  "types": "../dist/get.d.ts"
-}

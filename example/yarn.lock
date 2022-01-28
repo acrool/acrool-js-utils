@@ -1465,11 +1465,6 @@ iconv-lite@0.4.24:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-imagine-js-utils@2.0.10:
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/imagine-js-utils/-/imagine-js-utils-2.0.10.tgz#40d47d9f20a455e8b68a8cd9f9021dc4a21a0aa5"
-  integrity sha512-7wZA/BPjq4H6lEBN9e20H6wrQtX/CizMK2lY2DtJ3ac8fqvXjxqXox1TRhlcUMr7tH48A4kYHZp7rsF4fGL5oQ==
-
 "imagine-js-utils@link:../dist":
   version "0.0.0"
   uid ""
