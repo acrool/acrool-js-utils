@@ -1,32 +1,17 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "target": "es6",
     "module": "commonjs",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": false,
-    "noEmit": true,
-    "downlevelIteration": true,
-    "baseUrl": "src"
+    "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true
   },
   "include": [
     "src"
   ],
   "exclude": [
     "node_modules",
-    "build"
+    "packages"
   ]
 }
