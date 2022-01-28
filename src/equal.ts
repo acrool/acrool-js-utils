@@ -4,6 +4,8 @@
 export const regPattern = {
     number: /^[\d]*$/,
     email: /^[A-Za-z0-9._-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/,
+    protocolDomain: /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}/g,
+    domain: /(:(http(s)?:\/\/.))?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}/g,
 };
 
 

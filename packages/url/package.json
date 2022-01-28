@@ -1,0 +1,7 @@
+{
+  "name": "imagine-js-utils/url",
+  "private": true,
+  "main": "../dist/url.js",
+  "module": "../dist/url.modern.js",
+  "types": "../dist/url.d.ts"
+}

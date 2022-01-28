@@ -7,13 +7,14 @@ test('regPattern', () => {
   expect(new RegExp(regPattern.email).test('jack@mail.com')).toBeTruthy();
   expect(new RegExp(regPattern.email).test('jack.com')).toBeFalsy();
   expect(new RegExp(regPattern.number).test('123456')).toBeTruthy();
-  expect(new RegExp(regPattern.number).test('a123456')).toBeTruthy();
+  expect(new RegExp(regPattern.number).test('a123456')).toBeFalsy();
   expect(new RegExp(regPattern.number).test('123456b')).toBeFalsy();
   expect(new RegExp(regPattern.number).test('123v456b')).toBeFalsy();
 });
 
 test('isEmpty', () => {
   expect(isEmpty('')).toBeTruthy();
+  expect(isEmpty({})).toBeTruthy();
   expect(isEmpty(0, {isZero: true})).toBeTruthy();
   expect(isEmpty('0', {isZero: true})).toBeTruthy();
   expect(isEmpty(0, {isZero: false})).toBeFalsy();
@@ -28,22 +29,6 @@ test('isEmpty', () => {
   expect(isEmpty('helloWorld')).toBeFalsy();
 });
 
-
-test('isEmpty', () => {
-  expect(isEmpty('')).toBeTruthy();
-  expect(isEmpty(0, {isZero: true})).toBeTruthy();
-  expect(isEmpty('0', {isZero: true})).toBeTruthy();
-  expect(isEmpty(0, {isZero: false})).toBeFalsy();
-  expect(isEmpty('0', {isZero: false})).toBeFalsy();
-  expect(isEmpty('false', {isFalse: true})).toBeTruthy();
-  expect(isEmpty(false, {isFalse: true})).toBeTruthy();
-  expect(isEmpty('false', {isFalse: false})).toBeFalsy();
-  expect(isEmpty(false, {isFalse: false})).toBeFalsy();
-  expect(isEmpty([])).toBeTruthy();
-  expect(isEmpty(null)).toBeTruthy();
-  expect(isEmpty(undefined)).toBeTruthy();
-  expect(isEmpty('helloWorld')).toBeFalsy();
-});
 
 test('isNotEmpty', () => {
   expect(isNotEmpty('')).toBeFalsy();
