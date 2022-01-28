@@ -1,0 +1,7 @@
+{
+  "name": "imagine-js-utils/browser",
+  "private": true,
+  "main": "../dist/browser.js",
+  "module": "../dist/browser.modern.js",
+  "types": "../dist/browser.d.ts"
+}
