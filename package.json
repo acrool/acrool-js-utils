@@ -1,7 +1,11 @@
 {
-  "name": "imagine-jsutils",
+  "name": "imagine-js-utils",
   "version": "0.0.1",
   "description": "Common tools and methods for project development",
+  "keywords": [
+    "typescript",
+    "utils"
+  ],
   "author": "imagine10255",
   "license": "MIT",
   "repository": {
@@ -9,20 +13,22 @@
     "url": "https://github.com/imagine10255/jsutils.git"
   },
   "source": "src/index.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "format",
+    "equal",
+    "get",
+    "dom"
   ],
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "build": "run-s build:claer && microbundle-crl --no-compress --no-css-modules --format modern,cjs",
+    "build": "run-s build:claer && microbundle src/packages/*.ts --no-compress --no-css-modules --format modern,cjs",
     "build:claer": "rm -rf ./dist",
     "dev": "cd example && yarn install && yarn run start",
-    "start": "run-s build:claer && microbundle-crl watch --no-compress --no-css-modules --format modern,cjs",
+    "start": "run-s build:claer && microbundle src/packages/*.ts watch --no-compress --no-css-modules --format modern,cjs",
     "prepublishOnly": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
@@ -36,8 +42,7 @@
     "release:major": "standard-version -r major",
     "release:minor": "standard-version -r minor",
     "release:patch": "standard-version -r patch",
-    "release:alpha": "standard-version --prerelease alpha",
-    "storybook": "cd example && yarn install && yarn run storybook"
+    "release:alpha": "standard-version --prerelease alpha"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -49,10 +54,11 @@
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "3.3.0",
     "cz-customizable": "6.3.0",
-    "microbundle-crl": "^0.13.10",
+    "microbundle": "0.14.2",
     "npm-run-all": "^4.1.5",
     "standard-version": "9.3.0",
-    "typescript": "4.1.5"
+    "typescript": "4.1.5",
+    "deep-equal": "^2.0.5"
   },
   "eslintConfig": {
     "extends": [
@@ -81,8 +87,5 @@
       "@typescript-eslint/no-unused-vars": "off",
       "no-mixed-operators": "off"
     }
-  },
-  "dependencies": {
-    "deep-equal": "^2.0.5"
   }
 }

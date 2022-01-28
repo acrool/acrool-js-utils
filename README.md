@@ -1,15 +1,15 @@
-# jsutils
+# js-utils
 
 > Most modern mobile touch slider with hardware accelerated transitions by react
 
-[![NPM](https://img.shields.io/npm/v/imagine-jsutils.svg)](https://www.npmjs.com/package/imagine-jsutils)
-[![npm](https://img.shields.io/npm/dm/imagine-jsutils.svg)](https://www.npmjs.com/package/imagine-jsutils)
+[![NPM](https://img.shields.io/npm/v/imagine-js-utils.svg)](https://www.npmjs.com/package/imagine-js-utils)
+[![npm](https://img.shields.io/npm/dm/imagine-js-utils.svg)](https://www.npmjs.com/package/imagine-js-utils)
 
 
 ## Install
 
 ```bash
-yarn add imagine-jsutils
+yarn add imagine-js-utils
 ```
 
 ## Usage
