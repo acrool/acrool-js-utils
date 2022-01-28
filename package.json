@@ -1,6 +1,6 @@
 {
   "name": "imagine-js-utils",
-  "version": "0.0.2-alpha.3",
+  "version": "0.0.2-alpha.1",
   "description": "Common tools and methods for project development",
   "keywords": [
     "typescript",
@@ -13,8 +13,15 @@
     "type": "git",
     "url": "https://github.com/imagine10255/jsutils.git"
   },
-  "workspaces": [
-    "dist/packages/*"
+  "exports": {
+    ".": "./dist/format.modern.js",
+    "./format": "./dist/format.modern.js",
+    "./get": "./dist/get.modern.js",
+    "./equal": "./dist/equal.modern.js",
+    "./dom": "./dist/equal.dom.js"
+  },
+  "files": [
+    "dist"
   ],
   "engines": {
     "node": ">=10"
