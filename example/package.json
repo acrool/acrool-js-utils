@@ -1,0 +1,58 @@
+{
+  "name": "imagine-jsutils-example",
+  "homepage": ".",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
+    "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
+    "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
+    "lint:fix": "eslint ./src --fix"
+  },
+  "dependencies": {
+    "@types/node": "link:../node_modules/@types/node",
+    "typescript": "link:../node_modules/typescript"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "link:../node_modules/@testing-library/jest-dom",
+    "@testing-library/user-event": "link:../node_modules/@testing-library/user-event",
+    "@types/jest": "link:../node_modules/@types/jest",
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+  "rules": {
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "semi": [
+      "warn",
+      "always"
+    ],
+    "indent": [
+      "warn",
+      4
+    ],
+    "object-curly-spacing": [
+      "warn",
+      "never"
+    ],
+    "no-useless-escape": "off",
+    "import/no-anonymous-default-export": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-unused-vars": "off"
+  }
+}
+}
