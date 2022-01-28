@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14-alpha.1](https://github.com/imagine10255/jsutils/compare/v0.0.14-alpha.0...v0.0.14-alpha.1) (2022-01-28)
+
+
+### Features
+
+* 更改 結構 ([bb77186](https://github.com/imagine10255/jsutils/commit/bb771865650c908632f8eefd0089f79f2b645c3a))
+
 ### [0.0.14-alpha.0](https://github.com/imagine10255/jsutils/compare/v0.0.13...v0.0.14-alpha.0) (2022-01-28)
 
 ### [0.0.13](https://github.com/imagine10255/jsutils/compare/v0.0.12...v0.0.13) (2022-01-28)
