@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/imagine10255/jsutils/compare/v0.0.14-alpha.2...v0.0.14) (2022-01-28)
+
+
+### Features
+
+* 新增 Array 方法 ([5031d1d](https://github.com/imagine10255/jsutils/commit/5031d1d3e28607964f4d00380213e3d121330bd8))
+* 新增 browser 方法 ([c0c1fb7](https://github.com/imagine10255/jsutils/commit/c0c1fb7f542cb497051c2a177b21641ef46814fc))
+* 新增 dom設定 ([0b0e1b1](https://github.com/imagine10255/jsutils/commit/0b0e1b11089481a9d19a7c9918c682f653bc0c86))
+* 新增 equal jest test ([2e31829](https://github.com/imagine10255/jsutils/commit/2e318292e1413b976567bfa3f893bb06bf022eeb))
+* 新增 equal 加入 regPattern ([bd72742](https://github.com/imagine10255/jsutils/commit/bd727423afa18509175fdc2a5cb2a494a90fdc59))
+* 新增 format jest test ([497865c](https://github.com/imagine10255/jsutils/commit/497865c2e67dc5f33e711568626e0fb15bc2fc58))
+* 新增 number jest test ([3e0da31](https://github.com/imagine10255/jsutils/commit/3e0da315dd62906c440b127db3333f9b76d505b3))
+* 新增 url 方法與test ([b0f538e](https://github.com/imagine10255/jsutils/commit/b0f538e989f067ea79332cc9e55487a76a50e169))
+* 更改 equal 回傳值 ([43d554e](https://github.com/imagine10255/jsutils/commit/43d554e660048870a577f60200f437a7041e70a3))
+
 ### [0.0.14-alpha.2](https://github.com/imagine10255/jsutils/compare/v0.0.14-alpha.1...v0.0.14-alpha.2) (2022-01-28)
 
 ### [0.0.14-alpha.1](https://github.com/imagine10255/jsutils/compare/v0.0.14-alpha.0...v0.0.14-alpha.1) (2022-01-28)
