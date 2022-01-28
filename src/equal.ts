@@ -47,7 +47,7 @@ export function isNotEmpty(value: any, checkOption?: {
  * @param str
  * @returns {boolean}
  */
-export function isDate(str: string) {
+export function isDate(str: string): boolean {
     const re = new RegExp('^([0-9]{4})[/.-]{1}([0-9]{1,2})[/.-]{1}([0-9]{1,2})$');
     let infoValidation = true;
 
@@ -80,7 +80,7 @@ export function isDate(str: string) {
  * @param ip
  * @returns {boolean}
  */
-export function isIp(ip: string) {
+export function isIp(ip: string): boolean {
     const reg = /^(\d+)\.(\d+)\.(\d+)\.(\d+)$/;
     // @ts-ignore
     if (reg.test(ip) && RegExp.$1 < 256 && RegExp.$2 < 256 && RegExp.$3 < 256 && RegExp.$4 < 256) {
@@ -92,9 +92,8 @@ export function isIp(ip: string) {
 /**
  * 判斷是否為JSON
  * @param jsonString string
- * @returns {boolean}
  */
-export function isJSON(jsonString: string) {
+export function isJSON(jsonString: string): boolean {
     try {
         const obj = JSON.parse(jsonString);
         if (obj && typeof obj === 'object' && obj !== null) {
