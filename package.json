@@ -14,10 +14,7 @@
     "url": "https://github.com/imagine10255/jsutils.git"
   },
   "workspaces": [
-    "src/packages/*"
-  ],
-  "files": [
-    "dist"
+    "dist/packages/*"
   ],
   "engines": {
     "node": ">=10"
