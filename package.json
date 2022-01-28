@@ -34,7 +34,8 @@
     "release:major": "yarn release-cli -r major",
     "release:minor": "yarn release-cli -r minor",
     "release:patch": "yarn release-cli -r patch",
-    "release:alpha": "yarn release-cli --prerelease alpha"
+    "release:alpha": "yarn release-cli --prerelease alpha",
+    "release:publish": "echo 'Run `sh ./run-publish.sh` to publish'"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
