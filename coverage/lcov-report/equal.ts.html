@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.35% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>28/34</span>
+                <span class='fraction'>30/36</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.35% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>28/34</span>
+                <span class='fraction'>30/36</span>
             </div>
         
             
@@ -170,7 +170,16 @@
 <a name='L105'></a><a href='#L105'>105</a>
 <a name='L106'></a><a href='#L106'>106</a>
 <a name='L107'></a><a href='#L107'>107</a>
-<a name='L108'></a><a href='#L108'>108</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -265,7 +274,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -276,6 +284,16 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 /**
@@ -326,7 +344,7 @@ export function isNotEmpty(value: any, checkOption?: {
  * @param str
  * @returns {boolean}
  */
-export function isDate(str: string) {
+export function isDate(str: string): boolean {
     const re = new RegExp('^([0-9]{4})[/.-]{1}([0-9]{1,2})[/.-]{1}([0-9]{1,2})$');
     let infoValidation = true;
 &nbsp;
@@ -359,7 +377,7 @@ export function isDate(str: string) {
  * @param ip
  * @returns {boolean}
  */
-export function <span class="fstat-no" title="function not covered" >isIp(</span>ip: string) {
+export function <span class="fstat-no" title="function not covered" >isIp(</span>ip: string): boolean {
     const reg = <span class="cstat-no" title="statement not covered" >/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/;</span>
     // @ts-ignore
 <span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (reg.test(ip) &amp;&amp; RegExp.$1 &lt; 256 &amp;&amp; RegExp.$2 &lt; 256 &amp;&amp; RegExp.$3 &lt; 256 &amp;&amp; RegExp.$4 &lt; 256) {</span>
@@ -371,9 +389,8 @@ export function <span class="fstat-no" title="function not covered" >isIp(</span
 /**
  * 判斷是否為JSON
  * @param jsonString string
- * @returns {boolean}
  */
-export function isJSON(jsonString: string) {
+export function isJSON(jsonString: string): boolean {
     try {
         const obj = JSON.parse(jsonString);
         if (obj &amp;&amp; typeof obj === 'object' &amp;&amp; obj !== null) {
@@ -384,6 +401,16 @@ export function isJSON(jsonString: string) {
     }
 <span class="cstat-no" title="statement not covered" >    return false;</span>
 }
+&nbsp;
+&nbsp;
+/**
+ * 判斷 elements 中的 css class
+ * @param classAttr elements
+ * @param className css class
+ */
+export function hasCssClassName(classAttr: string, className: string): boolean {
+    return !!classAttr.match(new RegExp(`(\\s|^)${className}(\\s|$)`));
+}
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -391,7 +418,7 @@ export function isJSON(jsonString: string) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jan 28 2022 20:21:36 GMT+0800 (Taipei Standard Time)
+                at Fri Jan 28 2022 21:37:52 GMT+0800 (Taipei Standard Time)
             </div>
         <script src="prettify.js"></script>
         <script>

@@ -4,7 +4,7 @@
  * @param className css class
  * @returns {boolean}
  */
-export function hasClass(dom: any, className: string) {
+export function hasClass(dom: any, className: string): boolean {
     return !!dom.className.match(new RegExp(`(\\s|^)${className}(\\s|$)`));
 }
 
@@ -13,12 +13,10 @@ export function hasClass(dom: any, className: string) {
  * @param dom elements
  * @param className
  */
-export function addClass(dom: any, className: string) {
+export function addClass(dom: any, className: string):void {
     if (!hasClass(dom, className)) {
         dom.classList.add(className);
     }
-    return false;
-
 }
 
 /**
@@ -26,9 +24,8 @@ export function addClass(dom: any, className: string) {
  * @param dom elements
  * @param className
  */
-export function removeClass(dom: any, className: string) {
+export function removeClass(dom: any, className: string):void {
     dom.classList.remove(className);
-    return false;
 }
 
 /**
@@ -38,7 +35,7 @@ export function removeClass(dom: any, className: string) {
  * @param url 網址
  * @param callBack 回乎方法
  */
-export function insertIFrame(frameId: string, url: string, callBack: (element: HTMLIFrameElement)=> void) {
+export function insertIFrame(frameId: string, url: string, callBack: (element: HTMLIFrameElement)=> void):void {
     // 插入測速工具
     if (document.getElementById(frameId) === null) {
         const i = document.createElement('iframe');
@@ -62,8 +59,27 @@ export function insertIFrame(frameId: string, url: string, callBack: (element: H
         // add iFrame
         document.body.appendChild(i);
     }
-    return false;
 }
+
+
+/**
+ * 插入Script
+ * @param scriptId
+ * @param scriptContent
+ */
+export function insertScript(scriptId: string, scriptContent: string): void {
+    // 插入測速工具
+    if (document.getElementById(scriptId) === null) {
+        const s = document.createElement('script');
+
+        s.id = scriptId;
+        s.append(scriptContent);
+
+        // add script
+        document.head.appendChild(s);
+    }
+}
+
 
 /**
  * 複製字串到剪貼簿
@@ -71,7 +87,7 @@ export function insertIFrame(frameId: string, url: string, callBack: (element: H
 export const copyToClipboard = (
     value: string,
     callBack?: () => void,
-) => {
+):void => {
     const textField = document.createElement('textarea');
     textField.innerText = value;
     document.body.appendChild(textField);

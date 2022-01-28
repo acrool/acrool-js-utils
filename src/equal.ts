@@ -104,3 +104,4 @@ export function isJSON(jsonString: string): boolean {
     }
     return false;
 }
+
