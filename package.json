@@ -14,10 +14,6 @@
     "type": "git",
     "url": "https://github.com/imagine10255/jsutils.git"
   },
-  "files": [
-    "dist",
-    "packages/format"
-  ],
   "engines": {
     "node": ">=10"
   },
@@ -31,15 +27,14 @@
     "cz": "git cz",
     "release-cli": "standard-version --packageFiles ./packages/package.json --bumpFiles ./packages/package.json",
     "release": "yarn release-cli --release-as",
-    "release:major": "yarn release-cli -r major",
-    "release:minor": "yarn release-cli -r minor",
-    "release:patch": "yarn release-cli -r patch",
-    "release:alpha": "yarn release-cli --prerelease alpha",
-    "release:publish": "echo 'Run `sh ./run-publish.sh` to publish'"
+    "release:major": "yarn release-cli -r major && release:postPrint",
+    "release:minor": "yarn release-cli -r minor && release:postPrint",
+    "release:patch": "yarn release-cli -r patch && release:postPrint",
+    "release:alpha": "yarn release-cli --prerelease alpha && release:postPrint",
+    "release:postPrint": "echo 'Run `npm publish ./packages` to publish'"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.13",

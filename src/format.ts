@@ -1,32 +1,21 @@
 /**
  * 文本中的每個單詞以大寫字母開頭
- * @param str
- * @returns {string}
+ * ex: helloWorld -> HelloWorld
+ *
+ * @param str 需要轉換的字串
  */
-export function toCapitalize(str: string) {
+export function toCapitalize(str: string): string {
     return str.replace(/\b(\w)/g, $1 => $1.toUpperCase());
-}
-
-/**
- * 語言代碼轉換 (en-us -> en-US)
- * @param str
- * @returns {string}
- */
-export function lowerDashToLowerDashUpper(str: string) {
-    // eslint-disable-next-line no-useless-escape
-    const result = str.replace(/\-(.*)/g, $1 => $1.toUpperCase());
-
-    // eslint-disable-next-line no-useless-escape
-    return result.replace(/(.*)+\-/g, $1 => $1.toLowerCase());
 }
 
 
 /**
  * 大寫底線轉小駝峰
- * @param str
+ * ex: Hello_World -> helloWorld
+ *
+ * @param str 需要轉換的字串
  */
-export function upperLineToLowerCase(str: string) {
-    // eslint-disable-next-line no-useless-escape
+export function upperLineToLowerCase(str: string): string {
     return str.toLowerCase().replace(/\_(\w)/g, function(all, letter){
         return letter.toUpperCase();
     });
@@ -34,54 +23,74 @@ export function upperLineToLowerCase(str: string) {
 
 
 /**
+ * 語言代碼格式轉換
+ * ex: en-us -> en-US
+ *
+ * @param localeCode 需要轉換的字串
+ */
+export function lowerLocaleToISOCode(localeCode: string): string {
+    const result = localeCode.replace(/\-(.*)/g, $1 => $1.toUpperCase());
+    return result.replace(/(.*)+\-/g, $1 => $1.toLowerCase());
+}
+
+
+
+/**
  * 小駝峰轉大寫底線
- * @param str
+ * ex: helloWorld -> HELLO_WORLD
+ *
+ * @param str 需要轉換的字串
  */
 export function lowerCaseToUpLineCase(str: string): string {
     return str.replace(/([A-Z])/g,'_$1').toUpperCase();
 }
 
 /**
- * RGB轉16進位
- * @param rgb
- * @returns {*}
+ * RGB轉HEX(16進位)色碼
+ * ex: rbg(0,0,0) -> #000000
+ *
+ * @param rgbStr RGB字串
  */
-export function RGBToHex(rgb: string) {
+export function rgbToHex(rgbStr: string): string|undefined {
     const hexDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
     const hex = function (x: any) {
-        // eslint-disable-next-line no-mixed-operators
         return Number.isNaN(x) ? '00' : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
     };
-    const tmp: any = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    return hex(tmp[1]) + hex(tmp[2]) + hex(tmp[3]);
+    const tmp = rgbStr.toLowerCase().match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    if(tmp!== null && tmp.length > 3){
+        return ['#', hex(tmp[1]) + hex(tmp[2]) + hex(tmp[3])].join('');
+    }
+    return undefined;
 }
 
 /**
  * HEX(16進位)色碼轉轉RGB
- * @returns {*}
+ * ex: #000000 -> rgb(0,0,0)
+
  * @param hexStr HEX字串
  * @param opacity 透明度 (提供透明度參數的話, 會轉回 RGBA)
  */
-export function HEXToRGB(hexStr: string, opacity = 1) {
-    hexStr = hexStr.replace('#', '');
-    const defaultReturn = 'rgb(0, 0, 0)';
+export function hexToRGB(hexStr: string, opacity = 1): string|undefined {
+    let newHexStr = hexStr.replace('#', '');
+    const defaultReturn = undefined;
     let rbgStr = '';
     let regMatch: RegExpMatchArray|null;
-    if (/^[0-9A-F]{3}$|^[0-9A-F]{6}$/.test(hexStr.toUpperCase())) {
-        if (hexStr.length === 3) {
-            regMatch = hexStr.match(/[0-9A-F]/g);
+    if (/^[0-9A-F]{3}$|^[0-9A-F]{6}$/.test(newHexStr.toUpperCase())) {
+        if (newHexStr.length === 3) {
+            regMatch = newHexStr.match(/[0-9A-F]/g);
             if(!regMatch){
                 return defaultReturn;
             }
-            rbgStr = regMatch[0] + regMatch[0] + regMatch[1] + regMatch[1] + regMatch[2] + regMatch[2];
+            newHexStr = regMatch[0] + regMatch[0] + regMatch[1] + regMatch[1] + regMatch[2] + regMatch[2];
         }
 
-        const r = parseInt(rbgStr.substr(0, 2), 16);
-        const g = parseInt(rbgStr.substr(2, 2), 16);
-        const b = parseInt(rbgStr.substr(4, 2), 16);
+        const r = parseInt(newHexStr.substr(0, 2), 16);
+        const g = parseInt(newHexStr.substr(2, 2), 16);
+        const b = parseInt(newHexStr.substr(4, 2), 16);
 
         if(opacity < 1){
-            return `rgba(${[r, g, b, opacity].join()})`;
+            const opacityStr = opacity.toString().replace('0.','.');
+            return `rgba(${[r, g, b, opacityStr].join()})`;
         }
         return `rgb(${[r, g, b].join()})`;
 
@@ -92,10 +101,11 @@ export function HEXToRGB(hexStr: string, opacity = 1) {
 
 
 /**
- * 數字補0方法
- * @param val 原字串
- * @param length 補滿的目標长度
- * @returns {*}
+ * 依需求位數補0
+ * ex: 69 -> 0069
+ *
+ * @param val 需要轉換得字串|數字
+ * @param length 補滿長度
  */
 export function paddingLeft(val: string|number, length: number): string {
     const replaceStr = String(val);
@@ -106,62 +116,68 @@ export function paddingLeft(val: string|number, length: number): string {
 }
 
 /**
- * 轉換外部Props資訊欄位與內部相同
+ * 物件對應轉換
+ * ex: {name: 'jack'} -> {name: 'id'}
+ *
+ * use:
+ * const from = {name: 'jack'};
+ * const to = autoMapper(from, {name: 'id'});
+ *
  * @param obj 原物件
- * @param mapping 新物件Key Value
- * @returns {{}}
+ * @param mapping 新物件Key Value對應表
  */
-export function autoMapper<A = object>(obj: object, mapping: object): A {
-    /*
-    範例:
-        const obj1 = {
-            firstName: 'Sam',
-            lastName: 'Xiao',
-            age: 20,
-        };
-
-        const obj2 = autoMapper(obj1, {
-            firstName: 'realName',
-            lastName: 'niceName',
-        });
-    */
-
-    // @ts-ignore
-    return Object.entries(obj).reduce((accm, [key, value]) => {accm[mapping[key] || key] = value;
-        return accm;
-    }, {});
+export function autoMapper<T = any>(obj: object, mapping: any): T {
+    let prev = {} as any;
+    return Object.entries(obj).reduce((prev, [key, value]) => {
+        const newKey = mapping[key] || key;
+        prev[newKey] = value;
+        return prev;
+    }, prev);
 }
 
 
 /**
  * 反轉陣列
+ * ex: {'name': 'jack'} -> {jack: 'name'}
+ *
+ * use: reverseObj({'name': 'jack'})
  * @param obj
  */
-export function reverseObj(obj: {[key: string]: any}) {
+export function reverseObj<T = any>(obj: {[key: string]: any}): T {
+    let prev = {} as any;
     return Object.entries(obj)
-        .reduce((prev, [key, value]) => {
+        .reduce((prev, [key, value]: any) => {
             return {...prev, [value]: key};
-        }, {});
+        }, prev);
 }
 
 
 
 /**
- * 將物件資料轉成 FormData
- * (若值為物件會被轉成JSON字串)
+ * 將物件資料轉成 FormData (最多兩層)
+ * ex: {
+ *     profile: {name: 'jack'}
+ * }
+ *
  * @param data
  */
-export function obj2formData(data: {[key: string]: any}) {
-    const formData = new FormData();
+export function objToFormData(data: {[key: string]: any}): FormData {
+    const formData = new FormData() as any;
 
-    const appendData = (whileData: {[key: string]: any}) => {
+    const appendData = (whileData: any) => {
         for(const [key, value] of Object.entries(whileData)){
-
             if(Array.isArray(value)){
+                let i = 0;
                 for(const w of value){
-                    appendData(
-                        {[`${key}[]`] : w}
-                    );
+                    if(typeof w === 'object'){
+                        for(const [objKey, objVal] of Object.entries(w)){
+                            // @ts-ignore
+                            formData.append(`${key}[${i}][${objKey}]`, objVal);
+                        }
+                    }else{
+                        formData.append(`${key}[${i}]`, w);
+                    }
+                    i += 1;
                 }
             }else if(typeof value !== 'undefined' && value !== null){
                 // @ts-ignore
@@ -175,8 +191,15 @@ export function obj2formData(data: {[key: string]: any}) {
 }
 
 
-export function jsonTryParse<T = any>(jsonString: string): T|undefined{
-
+/**
+ * Json Decode
+ * ex: {'name':'jack"} -> {
+ *     name: 'jack'
+ * }
+ *
+ * @param jsonString
+ */
+export function jsonDecode<T = any>(jsonString: string): T|undefined{
     try {
         const obj = JSON.parse(jsonString);
         if (obj && typeof obj === 'object' && obj !== null) {
@@ -187,7 +210,12 @@ export function jsonTryParse<T = any>(jsonString: string): T|undefined{
     return undefined;
 }
 
-export function arrayTryJoin(arr: string[], separator: string): string{
+/**
+ * 陣列轉字串 (發生例外錯誤回傳 空陣列)
+ * @param arr
+ * @param separator
+ */
+export function arrayJoin(arr: string[], separator: string): string{
 
     try {
         return arr.join(separator);
@@ -196,7 +224,13 @@ export function arrayTryJoin(arr: string[], separator: string): string{
     return '';
 }
 
-export function stringTrySplit(str: string, separator: string): string[]{
+/**
+ * 字串分割 (發生例外錯誤回傳 空陣列)
+ *
+ * @param str
+ * @param separator
+ */
+export function stringSplit(str: string, separator: string): string[]{
 
     try {
         return str.split(separator);
@@ -207,14 +241,15 @@ export function stringTrySplit(str: string, separator: string): string[]{
 
 
 /**
- * 過去陣列中不等於True的值
+ * 過濾物件keyValue中, 將等於true的收集為陣列
+ * ex: {_1: false, _2: true} -> [2]
  *
- * (用於Table Checkbox取ID)
+ * hookForm getValues
  * @param checkedId
  */
 export function objFilterNotTrue2Array(checkedId: {
     [key: string]: string| number|boolean| undefined
-}) {
+}): number[] {
     const ids = [];
     for(const id in checkedId){
         // 過濾掉不等於 true 的 Key
@@ -228,19 +263,20 @@ export function objFilterNotTrue2Array(checkedId: {
 
 
 /**
- * 合併陣列中相同的Value
+ * 合併陣列中相同的值
+ * ex: ['a', 'a', 'c'] -> ['a','c']
+ *
  * @param data
  */
-export function mergeArraySameValue(data: any[]) {
-    // @ts-ignore
+export function arrayFilterSameValue(data: any[]): any[] {
     return [...(new Set(data))];
 }
 
 
 
 /**
- * 檔案轉 Base64
- * ref: https://stackoverflow.com/questions/15960508/javascript-async-readasdataurl-multiple-files/17370825
+ * File 轉 Base64Str
+ *
  * @param file
  */
 export function fileConvertBase64(file: File): Promise<string|undefined>{
@@ -256,35 +292,34 @@ export function fileConvertBase64(file: File): Promise<string|undefined>{
 
 /**
  * 轉數字
+ * ex: asd1234 -> 1234
+ *
  * @param value
  */
-export function toNumber(value: any) {
+export function toNumber(value: any): number {
     const reg = new RegExp(/^\d+$/);
     if(reg.test(value)){
         return Number(value);
     }
 
-    return undefined;
+    return 0;
 }
 
 /**
  * 轉布林
+ * ex: 'true' => true
+ *
  * @param value
- * @param checkOption
+ * @param isNotBooleanToUndefined
  */
-export function toBoolean(value: any, checkOption?: {isNotBooleanToUndefined?: boolean}) {
-
-    const defaultCheckOption = {
-        isNotBooleanToUndefined: checkOption?.isNotBooleanToUndefined ?? true,
-    };
-
+export function toBoolean(value: any, isNotBooleanToUndefined = true): boolean|undefined {
     if(value === 'true' || value === true || value === 1) {
         return true;
 
     }else if(value === 'false' || value === 0 || value === false){
         return false;
 
-    }else if(defaultCheckOption.isNotBooleanToUndefined === true){
+    }else if(isNotBooleanToUndefined){
         return undefined;
     }
 
