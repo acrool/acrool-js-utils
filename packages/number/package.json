@@ -1,0 +1,7 @@
+{
+  "name": "imagine-js-utils/number",
+  "private": true,
+  "main": "../dist/number.js",
+  "module": "../dist/number.modern.js",
+  "types": "../dist/number.d.ts"
+}
