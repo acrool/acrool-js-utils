@@ -1,0 +1,22 @@
+{
+  "name": "imagine-js-utils",
+  "version": "0.0.14-alpha.2",
+  "description": "Common tools and methods for project development",
+  "keywords": [
+    "typescript",
+    "javscript",
+    "utils"
+  ],
+  "private": false,
+  "author": "imagine10255",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imagine10255/jsutils.git"
+  },
+  "files": [
+    "dist",
+    "format",
+    "equal"
+  ]
+}

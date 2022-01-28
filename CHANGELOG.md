@@ -2,6 +2,56 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14-alpha.2](https://github.com/imagine10255/jsutils/compare/v0.0.14-alpha.1...v0.0.14-alpha.2) (2022-01-28)
+
+### [0.0.14-alpha.1](https://github.com/imagine10255/jsutils/compare/v0.0.14-alpha.0...v0.0.14-alpha.1) (2022-01-28)
+
+
+### Features
+
+* 更改 結構 ([bb77186](https://github.com/imagine10255/jsutils/commit/bb771865650c908632f8eefd0089f79f2b645c3a))
+
+### [0.0.14-alpha.0](https://github.com/imagine10255/jsutils/compare/v0.0.13...v0.0.14-alpha.0) (2022-01-28)
+
+### [0.0.13](https://github.com/imagine10255/jsutils/compare/v0.0.12...v0.0.13) (2022-01-28)
+
+### [0.0.12](https://github.com/imagine10255/jsutils/compare/v0.0.11...v0.0.12) (2022-01-28)
+
+### [0.0.11](https://github.com/imagine10255/jsutils/compare/v0.0.10...v0.0.11) (2022-01-28)
+
+### [0.0.10](https://github.com/imagine10255/jsutils/compare/v0.0.9...v0.0.10) (2022-01-28)
+
+### [0.0.9](https://github.com/imagine10255/jsutils/compare/v0.0.8...v0.0.9) (2022-01-28)
+
+### [0.0.8](https://github.com/imagine10255/jsutils/compare/v0.0.7...v0.0.8) (2022-01-28)
+
+### [0.0.7](https://github.com/imagine10255/jsutils/compare/v0.0.6...v0.0.7) (2022-01-28)
+
+### [0.0.6](https://github.com/imagine10255/jsutils/compare/v0.0.5...v0.0.6) (2022-01-28)
+
+### [0.0.5](https://github.com/imagine10255/jsutils/compare/v0.0.4...v0.0.5) (2022-01-28)
+
+### [0.0.4](https://github.com/imagine10255/jsutils/compare/v0.0.3...v0.0.4) (2022-01-28)
+
+### [0.0.3](https://github.com/imagine10255/jsutils/compare/v0.0.2-alpha.4...v0.0.3) (2022-01-28)
+
+### [0.0.2](https://github.com/imagine10255/jsutils/compare/v0.0.2-alpha.4...v0.0.2) (2022-01-28)
+
+### [0.0.2-alpha.4](https://github.com/imagine10255/jsutils/compare/v0.0.2-alpha.3...v0.0.2-alpha.4) (2022-01-28)
+
+### [0.0.2-alpha.2](https://github.com/imagine10255/jsutils/compare/v0.0.2-alpha.3...v0.0.2-alpha.2) (2022-01-28)
+
+### [0.0.2-alpha.3](https://github.com/imagine10255/jsutils/compare/v0.0.2-alpha.2...v0.0.2-alpha.3) (2022-01-28)
+
+### [0.0.2-alpha.2](https://github.com/imagine10255/jsutils/compare/v0.0.2-alpha.1...v0.0.2-alpha.2) (2022-01-28)
+
+
+### Bug Fixes
+
+* 修正 路徑 ([197197f](https://github.com/imagine10255/jsutils/commit/197197f1872b7c4b2d834ede40b29b47a2083995))
+
+### [0.0.2-alpha.1](https://github.com/imagine10255/jsutils/compare/v0.0.2-alpha.0...v0.0.2-alpha.1) (2022-01-28)
+
 ### 0.0.2-alpha.0 (2022-01-28)
 
 
