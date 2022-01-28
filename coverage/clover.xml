@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643377072471" clover="3.2.0">
-  <project timestamp="1643377072471" name="All files">
-    <metrics statements="144" coveredstatements="113" conditionals="104" coveredconditionals="86" methods="34" coveredmethods="28" elements="282" coveredelements="227" complexity="0" loc="144" ncloc="144" packages="1" files="2" classes="2"/>
+<coverage generated="1643378134643" clover="3.2.0">
+  <project timestamp="1643378134643" name="All files">
+    <metrics statements="146" coveredstatements="115" conditionals="104" coveredconditionals="86" methods="35" coveredmethods="29" elements="285" coveredelements="230" complexity="0" loc="146" ncloc="146" packages="1" files="3" classes="3"/>
+    <file name="array.ts" path="/Users/imagine/project/test/js-utils/src/array.ts">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+    </file>
     <file name="equal.ts" path="/Users/imagine/project/test/js-utils/src/equal.ts">
-      <metrics statements="36" coveredstatements="30" conditionals="66" coveredconditionals="59" methods="6" coveredmethods="5"/>
+      <metrics statements="34" coveredstatements="28" conditionals="66" coveredconditionals="59" methods="5" coveredmethods="4"/>
       <line num="8" count="1" type="stmt"/>
       <line num="12" count="26" type="stmt"/>
       <line num="16" count="26" type="stmt"/>
@@ -38,8 +45,6 @@
       <line num="100" count="1" type="stmt"/>
       <line num="103" count="1" type="stmt"/>
       <line num="105" count="0" type="stmt"/>
-      <line num="114" count="1" type="stmt"/>
-      <line num="115" count="2" type="stmt"/>
     </file>
     <file name="format.ts" path="/Users/imagine/project/test/js-utils/src/format.ts">
       <metrics statements="108" coveredstatements="83" conditionals="38" coveredconditionals="27" methods="28" coveredmethods="23"/>
