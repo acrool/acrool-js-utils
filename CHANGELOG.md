@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://github.com/imagine10255/jsutils/compare/v0.0.15...v0.0.16) (2022-01-29)
+
+
+### Features
+
+* 更改 number formatCurrency, toDecimal2 移動到 format ([a14a6a3](https://github.com/imagine10255/jsutils/commit/a14a6a3341654981b5bd54509acd16fec467da1d))
+
 ### [0.0.15](https://github.com/imagine10255/jsutils/compare/v0.0.14...v0.0.15) (2022-01-28)
 
 ### [0.0.14](https://github.com/imagine10255/jsutils/compare/v0.0.14-alpha.2...v0.0.14) (2022-01-28)
