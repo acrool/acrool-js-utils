@@ -4,7 +4,7 @@ import {
     lowerLocaleToISOCode,
     lowerCaseToUpLineCase,
     paddingLeft,
-    jsonDecode,
+    decodeToJson,
     stringSplit,
 } from '../string';
 
@@ -31,12 +31,12 @@ test('paddingLeft', () => {
 
 
 
-test('jsonDecode', () => {
+test('decodeToJson', () => {
     const jsonObj = {name: 'jack'};
     const jsonString = JSON.stringify({name: 'jack'});
     const jsonErrorString = "{name:_'jack'}";
-    expect(jsonDecode(jsonString)).toStrictEqual(jsonObj);
-    expect(jsonDecode(jsonErrorString)).toBeUndefined();
+    expect(decodeToJson(jsonString)).toStrictEqual(jsonObj);
+    expect(decodeToJson(jsonErrorString)).toBeUndefined();
 });
 
 

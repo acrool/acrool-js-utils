@@ -90,7 +90,7 @@ export function stringSplit(str: string, separator: string): string[]{
  *
  * @param jsonString
  */
-export function jsonDecode<T = unknown>(jsonString: string): T|undefined{
+export function decodeToJson<T = unknown>(jsonString: string): T|undefined{
     try {
         const obj = JSON.parse(jsonString);
         if (obj && typeof obj === 'object' && obj !== null) {
