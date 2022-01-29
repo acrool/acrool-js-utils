@@ -11,7 +11,7 @@ const baseStyles = [
  * @param styles 顯示樣式
  * @param watchData 需要印出的訊息
  */
-function messageConsole(title: string, styles: any, watchData = '') {
+function messageConsole(title: string, styles: any, ...watchData: any) {
     // eslint-disable-next-line no-console
     console.log(`%c ${title}`, styles, watchData);
 }
@@ -21,7 +21,7 @@ function messageConsole(title: string, styles: any, watchData = '') {
  * @param title
  * @param watchData
  */
-function primary(title: string, watchData = '') {
+function primary(title: string, ...watchData: any) {
     const styles = baseStyles.concat([
         'background-color: #007bff',
     ]).join(';');
@@ -34,7 +34,7 @@ function primary(title: string, watchData = '') {
  * @param title
  * @param watchData
  */
-function success(title: string, watchData = '') {
+function success(title: string, ...watchData: any) {
     const styles = baseStyles.concat([
         'background-color: #28a745',
     ]).join(';');
@@ -47,7 +47,7 @@ function success(title: string, watchData = '') {
  * @param title
  * @param watchData
  */
-function info(title: string, watchData = '') {
+function info(title: string, ...watchData: any) {
     const styles = baseStyles.concat([
         'background-color: #17a2b8',
     ]).join(';');
@@ -60,7 +60,7 @@ function info(title: string, watchData = '') {
  * @param title
  * @param watchData
  */
-function warning(title: string, watchData = '') {
+function warning(title: string, ...watchData: any) {
     const styles = baseStyles.concat([
         'background-color: #ffc107',
     ]).join(';');
@@ -73,7 +73,7 @@ function warning(title: string, watchData = '') {
  * @param title
  * @param watchData
  */
-function danger(title: string, watchData = '') {
+function danger(title: string, ...watchData: any) {
     const styles = baseStyles.concat([
         'background-color: #ec2127',
     ]).join(';');
@@ -82,7 +82,7 @@ function danger(title: string, watchData = '') {
 }
 
 
-function mobile(log: any){
+function mobile(...log: any){
     const dom = document.getElementById('console') as HTMLTextAreaElement;
     if(dom){
         const day = new Date();
