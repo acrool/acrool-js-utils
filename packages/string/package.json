@@ -1,0 +1,7 @@
+{
+  "name": "imagine-js-utils/string",
+  "private": true,
+  "main": "../dist/string.js",
+  "module": "../dist/string.modern.js",
+  "types": "../dist/string.d.ts"
+}

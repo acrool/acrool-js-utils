@@ -1,0 +1,7 @@
+{
+  "name": "imagine-js-utils/convert",
+  "private": true,
+  "main": "../dist/convert.js",
+  "module": "../dist/convert.modern.js",
+  "types": "../dist/convert.d.ts"
+}

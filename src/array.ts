@@ -19,3 +19,31 @@ export function pull<T>(arrayData: T[], pushData: T): T[] {
 export function push<T>(arrayData: T[], pushData: T): T[] {
     return arrayData.slice(0).concat(pushData);
 }
+
+
+
+/**
+ * 取得陣列中的唯一值
+ * ex: ['a', 'a', 'c'] -> ['a','c']
+ *
+ * @param data
+ */
+export function getUnique(data: Array<number|string>): Array<number|string> {
+    return [...(new Set(data))];
+}
+
+
+
+/**
+ * 陣列轉字串 (發生例外錯誤回傳 空陣列)
+ * @param arr
+ * @param separator
+ */
+export function arrayJoin(arr: string[], separator: string): string{
+
+    try {
+        return arr.join(separator);
+    } catch (err) {}
+
+    return '';
+}

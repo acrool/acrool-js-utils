@@ -1,0 +1,7 @@
+{
+  "name": "imagine-js-utils/enum",
+  "private": true,
+  "main": "../dist/enum.js",
+  "module": "../dist/enum.modern.js",
+  "types": "../dist/enum.d.ts"
+}

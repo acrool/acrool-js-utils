@@ -1,0 +1,7 @@
+{
+  "name": "imagine-js-utils/file",
+  "private": true,
+  "main": "../dist/file.js",
+  "module": "../dist/file.modern.js",
+  "types": "../dist/file.d.ts"
+}

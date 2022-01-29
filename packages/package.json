@@ -16,7 +16,16 @@
   },
   "files": [
     "dist",
-    "format",
-    "equal"
+    "array",
+    "browser",
+    "convert",
+    "dom",
+    "enum",
+    "equal",
+    "file",
+    "number",
+    "object",
+    "string",
+    "url"
   ]
 }
