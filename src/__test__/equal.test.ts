@@ -1,7 +1,14 @@
 import {
   isDate,
-  isEmpty, isJSON, isNotEmpty, isIP, regPattern
+  isEmpty, isJSON, isNotEmpty, isIP, regPattern, strictEqual
 } from '../equal';
+
+test('strictEqual', () => {
+  expect(strictEqual(123, 123)).toBeTruthy();
+  expect(strictEqual(123,'123')).toBeFalsy();
+  expect(strictEqual({name: 'jack'}, {name: 'jack'})).toBeTruthy();
+  expect(strictEqual(['jack'], ['jack'])).toBeTruthy();
+});
 
 test('regPattern', () => {
   expect(new RegExp(regPattern.email).test('jack@mail.com')).toBeTruthy();

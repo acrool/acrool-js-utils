@@ -1,3 +1,5 @@
+export {default as strictEqual} from './equal/strictEqual';
+
 /**
  * 正則表達式條件參數
  */
@@ -49,7 +51,6 @@ export function isNotEmpty(value: any, checkOption?: {
     };
     return !isEmpty(value, defaultCheckOption);
 }
-
 
 
 /**
@@ -114,4 +115,5 @@ export function isJSON(jsonString: string): boolean {
     }
     return false;
 }
+
 

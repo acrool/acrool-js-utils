@@ -1,0 +1,7 @@
+{
+  "name": "imagine-js-utils/key",
+  "private": true,
+  "main": "../dist/key.js",
+  "module": "../dist/key.modern.js",
+  "types": "../dist/key.d.ts"
+}
