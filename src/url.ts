@@ -20,7 +20,7 @@ export function encodeQueryString(queryObj: {
     if(queryStringList.length > 0){
         return `?${queryStringList.join('&')}`;
     }
-    return ''
+    return '';
 }
 
 /**

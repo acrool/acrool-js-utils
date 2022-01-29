@@ -68,7 +68,7 @@ export function objToFormData(data: {[key: string]: any}): FormData {
  * @param obj
  */
 export function reverseObj<T = any>(obj: {[key: string]: any}): T {
-    let prev = {} as any;
+    const prev = {} as any;
     return Object.entries(obj)
         .reduce((prev, [key, value]: any) => {
             return {...prev, [value]: key};
@@ -89,7 +89,7 @@ export function reverseObj<T = any>(obj: {[key: string]: any}): T {
  * @param mapping 新物件Key Value對應表
  */
 export function autoMapper<T = any>(obj: object, mapping: any): T {
-    let prev = {} as any;
+    const prev = {} as any;
     return Object.entries(obj).reduce((prev, [key, value]) => {
         const newKey = mapping[key] || key;
         prev[newKey] = value;

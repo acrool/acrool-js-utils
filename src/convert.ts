@@ -26,7 +26,6 @@ export function rgbToHex(rgbStr: string): string|undefined {
 export function hexToRGB(hexStr: string, opacity = 1): string|undefined {
     let newHexStr = hexStr.replace('#', '');
     const defaultReturn = undefined;
-    let rbgStr = '';
     let regMatch: RegExpMatchArray|null;
     if (/^[0-9A-F]{3}$|^[0-9A-F]{6}$/.test(newHexStr.toUpperCase())) {
         if (newHexStr.length === 3) {
