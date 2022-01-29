@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.24](https://github.com/imagine10255/jsutils/compare/v0.0.23...v0.0.24) (2022-01-29)
+
+
+### Bug Fixes
+
+* 修正 log mobile -> printInText, ...watchData -> watchData ([3ec7e65](https://github.com/imagine10255/jsutils/commit/3ec7e6509cb4ece42efebe38fcad6c1583dd58ff))
+
 ### [0.0.23](https://github.com/imagine10255/jsutils/compare/v0.0.22...v0.0.23) (2022-01-29)
 
 
