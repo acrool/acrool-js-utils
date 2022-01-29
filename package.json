@@ -30,7 +30,7 @@
     "release:major": "yarn release-cli -r major && release:postPrint",
     "release:minor": "yarn release-cli -r minor && release:postPrint",
     "release:patch": "yarn release-cli -r patch && release:postPrint",
-    "release:alpha": "yarn release-cli --prerelease alpha && run-s release:postPrint",
+    "release:alpha": "yarn release-cli --prerelease alpha && yarn release:postPrint",
     "release:postPrint": "echo 'Run `yarn build && npm publish ./packages` to publish'"
   },
   "devDependencies": {

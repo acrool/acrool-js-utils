@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for array.ts</title>
+    <title>Code coverage report for number.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> array.ts</h1>
+        <h1><a href="index.html">All files</a> number.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>12/16</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -91,40 +91,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * 插入資料到陣列的第一筆 (immutable)
- * ex: [1,2] -&gt; [3,1,2]
+ * 取得數組中的交集最小範圍
+ * obj = [
+ *    [1, 20],
+ *    [5, 24]
+ * ]
  *
- * @param arrayData
- * @param pushData
+ * result = {min: 5, max: 20}
+ * @param arrayNumber
  */
-export function pull&lt;T&gt;(arrayData: T[], pushData: T): T[] {
-    return [pushData].concat(arrayData.slice(0));
-}
+export function intersectionMin(arrayNumber: Array&lt;[number, number]&gt;): {min: number, max: number} {
+    let min: number|undefined;
+    let max: number|undefined;
 &nbsp;
-/**
- * 插入資料到陣列的結尾 (immutable)
- * ex: [1,2] -&gt; [1,2,3]
- *
- * @param arrayData
- * @param pushData
- */
-export function push&lt;T&gt;(arrayData: T[], pushData: T): T[] {
-    return arrayData.slice(0).concat(pushData);
+    arrayNumber.forEach((row) =&gt; {
+        min = min ? (row[0] &gt; min ? row[0] : <span class="branch-1 cbranch-no" title="branch not covered" >min)</span> : row[0];
+        max = max ? (row[1] &lt; max ? <span class="branch-0 cbranch-no" title="branch not covered" >row[1] </span>: max) : row[1];
+    });
+&nbsp;
+    return {min: min ?? <span class="branch-1 cbranch-no" title="branch not covered" >0,</span> max: max ?? <span class="branch-1 cbranch-no" title="branch not covered" >0}</span>;
 }
 &nbsp;</pre></td></tr></table></pre>
 

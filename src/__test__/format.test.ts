@@ -14,7 +14,9 @@ import {
     stringSplit,
     objFilterNotTrue2Array,
     arrayFilterSameValue,
-    toBoolean
+    toBoolean,
+    formatCurrency,
+    toDecimal2
 } from '../format';
 
 test('toCapitalize', () => {
@@ -108,4 +110,15 @@ test('toBoolean', () => {
     expect(toBoolean('true')).toBeTruthy();
     expect(toBoolean(1)).toBeTruthy();
     expect(toBoolean(true)).toBeTruthy();
+});
+
+
+test('formatCurrency', () => {
+    expect(formatCurrency(2000)).toBe('2,000');
+    expect(formatCurrency(2000, true)).toBe('2,000');
+    expect(formatCurrency(2000.21, true)).toBe('2,000.21');
+});
+
+test('toDecimal2', () => {
+    expect(toDecimal2(2000)).toBe(2000.00);
 });
