@@ -3,20 +3,20 @@ import log from './log';
 
 let disableBodyModalCount = 0;
 export function disableBodyScroll(){
-    log.mobile(`disableBodyScroll ${disableBodyModalCount}`);
+    log.printInText(`disableBodyScroll ${disableBodyModalCount}`, false);
 
     if(disableBodyModalCount === 0){
         addClass(document.body, 'modal-open');
-        log.mobile('disableBodyScroll run!');
+        log.printInText('disableBodyScroll run!', false);
     }
     disableBodyModalCount += 1;
 }
 
 export function enableBodyScroll(){
     disableBodyModalCount -= 1;
-    log.mobile(`enableBodyScroll ${disableBodyModalCount}`);
+    log.printInText(`enableBodyScroll ${disableBodyModalCount}`, false);
     if(disableBodyModalCount === 0){
         removeClass(document.body, 'modal-open');
-        log.mobile('enableBodyScroll run!');
+        log.printInText('enableBodyScroll run!', false);
     }
 }

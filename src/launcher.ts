@@ -45,7 +45,7 @@ export default class Launcher {
      */
     open(url: string){
         if(this._isWebview){
-            log.mobile(url);
+            log.printInText(`launch open: ${url}`, false);
             window.open(url);
 
         }else if(!this._isMultipleOpen && this._targetWindow){
