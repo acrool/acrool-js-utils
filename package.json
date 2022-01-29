@@ -31,7 +31,7 @@
     "release:minor": "yarn release-cli -r minor && run-s postrelease",
     "release:patch": "yarn release-cli -r patch && run-s postrelease",
     "release:alpha": "yarn release-cli --prerelease alpha && run-s postrelease",
-    "postrelease": "# Run `yarn build && npm publish ./packages` to publish"
+    "postrelease": "# then run `yarn build && npm publish ./packages` to publish"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
