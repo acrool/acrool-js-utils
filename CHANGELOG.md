@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.26](https://github.com/imagine10255/jsutils/compare/v0.0.25...v0.0.26) (2022-01-31)
+
+
+### Features
+
+* 更改 名稱, 並更改 strictEqual 的名稱為 deepCompare ([7de9c87](https://github.com/imagine10255/jsutils/commit/7de9c87888314e609138b046058fecfd0f49b9a6))
+
 ### [0.0.25](https://github.com/imagine10255/jsutils/compare/v0.0.24...v0.0.25) (2022-01-31)
 
 
