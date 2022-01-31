@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.25](https://github.com/imagine10255/jsutils/compare/v0.0.24...v0.0.25) (2022-01-31)
+
+
+### Features
+
+* 更改 anyToNumber 新增 預設回傳值 ([0afe634](https://github.com/imagine10255/jsutils/commit/0afe63476301a24788666fb010dcbbc606aab982))
+
 ### [0.0.24](https://github.com/imagine10255/jsutils/compare/v0.0.23...v0.0.24) (2022-01-29)
 
 
