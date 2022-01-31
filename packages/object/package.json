@@ -1,5 +1,5 @@
 {
-  "name": "imagine-js-utils/object",
+  "name": "bear-jsutils/object",
   "private": true,
   "main": "../dist/object.js",
   "module": "../dist/object.modern.js",

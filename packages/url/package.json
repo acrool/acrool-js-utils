@@ -1,5 +1,5 @@
 {
-  "name": "imagine-js-utils/url",
+  "name": "bear-jsutils/url",
   "private": true,
   "main": "../dist/url.js",
   "module": "../dist/url.modern.js",

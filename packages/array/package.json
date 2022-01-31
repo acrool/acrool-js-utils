@@ -1,5 +1,5 @@
 {
-  "name": "imagine-js-utils/array",
+  "name": "bear-jsutils/array",
   "private": true,
   "main": "../dist/array.js",
   "module": "../dist/array.modern.js",

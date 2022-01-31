@@ -1,5 +1,5 @@
 {
-  "name": "imagine-js-utils/number",
+  "name": "bear-jsutils/number",
   "private": true,
   "main": "../dist/number.js",
   "module": "../dist/number.modern.js",

@@ -1,5 +1,5 @@
 {
-  "name": "imagine-js-utils/log",
+  "name": "bear-jsutils/log",
   "private": true,
   "main": "../dist/log.js",
   "module": "../dist/log.modern.js",

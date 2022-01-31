@@ -1,5 +1,5 @@
 {
-  "name": "imagine-js-utils/launcher",
+  "name": "bear-jsutils/launcher",
   "private": true,
   "main": "../dist/launcher.js",
   "module": "../dist/launcher.modern.js",

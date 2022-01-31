@@ -2,21 +2,21 @@
 
 > Common tools and methods for project development
 
-[![NPM](https://img.shields.io/npm/v/imagine-js-utils.svg)](https://www.npmjs.com/package/imagine-js-utils)
-[![npm](https://img.shields.io/npm/dm/imagine-js-utils.svg)](https://www.npmjs.com/package/imagine-js-utils)
+[![NPM](https://img.shields.io/npm/v/bear-jsutils.svg)](https://www.npmjs.com/package/bear-jsutils)
+[![npm](https://img.shields.io/npm/dm/bear-jsutils.svg)](https://www.npmjs.com/package/bear-jsutils)
 
 
 ## Install
 
 ```bash
-yarn add imagine-js-utils
+yarn add bear-jsutils
 ```
 
 ## Usage
 
 ```tsx
-import {number} from 'imagine-js-utils/format'
-import {formatCurrency} from 'imagine-js-utils/number'
+import {number} from 'bear-jsutils/format'
+import {formatCurrency} from 'bear-jsutils/number'
 
 ```
 

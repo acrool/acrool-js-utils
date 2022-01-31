@@ -1,5 +1,5 @@
 {
-  "name": "imagine-js-utils/equal",
+  "name": "bear-jsutils/equal",
   "private": true,
   "main": "../dist/equal.js",
   "module": "../dist/equal.modern.js",

@@ -1,5 +1,5 @@
 {
-  "name": "imagine-js-utils/browser",
+  "name": "bear-jsutils/browser",
   "private": true,
   "main": "../dist/browser.js",
   "module": "../dist/browser.modern.js",

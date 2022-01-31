@@ -1,13 +1,15 @@
 import {
   isDate,
-  isEmpty, isJSON, isNotEmpty, isIP, regPattern, strictEqual
+  isEmpty, isJSON, isNotEmpty, isIP, regPattern, deepCompare
 } from '../equal';
 
-test('strictEqual', () => {
-  expect(strictEqual(123, 123)).toBeTruthy();
-  expect(strictEqual(123,'123')).toBeFalsy();
-  expect(strictEqual({name: 'jack'}, {name: 'jack'})).toBeTruthy();
-  expect(strictEqual(['jack'], ['jack'])).toBeTruthy();
+test('deepCompare', () => {
+  expect(deepCompare(123, 123)).toBeTruthy();
+  expect(deepCompare(123,'123')).toBeFalsy();
+  expect(deepCompare({name: 'jack', child: {birthday: '1988-12-14'}}, {name: 'jack', child: {}}, true)).toBeFalsy();
+  expect(deepCompare({name: 'jack', child: {birthday: undefined}}, {name: 'jack', child: {}})).toBeTruthy();
+  expect(deepCompare(['jack'], ['jack'])).toBeTruthy();
+  expect(deepCompare(() => {}, () => {})).toBeFalsy();
 });
 
 test('regPattern', () => {

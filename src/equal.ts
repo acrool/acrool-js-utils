@@ -1,4 +1,4 @@
-export {default as strictEqual} from './equal/strictEqual';
+export {default as deepCompare} from './equal/deepCompare';
 
 /**
  * 正則表達式條件參數

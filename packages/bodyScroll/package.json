@@ -1,5 +1,5 @@
 {
-  "name": "imagine-js-utils/bodyScroll",
+  "name": "bear-jsutils/bodyScroll",
   "private": true,
   "main": "../dist/bodyScroll.js",
   "module": "../dist/bodyScroll.modern.js",

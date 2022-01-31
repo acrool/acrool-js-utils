@@ -197,14 +197,23 @@ const eq = (
 };
 
 
-export function strictEqual(
+/**
+ * 深度比較 (toStrictEqual)
+ * @param a
+ * @param b
+ * @param isStrictCheck 嚴格(default: false, 開啟則會檢查不可為將物件中的 undefined 視為不同)
+ * @param options
+ */
+function deepCompare(
     a: unknown,
     b: unknown,
-    customTesters?: Array<Tester>,
-    strictCheck?: boolean,
+    isStrictCheck?: boolean,
+    options?: {
+        customTesters?: Array<Tester>,
+    },
 ): boolean {
-    customTesters = customTesters || [];
-    return eq(a, b, [], [], customTesters, strictCheck ? hasKey : hasDefinedKey);
+    const customTesters = options?.customTesters || [];
+    return eq(a, b, [], [], customTesters, isStrictCheck ? hasKey : hasDefinedKey);
 }
 
-export default strictEqual;
+export default deepCompare;
