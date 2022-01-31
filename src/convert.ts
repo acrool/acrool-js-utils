@@ -58,14 +58,15 @@ export function hexToRGB(hexStr: string, opacity = 1): string|undefined {
  * ex: asd1234 -> 1234
  *
  * @param value
+ * @param defaultValue
  */
-export function anyToNumber(value: any): number {
+export function anyToNumber(value: any, defaultValue = 0): number {
     const reg = new RegExp(/^\d+$/);
     if(reg.test(value)){
         return Number(value);
     }
 
-    return 0;
+    return defaultValue;
 }
 
 /**
