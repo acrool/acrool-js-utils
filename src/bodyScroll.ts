@@ -1,5 +1,14 @@
-import {addClass, removeClass} from './dom';
+import {addClass, hasClass, removeClass} from './dom';
 import log from './log';
+
+declare global {
+    /*~ Here, declare things that go in the global namespace, or augment
+     *~ existing declarations in the global namespace
+     */
+    interface Window {
+        disableBodyModalCount: number
+    }
+}
 
 window.disableBodyModalCount = 0;
 
@@ -16,20 +25,29 @@ window.disableBodyModalCount = 0;
  * }
  */
 export function disableBodyScroll(printLog = false){
-    log.printInText(`disableBodyScroll ${window.disableBodyModalCount}`, printLog);
+    const count = window.disableBodyModalCount;
+    if(count >= 0){
+        window.disableBodyModalCount += 1;
+        log.printInText(`[disableBodyScroll] count: ${count} -> ${window.disableBodyModalCount}`, printLog);
 
-    if(window.disableBodyModalCount === 0){
-        addClass(document.body, 'modal-open');
-        log.printInText('disableBodyScroll run!', false);
+        if(!hasClass(document.body, 'modal-open')){
+            addClass(document.body, 'modal-open');
+            log.printInText('[disableBodyScroll] run!', printLog);
+        }
     }
-    window.disableBodyModalCount += 1;
+
 }
 
 export function enableBodyScroll(printLog = false){
-    window.disableBodyModalCount -= 1;
-    log.printInText(`enableBodyScroll ${window.disableBodyModalCount}`, printLog);
-    if(window.disableBodyModalCount === 0){
-        removeClass(document.body, 'modal-open');
-        log.printInText('enableBodyScroll run!', false);
+    const count = window.disableBodyModalCount;
+    if(count > 0){
+        window.disableBodyModalCount -= 1;
+        log.printInText(`[enableBodyScroll] count: ${count} -> ${window.disableBodyModalCount}`, printLog);
+
+        if(window.disableBodyModalCount === 0){
+            removeClass(document.body, 'modal-open');
+            log.printInText('[enableBodyScroll] run!', printLog);
+        }
     }
+
 }
