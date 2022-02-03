@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.28](https://github.com/imagine10255/jsutils/compare/v0.0.27...v0.0.28) (2022-02-03)
+
+
+### Bug Fixes
+
+* 修正 disableBodyScroll 判斷問題 ([57a1f7a](https://github.com/imagine10255/jsutils/commit/57a1f7af8db58c9fc4e4c4204a0e5c67355cb2ef))
+
 ### [0.0.27](https://github.com/imagine10255/jsutils/compare/v0.0.26...v0.0.27) (2022-02-03)
 
 
