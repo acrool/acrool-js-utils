@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.27](https://github.com/imagine10255/jsutils/compare/v0.0.26...v0.0.27) (2022-02-03)
+
+
+### Features
+
+* 新增 disableBodyScroll 可印出 printLog ([676c368](https://github.com/imagine10255/jsutils/commit/676c368b8899224ec1e4e2cc1729ae11e885b5ab))
+
 ### [0.0.26](https://github.com/imagine10255/jsutils/compare/v0.0.25...v0.0.26) (2022-01-31)
 
 
