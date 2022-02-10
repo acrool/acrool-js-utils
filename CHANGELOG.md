@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.29](https://github.com/imagine10255/jsutils/compare/v0.0.28...v0.0.29) (2022-02-10)
+
+
+### Features
+
+* 更改 anyToNumber改名為 filterNumber, 並將原本的 anyToNumber 改為轉數字 ([8eb9f89](https://github.com/imagine10255/jsutils/commit/8eb9f899fb726a7a523c77326a4827b40d63a660))
+
 ### [0.0.28](https://github.com/imagine10255/jsutils/compare/v0.0.27...v0.0.28) (2022-02-03)
 
 
