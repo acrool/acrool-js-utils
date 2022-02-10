@@ -54,16 +54,34 @@ export function hexToRGB(hexStr: string, opacity = 1): string|undefined {
 
 
 /**
- * 轉數字
+ * 過濾只剩下數字
  * ex: asd1234 -> 1234
  *
  * @param value
  * @param defaultValue
  */
-export function anyToNumber(value: any, defaultValue = 0): number {
+export function filterNumber(value: any, defaultValue = 0): number {
     const reg = new RegExp(/^\d+$/);
     if(reg.test(value)){
         return Number(value);
+    }
+
+    return defaultValue;
+}
+
+
+
+/**
+ * 轉數字
+ * ex: 1234 -> 1234
+ *
+ * @param value
+ * @param defaultValue
+ */
+export function anyToNumber(value: any, defaultValue = 0): number {
+    const numberValue = Number(value);
+    if(!isNaN(numberValue)){
+        return numberValue;
     }
 
     return defaultValue;
