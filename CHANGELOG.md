@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/imagine10255/jsutils/compare/v0.0.30...v1.0.0) (2022-02-17)
+
 ### [0.0.30](https://github.com/imagine10255/jsutils/compare/v0.0.29...v0.0.30) (2022-02-17)
 
 
