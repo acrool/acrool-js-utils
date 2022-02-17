@@ -1,0 +1,7 @@
+{
+  "name": "bear-jsutils/uri",
+  "private": true,
+  "main": "../dist/uri.js",
+  "module": "../dist/uri.modern.js",
+  "types": "../dist/uri.d.ts"
+}
