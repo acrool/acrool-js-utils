@@ -12,7 +12,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/imagine10255/js-utils.git"
+    "url": "https://github.com/imagine10255/bear-jsutils.git"
   },
   "files": [
     "dist",

@@ -1,4 +1,4 @@
-# js-utils
+# bear-jsutils
 
 > Common tools and methods for project development
 
