@@ -22,7 +22,7 @@ test('anyToNumber', () => {
     expect(anyToNumber(7)).toBe(7);
     expect(anyToNumber('07')).toBe(7);
     expect(anyToNumber('test')).toBe(0);
-    expect(anyToNumber(true)).toBe(0);
+    expect(anyToNumber(true)).toBe(1);
 });
 
 

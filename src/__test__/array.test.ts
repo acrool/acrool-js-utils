@@ -1,4 +1,4 @@
-import {pull, push, getUnique, arrayJoin} from '../array';
+import {pull, push, getUnique, arrayJoin, removeByIndex} from '../array';
 
 test('pull', () => {
     const fromArray = [1, 2];
@@ -12,6 +12,13 @@ test('push', () => {
     const result = push(fromArray, 3);
     expect(result).toStrictEqual([1, 2, 3]);
     expect(fromArray).toEqual([1, 2]);
+});
+
+test('removeByIndex', () => {
+    const fromArray = [1, 2, 3];
+    const result = removeByIndex(fromArray, 1);
+    expect(result).toStrictEqual([1, 3]);
+    expect(fromArray).toEqual([1, 2, 3]);
 });
 
 

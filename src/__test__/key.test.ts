@@ -5,5 +5,5 @@ test('uuid', () => {
 });
 
 test('timeKey', () => {
-  expect(timeKey()).toHaveLength(12);
+  expect(timeKey()).toHaveLength(13);
 });

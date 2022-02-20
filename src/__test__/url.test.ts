@@ -1,4 +1,4 @@
-import {decodeQueryString, encodeQueryString, getMainDomain, getProtocolDomain, getSubDomain} from '../url';
+import {decodeQueryString, encodeQueryString, getMainDomain, getProtocolDomain, getSubDomain} from '../uri';
 
 test('encodeQueryString', () => {
     expect(encodeQueryString({keyword: 'jack', sex: 'F'})).toBe('?keyword=jack&sex=F');
