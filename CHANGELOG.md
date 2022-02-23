@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/imagine10255/jsutils/compare/v1.0.1...v1.0.2) (2022-02-23)
+
+
+### Features
+
+* 新增 equal diffArrayObjKey function ([7ea12c5](https://github.com/imagine10255/jsutils/commit/7ea12c594e736eee7ab5cf6cbe99e0de40ba6d12))
+
 ### [1.0.1](https://github.com/imagine10255/jsutils/compare/v1.0.0...v1.0.1) (2022-02-20)
 
 
