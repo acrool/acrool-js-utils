@@ -117,3 +117,11 @@ export function isJSON(jsonString: string): boolean {
 }
 
 
+
+
+type TDiffArrayObjKey<P = any> = (keyColumn: string, prev: P[], next: P[]) => boolean;
+export const diffArrayObjKey: TDiffArrayObjKey = (keyColumn, prev, next) => {
+    const prevKeys = prev.map(row => row[keyColumn]).join('-');
+    const nextKeys = next.map(row => row[keyColumn]).join('-');
+    return prevKeys === nextKeys;
+};
