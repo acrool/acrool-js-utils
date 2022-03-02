@@ -1,6 +1,6 @@
 import {
   isDate,
-  isEmpty, isJSON, isNotEmpty, isIP, regPattern, deepCompare
+  isEmpty, isJSON, isNotEmpty, isIP, regPattern, deepCompare, objsComposeByKey
 } from '../equal';
 
 test('deepCompare', () => {
@@ -79,4 +79,14 @@ test('isJSON', () => {
 
   expect(isJSON(jsonString)).toBeTruthy();
   expect(isJSON(jsonErrorString)).toBeFalsy();
+});
+
+
+test('objsComposeByKey', () => {
+  const testObjs1 = [{id: 1, name: 'imagine'}, {id: 2, name: 'jack'}];
+  const testObjs2 = [{id: 1, name: 'imagine'}, {id: 2, name: 'jack'}];
+  const testObjs3 = [{id: 1, name: 'imagine'}, {id: 3, name: 'jack'}];
+
+  expect(objsComposeByKey('id', testObjs1, testObjs2)).toBeTruthy();
+  expect(objsComposeByKey('name', testObjs1, testObjs3)).toBeFalsy();
 });
