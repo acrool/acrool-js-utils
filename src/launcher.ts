@@ -1,6 +1,6 @@
 import {checkIsIOS, checkIsWebview} from './browser';
 import log from './log';
-import {timeKey} from './key';
+import {timeKey, uuid} from './key';
 
 /**
  * 開啟視窗功能
@@ -27,9 +27,10 @@ export default class Launcher {
 
     constructor(prefixName: string, options?: {isMultipleOpen?: boolean, readyUrl?: string, closeNoticeUrl?: string}) {
         this._prefixName = prefixName;
-        this._openTargetId = this.createOpenTargetId();
+        this._openTargetId = this._createOpenTargetId();
         this._isMultipleOpen = options?.isMultipleOpen ?? false;
         this._targetWindow = null;
+
         this._isWebview = checkIsWebview();
         this._isIOS = checkIsIOS();
         this._readyUrl = options?.readyUrl ?? 'about:blank';
@@ -37,8 +38,8 @@ export default class Launcher {
 
     }
 
-    createOpenTargetId(){
-        return `${this._prefixName}_${timeKey}`;
+    _createOpenTargetId(){
+        return `${this._prefixName}_${uuid()}`;
     }
 
     /**
@@ -50,10 +51,10 @@ export default class Launcher {
             if(this._isIOS && this._targetWindow) {
                 // iOS Safari 先切換到 關閉提示頁面, 在開啟新的準備視窗
                 this._targetWindow.location.href = this._closeNoticeUrl;
-                this._openTargetId = this.createOpenTargetId();
+                this._openTargetId = this._createOpenTargetId();
             }else if(this._isMultipleOpen){
                 // 多開模式需要使用不同ID
-                this._openTargetId = this.createOpenTargetId();
+                this._openTargetId = this._createOpenTargetId();
             }
             this._targetWindow = window.open(this._readyUrl, this._openTargetId);
 
