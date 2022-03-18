@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/imagine10255/jsutils/compare/v1.0.3...v1.0.4) (2022-03-18)
+
+
+### Features
+
+* 新增 測試 objsComposeByKey ([bb271bb](https://github.com/imagine10255/jsutils/commit/bb271bbcbdc5e93d5be637276464e7c445002410))
+
+
+### Bug Fixes
+
+* 修正 window open options 為可選填入 ([0f2760d](https://github.com/imagine10255/jsutils/commit/0f2760da6b80989c8ca132c396548da7b06c827b))
+
 ### [1.0.3](https://github.com/imagine10255/jsutils/compare/v1.0.2...v1.0.3) (2022-02-24)
 
 ### [1.0.2](https://github.com/imagine10255/jsutils/compare/v1.0.1...v1.0.2) (2022-02-23)
