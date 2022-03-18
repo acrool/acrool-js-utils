@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/imagine10255/jsutils/compare/v1.0.5...v1.0.6) (2022-03-18)
+
+
+### Features
+
+* 更改 launcher ([bde9a72](https://github.com/imagine10255/jsutils/commit/bde9a7260a0114d49f07b5bb19e3b2b01a2f1499))
+
 ### [1.0.5](https://github.com/imagine10255/jsutils/compare/v1.0.4...v1.0.5) (2022-03-18)
 
 ### [1.0.4](https://github.com/imagine10255/jsutils/compare/v1.0.3...v1.0.4) (2022-03-18)
