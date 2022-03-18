@@ -19,6 +19,7 @@ export default class Launcher {
     _openTargetId: string;
     _isMultipleOpen: boolean = false;
     _isWebview: boolean = false;
+    _isIOS: boolean = false;
     _targetWindow: any;
     _readyUrl?: string;
     _closeNoticeUrl?: string;
@@ -26,10 +27,11 @@ export default class Launcher {
 
     constructor(prefixName: string, options?: {isMultipleOpen?: boolean, readyUrl?: string, closeNoticeUrl?: string}) {
         this._prefixName = prefixName;
-        this._openTargetId = options?.isMultipleOpen ? `${prefixName}_` : prefixName;
+        this._openTargetId = this.createOpenTargetId();
         this._isMultipleOpen = options?.isMultipleOpen ?? false;
         this._targetWindow = null;
         this._isWebview = checkIsWebview();
+        this._isIOS = checkIsIOS();
         this._readyUrl = options?.readyUrl ?? 'about:blank';
         this._closeNoticeUrl = options?.closeNoticeUrl ?? 'about:blank';
 
@@ -43,8 +45,9 @@ export default class Launcher {
      * 準備開啟視窗的前置作業
      */
     ready(){
+        // Webview 不做任何準備
         if(!this._isWebview){
-            if(checkIsIOS() && this._targetWindow) {
+            if(this._isIOS && this._targetWindow) {
                 // iOS Safari 先切換到 關閉提示頁面, 在開啟新的準備視窗
                 this._targetWindow.location.href = this._closeNoticeUrl;
                 this._openTargetId = this.createOpenTargetId();
