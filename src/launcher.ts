@@ -1,5 +1,6 @@
-import {checkIsWebview} from './browser';
+import {checkIsIOS, checkIsWebview} from './browser';
 import log from './log';
+import {timeKey} from './key';
 
 /**
  * 開啟視窗功能
@@ -20,14 +21,22 @@ export default class Launcher {
     _isWebview: boolean = false;
     _targetWindow: any;
     _readyUrl?: string;
+    _closeNoticeUrl?: string;
+    _prefixName?: string;
 
-    constructor(prefixName: string, options?: {isMultipleOpen?: boolean, readyUrl?: string}) {
+    constructor(prefixName: string, options?: {isMultipleOpen?: boolean, readyUrl?: string, closeNoticeUrl?: string}) {
+        this._prefixName = prefixName;
         this._openTargetId = options?.isMultipleOpen ? `${prefixName}_` : prefixName;
         this._isMultipleOpen = options?.isMultipleOpen ?? false;
         this._targetWindow = null;
         this._isWebview = checkIsWebview();
         this._readyUrl = options?.readyUrl ?? 'about:blank';
+        this._closeNoticeUrl = options?.closeNoticeUrl ?? 'about:blank';
 
+    }
+
+    createOpenTargetId(){
+        return `${this._prefixName}_${timeKey}`;
     }
 
     /**
@@ -35,8 +44,17 @@ export default class Launcher {
      */
     ready(){
         if(!this._isWebview){
-            const url = this._readyUrl ?? 'about:blank';
-            this._targetWindow = window.open(url, this._openTargetId);
+            if(checkIsIOS() && this._targetWindow) {
+                // iOS Safari 先切換到 關閉提示頁面, 在開啟新的準備視窗
+                this._targetWindow.location.href = this._closeNoticeUrl;
+                this._openTargetId = this.createOpenTargetId();
+            }else if(this._isMultipleOpen){
+                // 多開模式需要使用不同ID
+                this._openTargetId = this.createOpenTargetId();
+            }
+            this._targetWindow = window.open(this._readyUrl, this._openTargetId);
+
+
         }
     }
 
@@ -61,7 +79,12 @@ export default class Launcher {
      * 關閉視窗
      */
     close() {
-        this._targetWindow.close();
+        try{
+            this._targetWindow.close();
+
+        }catch (e) {
+            console.log('open-window: window close error');
+        }
     }
 
 }
