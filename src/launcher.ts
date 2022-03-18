@@ -21,11 +21,12 @@ export default class Launcher {
     _targetWindow: any;
     _readyUrl?: string;
 
-    constructor(prefixName: string, options: {isMultipleOpen: boolean, readyUrl: string}) {
-        this._openTargetId = options.isMultipleOpen ? `${prefixName}_` : prefixName;
-        this._isMultipleOpen = options.isMultipleOpen;
+    constructor(prefixName: string, options?: {isMultipleOpen?: boolean, readyUrl?: string}) {
+        this._openTargetId = options?.isMultipleOpen ? `${prefixName}_` : prefixName;
+        this._isMultipleOpen = options?.isMultipleOpen ?? false;
         this._targetWindow = null;
         this._isWebview = checkIsWebview();
+        this._readyUrl = options?.readyUrl ?? 'about:blank';
 
     }
 
