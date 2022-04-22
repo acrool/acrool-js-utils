@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.8](https://github.com/imagine10255/jsutils/compare/v1.0.7...v1.0.8) (2022-04-22)
+
+
+### Bug Fixes
+
+* fix log func watchData is not required ([ae03ade](https://github.com/imagine10255/jsutils/commit/ae03ade738a367eb128a9cec09f912aaa3b1eeaa))
+
 ### [1.0.7](https://github.com/imagine10255/jsutils/compare/v1.0.6...v1.0.7) (2022-03-18)
 
 
