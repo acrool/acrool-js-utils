@@ -17,9 +17,9 @@ import {timeKey, uuid} from './key';
  */
 export default class Launcher {
     _openTargetId: string;
-    _isMultipleOpen: boolean = false;
-    _isWebview: boolean = false;
-    _isIOS: boolean = false;
+    _isMultipleOpen = false;
+    _isWebview = false;
+    _isIOS = false;
     _targetWindow: any;
     _readyUrl?: string;
     _closeNoticeUrl?: string;

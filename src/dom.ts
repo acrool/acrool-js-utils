@@ -100,3 +100,15 @@ export const copyToClipboard = (
         callBack();
     }
 };
+
+
+/**
+ * 取得適合的顯示位置
+ * @param el
+ */
+export const getVisiblePosition = (el: HTMLElement) => {
+    const rect = el.getBoundingClientRect();
+    const top = rect.top;
+    const bottom = window.innerHeight - top;
+    return bottom > top ? 'bottom': 'top';
+};
