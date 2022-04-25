@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/imagine10255/jsutils/compare/v1.0.8...v1.0.9) (2022-04-25)
+
+
+### Features
+
+* add getVisiblePosition ([a2f92f3](https://github.com/imagine10255/jsutils/commit/a2f92f3acea6e1b7a7c9b0eeb4fa3479f9ca78af))
+
 ### [1.0.8](https://github.com/imagine10255/jsutils/compare/v1.0.7...v1.0.8) (2022-04-22)
 
 

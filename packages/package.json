@@ -1,6 +1,6 @@
 {
   "name": "bear-jsutils",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Common tools and methods for project development",
   "keywords": [
     "typescript",
