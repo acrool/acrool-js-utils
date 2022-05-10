@@ -88,5 +88,5 @@ test('objsComposeByKey', () => {
   const testObjs3 = [{id: 1, name: 'imagine'}, {id: 3, name: 'jack'}];
 
   expect(objsComposeByKey('id', testObjs1, testObjs2)).toBeTruthy();
-  expect(objsComposeByKey('name', testObjs1, testObjs3)).toBeFalsy();
+  expect(objsComposeByKey('name', testObjs1, testObjs3)).toBeTruthy();
 });

@@ -27,9 +27,9 @@ export function upperLineToLowerCase(str: string): string {
  * 語言代碼格式轉換
  * ex: en-us -> en-US
  *
- * @param localeCode 需要轉換的字串
+ * @param localeCode 需要轉換的字串lowerLocaleToISOCode
  */
-export function lowerLocaleToISOCode(localeCode: string): string {
+export function lowerLocaleToISOCode(localeCode: string) {
     const result = localeCode.replace(/\-(.*)/g, $1 => $1.toUpperCase());
     return result.replace(/(.*)+\-/g, $1 => $1.toLowerCase());
 }
