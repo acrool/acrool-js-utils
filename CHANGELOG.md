@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.11](https://github.com/imagine10255/jsutils/compare/v1.0.10...v1.0.11) (2022-05-12)
+
+
+### Features
+
+* 新增 key uuid, timekey 加入前綴參數, 並固定timekey 長度 ([a61a8c0](https://github.com/imagine10255/jsutils/commit/a61a8c00413d041e9d48530dce8b7c0f2d3bcd68))
+
 ### [1.0.10](https://github.com/imagine10255/jsutils/compare/v1.0.9...v1.0.10) (2022-05-10)
 
 
