@@ -36,7 +36,7 @@ export function removeClass(dom: any, className: string):void {
  * @param url 網址
  * @param callBack 回乎方法
  */
-export function insertIFrame(frameId: string, url: string, callBack: (element: HTMLIFrameElement)=> void):void {
+export function insertIFrame(frameId: string, url: string, callBack?: (element: HTMLIFrameElement)=> void):void {
     // 插入測速工具
     if (document.getElementById(frameId) === null) {
         const i = document.createElement('iframe');
