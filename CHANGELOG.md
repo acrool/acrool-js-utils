@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.13](https://github.com/imagine10255/jsutils/compare/v1.0.12...v1.0.13) (2022-06-27)
+
+
+### Features
+
+* add insertScriptSrc and insertScriptContent (old: insertScript) ([5a947d0](https://github.com/imagine10255/jsutils/commit/5a947d00f4eae63a6005a6cf01e85330519f87c3))
+
 ### [1.0.12](https://github.com/imagine10255/jsutils/compare/v1.0.11...v1.0.12) (2022-06-23)
 
 ### [1.0.11](https://github.com/imagine10255/jsutils/compare/v1.0.10...v1.0.11) (2022-05-12)
