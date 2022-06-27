@@ -68,7 +68,7 @@ export function insertIFrame(frameId: string, url: string, callBack?: (element: 
  * @param scriptId
  * @param scriptContent
  */
-export function insertScript(scriptId: string, scriptContent: string): void {
+export function insertScriptContent(scriptId: string, scriptContent: string): void {
     // 插入測速工具
     if (document.getElementById(scriptId) === null) {
         const s = document.createElement('script');
@@ -79,6 +79,32 @@ export function insertScript(scriptId: string, scriptContent: string): void {
         // add script
         document.head.appendChild(s);
     }
+}
+
+
+
+/**
+ * 插入Script
+ * @param scriptId
+ * @param scriptUrl
+ * @param callBack
+ */
+export function insertScriptSrc(scriptId: string, scriptUrl: string, callBack?: () => void) {
+    // 插入測速工具
+    if (document.getElementById(scriptId) === null) {
+        const s = document.createElement('script');
+
+        s.id = scriptId;
+        s.src = scriptUrl;
+
+        if(callBack){
+            s.onload = callBack;
+        }
+
+        // add script
+        document.head.appendChild(s);
+    }
+    return false;
 }
 
 
