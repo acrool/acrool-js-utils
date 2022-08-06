@@ -30,7 +30,7 @@ export function encodeQueryString(queryObj: {
  * @param val QueryString 字串
  */
 export function decodeQueryString<T>(val = ''): T|undefined {
-    const pairs = val.replace(/^.*\?/, '').split('&');
+    const pairs = decodeURIComponent(val).replace(/^.*\?/, '').split('&');
     const obj: any = {};
 
     if (pairs[0] !== '') {

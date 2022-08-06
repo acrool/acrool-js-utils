@@ -7,7 +7,7 @@ test('encodeQueryString', () => {
 
 test('decodeQueryString', () => {
     expect(decodeQueryString('?keyword=jack&sex=F')).toStrictEqual({keyword: 'jack', sex: 'F'});
-    expect(decodeQueryString('keyword=jack&sex=F')).toStrictEqual({keyword: 'jack', sex: 'F'});
+    expect(decodeQueryString('keyword=jac-_%40k%26sex%3DF&sex=F')).toStrictEqual({keyword: 'jac-_@k', sex: 'F'});
     expect(decodeQueryString('keyword--F')).toBeUndefined();
 });
 
