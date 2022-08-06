@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.14](https://github.com/imagine10255/jsutils/compare/v1.0.13...v1.0.14) (2022-08-06)
+
+
+### Features
+
+* add regPattern(account, ipAddress, date) in equal ([0ae80bc](https://github.com/imagine10255/jsutils/commit/0ae80bc6fe0bdfd527d7bf817cc427c7c25ba7e8))
+* modify decodeQueryString add decodeURIComponent in uri ([fbd86eb](https://github.com/imagine10255/jsutils/commit/fbd86eb0d9564249e9334dbad7d04541d82bf504))
+
 ### [1.0.13](https://github.com/imagine10255/jsutils/compare/v1.0.12...v1.0.13) (2022-06-27)
 
 
