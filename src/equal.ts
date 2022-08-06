@@ -5,9 +5,12 @@ export {default as deepCompare} from './equal/deepCompare';
  */
 export const regPattern = {
     number: /^[\d]*$/,
+    account: /^[A-Za-z0-9]+$/,
     email: /^[A-Za-z0-9._-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/,
     protocolDomain: /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}/g,
     domain: /(:(http(s)?:\/\/.))?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}/g,
+    ipAddress: /^(\d+)\.(\d+)\.(\d+)\.(\d+)$/,
+    date: /^([0-9]{4})[/.-]{1}([0-9]{1,2})[/.-]{1}([0-9]{1,2})$/,
 };
 
 
@@ -59,7 +62,7 @@ export function isNotEmpty(value: any, checkOption?: {
  * @returns {boolean}
  */
 export function isDate(str: string): boolean {
-    const re = new RegExp('^([0-9]{4})[/.-]{1}([0-9]{1,2})[/.-]{1}([0-9]{1,2})$');
+    const re = new RegExp(regPattern.date);
     let infoValidation = true;
 
     const strDataValue = re.exec(str);
@@ -92,13 +95,14 @@ export function isDate(str: string): boolean {
  * @returns {boolean}
  */
 export function isIP(ip: string): boolean {
-    const reg = /^(\d+)\.(\d+)\.(\d+)\.(\d+)$/;
+    const reg = new RegExp(regPattern.ipAddress);
     // @ts-ignore
     if (reg.test(ip) && RegExp.$1 < 256 && RegExp.$2 < 256 && RegExp.$3 < 256 && RegExp.$4 < 256) {
         return true;
     }
     return false;
 }
+
 
 /**
  * 判斷是否為JSON
