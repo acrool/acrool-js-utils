@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.17](https://github.com/imagine10255/jsutils/compare/v1.0.16...v1.0.17) (2022-08-13)
+
+
+### Bug Fixes
+
+* fix urlJoin ([d0cd2a1](https://github.com/imagine10255/jsutils/commit/d0cd2a1774d6f35b4727abba28ae1f93d01f3267))
+
 ### [1.0.16](https://github.com/imagine10255/jsutils/compare/v1.0.15...v1.0.16) (2022-08-13)
 
 
