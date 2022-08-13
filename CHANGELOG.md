@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.15](https://github.com/imagine10255/jsutils/compare/v1.0.14...v1.0.15) (2022-08-13)
+
+
+### Features
+
+* add uri/urlJoin utils ([51e97cd](https://github.com/imagine10255/jsutils/commit/51e97cdab4131069eb4a19085d16bcdff3667993))
+
 ### [1.0.14](https://github.com/imagine10255/jsutils/compare/v1.0.13...v1.0.14) (2022-08-06)
 
 
