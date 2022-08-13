@@ -1,4 +1,4 @@
-import {decodeQueryString, encodeQueryString, getMainDomain, getProtocolDomain, getSubDomain} from '../uri';
+import {decodeQueryString, encodeQueryString, getMainDomain, getProtocolDomain, getSubDomain, urlJoin} from '../uri';
 
 test('encodeQueryString', () => {
     expect(encodeQueryString({keyword: 'jack', sex: 'F'})).toBe('?keyword=jack&sex=F');
@@ -26,4 +26,14 @@ test('getSubDomain', () => {
     expect(getSubDomain('http://www.google.com')).toBe('www');
     expect(getSubDomain('http://www.google.com:8080/about')).toBe('www');
     expect(getSubDomain('https://google.com')).toBe('');
+});
+
+
+test('urlJoin', () => {
+    expect(urlJoin('http://www.google.com/', 'foo/bar', '?test=123')).toBe('http://www.google.com/foo/bar?test=123');
+    expect(urlJoin(['http://www.google.com/', 'foo/bar', '?test=123'])).toBe('http://www.google.com/foo/bar?test=123');
+    expect(urlJoin(['http://www.google.com', '#!', 'foo/bar', '?test=123'])).toBe('http://www.google.com/#!/foo/bar?test=123');
+    expect(urlJoin('http:', 'www.google.com/', 'foo/bar', '?test=123')).toBe('http://www.google.com/foo/bar?test=123');
+    expect(urlJoin('http://', 'www.google.com/', 'foo/bar', '?test=123')).toBe('http://www.google.com/foo/bar?test=123');
+    expect( urlJoin('http://foobar.com', '', 'test')).toBe('http://foobar.com/test');
 });
