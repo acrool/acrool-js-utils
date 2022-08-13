@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.16](https://github.com/imagine10255/jsutils/compare/v1.0.15...v1.0.16) (2022-08-13)
+
+
+### Features
+
+* modify urlJoin string[], number[] ([a1dcc04](https://github.com/imagine10255/jsutils/commit/a1dcc0464620a459ae4a8ec8e8d8e56261938acd))
+
 ### [1.0.15](https://github.com/imagine10255/jsutils/compare/v1.0.14...v1.0.15) (2022-08-13)
 
 
