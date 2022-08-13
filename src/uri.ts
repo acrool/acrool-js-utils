@@ -160,9 +160,8 @@ function normalize (strArray: string[]) {
     return str;
 }
 
-export function urlJoin(...args: Array<string|number>|Array<Array<string|number>>) {
+export function urlJoin(...args: string[]|string[][]) {
     // @ts-ignore
     const parts = Array.from(Array.isArray(args[0]) ? args[0] : args);
-    // @ts-ignore
     return normalize(parts);
 }
