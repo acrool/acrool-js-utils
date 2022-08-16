@@ -101,3 +101,17 @@ export function decodeToJson<T = unknown>(jsonString: string): T|undefined{
     return undefined;
 }
 
+
+
+/**
+ * 去頭去尾
+ * @param str
+ * @param startStr
+ * @param endStr
+ */
+export function removeStartEnd(str: string, startStr: string, endStr: string): string {
+    const regRule = `\\${startStr}|\\${endStr}`;
+    const reg = new RegExp(`^${regRule}$`,'g');
+    return str.replace(reg, '');
+}
+
