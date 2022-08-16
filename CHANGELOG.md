@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.18](https://github.com/imagine10255/jsutils/compare/v1.0.17...v1.0.18) (2022-08-16)
+
+
+### Features
+
+* 新增 modifyByIndex 方法 ([1ce6e81](https://github.com/imagine10255/jsutils/commit/1ce6e8166d2d1cbb2b187ab32c2ec8d44cdbcc1d))
+
 ### [1.0.17](https://github.com/imagine10255/jsutils/compare/v1.0.16...v1.0.17) (2022-08-13)
 
 
