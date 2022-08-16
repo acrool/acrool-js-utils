@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.19](https://github.com/imagine10255/jsutils/compare/v1.0.18...v1.0.19) (2022-08-16)
+
+
+### Features
+
+* add removeStartEnd in string ([f0fb83e](https://github.com/imagine10255/jsutils/commit/f0fb83e2d7fea5ff92a8a56bc917811098bb0b9a))
+
 ### [1.0.18](https://github.com/imagine10255/jsutils/compare/v1.0.17...v1.0.18) (2022-08-16)
 
 
