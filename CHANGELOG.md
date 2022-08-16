@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.20](https://github.com/imagine10255/jsutils/compare/v1.0.19...v1.0.20) (2022-08-16)
+
+
+### Features
+
+* add regPattern svg, symbol, htmlAttrId in equal ([b7869ca](https://github.com/imagine10255/jsutils/commit/b7869ca9e8517757961a2add0a1aa5d6ad5f5e44))
+
 ### [1.0.19](https://github.com/imagine10255/jsutils/compare/v1.0.18...v1.0.19) (2022-08-16)
 
 
