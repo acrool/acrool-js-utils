@@ -110,20 +110,32 @@ export function insertScriptSrc(scriptId: string, scriptUrl: string, callBack?: 
 
 /**
  * 複製字串到剪貼簿
+ * @param value 要複製的內容
+ * @param options
  */
 export const copyToClipboard = (
     value: string,
-    callBack?: () => void,
+    options?: {
+        isNewLine?: boolean,
+        callBack?: () => void,
+    }
 ):void => {
     const textField = document.createElement('textarea');
-    textField.innerText = value;
+
+    if(options?.isNewLine){
+        // 包含換行
+        textField.value = value;
+    }else{
+        textField.innerText = value;
+    }
+
     document.body.appendChild(textField);
     textField.select();
     document.execCommand('copy');
     textField.remove();
 
-    if(callBack){
-        callBack();
+    if(options?.callBack){
+        options.callBack();
     }
 };
 
