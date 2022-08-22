@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.21](https://github.com/imagine10255/jsutils/compare/v1.0.20...v1.0.21) (2022-08-22)
+
+
+### Features
+
+* 新增 複製功能 加上可選換行參數 ([b56553b](https://github.com/imagine10255/jsutils/commit/b56553bb09cb8b560e7c74c67fa8f7e2e6df7dfa))
+
 ### [1.0.20](https://github.com/imagine10255/jsutils/compare/v1.0.19...v1.0.20) (2022-08-16)
 
 
