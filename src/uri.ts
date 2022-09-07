@@ -18,7 +18,7 @@ export function encodeQueryString(queryObj: {
         queryStringList.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
     });
     if(queryStringList.length > 0){
-        return `?${queryStringList.join('&')}`;
+        return `${queryStringList.join('&')}`;
     }
     return '';
 }

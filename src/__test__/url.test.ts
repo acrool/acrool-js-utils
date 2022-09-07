@@ -1,7 +1,7 @@
 import {decodeQueryString, encodeQueryString, getMainDomain, getProtocolDomain, getSubDomain, urlJoin} from '../uri';
 
 test('encodeQueryString', () => {
-    expect(encodeQueryString({keyword: 'jack', sex: 'F'})).toBe('?keyword=jack&sex=F');
+    expect(encodeQueryString({keyword: '블랙프라이데이 (BlackFriday)', sex: 'F'})).toBe('keyword=%EB%B8%94%EB%9E%99%ED%94%84%EB%9D%BC%EC%9D%B4%EB%8D%B0%EC%9D%B4%20(BlackFriday)&sex=F');
     expect(encodeQueryString({})).toBe('');
 });
 
