@@ -19,6 +19,7 @@ test('regPattern', () => {
   expect(new RegExp(regPattern.number).test('a123456')).toBeFalsy();
   expect(new RegExp(regPattern.number).test('123456b')).toBeFalsy();
   expect(new RegExp(regPattern.number).test('123v456b')).toBeFalsy();
+  // expect(new RegExp(/^[.A-Za-z0-9]+$/).test('chihfan')).toBeTruthy();
 });
 
 test('isEmpty', () => {

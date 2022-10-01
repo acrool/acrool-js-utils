@@ -127,8 +127,36 @@ export function isJSON(jsonString: string): boolean {
 
 
 type TObjsComposeByKey<P = any> = (keyColumn: string|number, prev: P[], next: P[]) => boolean;
+/**
+ * @deprecated 使用 objsComposeById 或 objsComposeByCode 替代
+ * @param keyColumn
+ * @param prev
+ * @param next
+ */
 export const objsComposeByKey: TObjsComposeByKey = (keyColumn, prev, next) => {
     const prevKeys = prev.map(row => row[keyColumn]).join('-');
     const nextKeys = next.map(row => row[keyColumn]).join('-');
+    return prevKeys === nextKeys;
+};
+
+
+
+type TObjsComposeById = <P>(prev: Record<'id', P>[]|undefined, next: Record<'id', P>[]|undefined) => boolean;
+export const objsComposeById: TObjsComposeById = (prev, next) => {
+    if((isEmpty(prev) && isEmpty(next))){
+        return true;
+    }
+    const prevKeys = prev?.map(row => row.id).join('-');
+    const nextKeys = next?.map(row => row.id).join('-');
+    return prevKeys === nextKeys;
+};
+
+type TObjsComposeByCode = <P>(prev: Record<'code', P>[]|undefined, next: Record<'code', P>[]|undefined) => boolean;
+export const objsComposeByCode: TObjsComposeByCode = (prev, next) => {
+    if((isEmpty(prev) && isEmpty(next))){
+        return true;
+    }
+    const prevKeys = prev?.map(row => row.code).join('-');
+    const nextKeys = next?.map(row => row.code).join('-');
     return prevKeys === nextKeys;
 };

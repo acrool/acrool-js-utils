@@ -9,6 +9,7 @@ test('getTrueKey', () => {
 
 test('autoMapper', () => {
     expect(autoMapper({name: 'jack'}, {name: 'id'})).toStrictEqual({id: 'jack'});
+    expect(autoMapper({name: 'jack'}, {data: 'body'})).toStrictEqual({name: 'jack'});
 });
 
 
