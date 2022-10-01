@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.23](https://github.com/imagine10255/jsutils/compare/v1.0.22...v1.0.23) (2022-10-01)
+
+
+### Features
+
+* add TObjsComposeById, TObjsComposeByCode ([f761d0d](https://github.com/imagine10255/jsutils/commit/f761d0d016e3629606266ae188ae281555baa6f1))
+
 ### [1.0.22](https://github.com/imagine10255/jsutils/compare/v1.0.21...v1.0.22) (2022-09-07)
 
 ### [1.0.21](https://github.com/imagine10255/jsutils/compare/v1.0.20...v1.0.21) (2022-08-22)
