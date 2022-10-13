@@ -30,6 +30,7 @@
     "number",
     "object",
     "string",
+    "date",
     "uri"
   ]
 }
