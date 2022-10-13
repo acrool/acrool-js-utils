@@ -45,6 +45,7 @@
     "cz-conventional-changelog": "3.3.0",
     "cz-customizable": "6.3.0",
     "deep-equal": "^2.0.5",
+    "dayjs": "^1.11.5",
     "eslint": "^8.8.0",
     "jest": "^27.4.7",
     "microbundle": "0.14.2",

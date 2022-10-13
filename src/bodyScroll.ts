@@ -22,6 +22,7 @@ window.disableBodyModalCount = 0;
  *   bottom: 0;
  *   left: 0;
  *   overflow: hidden;
+ *   overscroll-behavior-x: contain; // chrome 滑動上一頁下一頁
  * }
  */
 export function disableBodyScroll(printLog = false){
