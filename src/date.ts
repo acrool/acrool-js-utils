@@ -5,7 +5,7 @@
 import dayjs from 'dayjs';
 
 export function simpleDate(date?: string): string{
-    if(date === '' || date === undefined){
+    if(date === '' || date === null || typeof date === 'undefined'){
         return '';
     }
     const dayObj = dayjs(date);
@@ -19,13 +19,13 @@ export function simpleDate(date?: string): string{
  */
 export function rangeSimpleDate(startDate?: string, endDate?: string): string{
 
-    const isVisible = !(startDate === '' || startDate === undefined);
+    const isVisible = !(startDate === '' || startDate === null || typeof startDate !== 'undefined' );
     if(!isVisible){
         return '';
     }
 
     return isVisible && startDate === endDate ? simpleDate(startDate): [startDate, endDate]
-        .filter(day => day !== '' && typeof day !== 'undefined')
+        .filter(day => day !== '' && day !== null && typeof day !== 'undefined')
         .map(day => simpleDate(day))
         .join(' - ');
 }
