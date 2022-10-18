@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.27](https://github.com/imagine10255/jsutils/compare/v1.0.26...v1.0.27) (2022-10-18)
+
+
+### Bug Fixes
+
+* fix rangeSimpleDate eq null fail ([4942235](https://github.com/imagine10255/jsutils/commit/49422356cea8841586cec2d2570c554caa88a07b))
+
 ### [1.0.26](https://github.com/imagine10255/jsutils/compare/v1.0.25...v1.0.26) (2022-10-18)
 
 
