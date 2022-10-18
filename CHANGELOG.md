@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.26](https://github.com/imagine10255/jsutils/compare/v1.0.25...v1.0.26) (2022-10-18)
+
+
+### Bug Fixes
+
+* fix date === null display text ([299e2a1](https://github.com/imagine10255/jsutils/commit/299e2a1d659a8aac652c030d662d3c2ca655dd59))
+
 ### [1.0.25](https://github.com/imagine10255/jsutils/compare/v1.0.24...v1.0.25) (2022-10-13)
 
 
