@@ -7,4 +7,7 @@ test('simpleDate', () => {
 test('rangeSimpleDate', () => {
     expect(rangeSimpleDate('2022-10-13', '2022-10-13')).toBe('10/13');
     expect(rangeSimpleDate('2022-10-14', '2022-10-15')).toBe('10/14 - 10/15');
+    expect(rangeSimpleDate('', '2022-10-15')).toBe('10/15');
+    expect(rangeSimpleDate(null, null)).toBe('');
+    expect(rangeSimpleDate(undefined, undefined)).toBe('');
 });

@@ -3,9 +3,10 @@
  * 如果是今年, 則僅顯示月日, 否則顯示年月日
  */
 import dayjs from 'dayjs';
+import {isEmpty, isNotEmpty} from './equal';
 
-export function simpleDate(date?: string): string{
-    if(date === '' || date === null || typeof date === 'undefined'){
+export function simpleDate(date?: string|null): string{
+    if(isEmpty(date)){
         return '';
     }
     const dayObj = dayjs(date);
@@ -17,15 +18,9 @@ export function simpleDate(date?: string): string{
 /**
  * 取得簡單顯示的日期
  */
-export function rangeSimpleDate(startDate?: string, endDate?: string): string{
-
-    const isVisible = !(startDate === '' || startDate === null || typeof startDate !== 'undefined' );
-    if(!isVisible){
-        return '';
-    }
-
-    return isVisible && startDate === endDate ? simpleDate(startDate): [startDate, endDate]
-        .filter(day => day !== '' && day !== null && typeof day !== 'undefined')
+export function rangeSimpleDate(startDate?: string|null, endDate?: string|null): string{
+    return startDate === endDate ? simpleDate(startDate): [startDate, endDate]
+        .filter(day => day !== '')
         .map(day => simpleDate(day))
         .join(' - ');
 }
