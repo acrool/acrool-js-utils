@@ -4,7 +4,7 @@ export {default as deepCompare} from './equal/deepCompare';
  * 正則表達式條件參數
  */
 export const regPattern = {
-    number: /^[\d]*$/,
+    number: /^(\d+)$/,
     account: /^[A-Za-z0-9]+$/,
     email: /^[A-Za-z0-9._-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/,
     protocolDomain: /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}/g,
