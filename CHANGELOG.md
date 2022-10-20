@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.28](https://github.com/imagine10255/jsutils/compare/v1.0.27...v1.0.28) (2022-10-20)
+
+
+### Bug Fixes
+
+* fix regPattern.number ([6cf261e](https://github.com/imagine10255/jsutils/commit/6cf261e904b23906495fa8fee90a1e19ef5ea6a3))
+
 ### [1.0.27](https://github.com/imagine10255/jsutils/compare/v1.0.26...v1.0.27) (2022-10-18)
 
 
