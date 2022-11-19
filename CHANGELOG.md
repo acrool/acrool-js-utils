@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.29](https://github.com/imagine10255/jsutils/compare/v1.0.28...v1.0.29) (2022-11-19)
+
+
+### Features
+
+* 新增 分割陣列方法 ([a9ec619](https://github.com/imagine10255/jsutils/commit/a9ec619ace093945e49ad65544acca040c68b409))
+
 ### [1.0.28](https://github.com/imagine10255/jsutils/compare/v1.0.27...v1.0.28) (2022-10-20)
 
 
