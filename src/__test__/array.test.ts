@@ -1,4 +1,4 @@
-import {pull, push, getUnique, arrayJoin, removeByIndex, modifyByIndex} from '../array';
+import {pull, push, getUnique, arrayJoin, removeByIndex, modifyByIndex, splitArray} from '../array';
 
 test('pull', () => {
     const fromArray = [1, 2];
@@ -53,4 +53,11 @@ test('arrayJoin', () => {
     const anyString: any = 'uploads.profile';
     expect(arrayJoin(['uploads', 'profile'], '/')).toBe('uploads/profile');
     expect(arrayJoin(anyString, '/')).toBe('');
+});
+
+
+test('splitArray', () => {
+    const anyString: any = 'uploads.profile';
+    expect(splitArray([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)).toEqual([[1,2], [3,4], [5,6],[7,8],[9]]);
+    expect(splitArray([1, 2, 3, 4, 5, 6], 3)).toEqual([[1,2,3], [4,5,6]]);
 });

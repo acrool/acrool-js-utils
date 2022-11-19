@@ -84,3 +84,18 @@ export function arrayJoin(arr: string[], separator: string): string{
 
     return '';
 }
+
+
+/**
+ * 分割陣列
+ * [1,2,3,4,5] => [[1,2], [3,4], [5]]
+ * @param sourceData
+ * @param splitCount
+ */
+export function splitArray(sourceData: unknown[], splitCount: number){
+    const manyCount = Math.ceil(sourceData.length / splitCount);
+    const targetData = new Array(manyCount).fill([]);
+    return targetData.map((imageRow, index) => {
+        return sourceData.slice(index * splitCount, (index*splitCount)+ splitCount);
+    });
+}
