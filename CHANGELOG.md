@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.30](https://github.com/imagine10255/jsutils/compare/v1.0.29...v1.0.30) (2022-11-21)
+
+
+### Features
+
+* add dashToLowerCase method in string ([d024c94](https://github.com/imagine10255/jsutils/commit/d024c946b62232362fd93a907a0a8ba34b3eace9))
+
 ### [1.0.29](https://github.com/imagine10255/jsutils/compare/v1.0.28...v1.0.29) (2022-11-19)
 
 
