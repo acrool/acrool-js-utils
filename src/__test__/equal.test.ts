@@ -1,6 +1,6 @@
 import {
   isDate,
-  isEmpty, isJSON, isNotEmpty, isIP, regPattern, deepCompare, objsComposeByKey
+  isEmpty, isJSON, isNotEmpty, isIP, regPattern, deepCompare, objsComposeByKey, isIPUrl
 } from '../equal';
 
 test('deepCompare', () => {
@@ -74,7 +74,14 @@ test('isDate', () => {
 test('isIp', () => {
   expect(isIP('192.168.1.10')).toBeTruthy();
   expect(isIP('192.168.299.299')).toBeFalsy();
+  expect(isIP('http://58.180.27.75/img_item/2022/11/21/LEE18DRX22112112_154V.jpg')).toBeFalsy();
   expect(isIP('a.d.12312')).toBeFalsy();
+});
+
+
+test('isIPUrl', () => {
+  expect(isIPUrl('http://58.180.27.75/img_item/2022/11/21/LEE18DRX22112112_154V.jpg')).toBeTruthy();
+  expect(isIPUrl('http://www.google.com/img_item/2022/11/21/LEE18DRX22112112_154V.jpg')).toBeFalsy();
 });
 
 

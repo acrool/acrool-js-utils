@@ -106,6 +106,20 @@ export function isIP(ip: string): boolean {
     return false;
 }
 
+/**
+ * 判斷是否為IP網址
+ * @param ip
+ * @returns {boolean}
+ */
+export function isIPUrl(ip: string): boolean {
+    const reg = new RegExp(/(\d+)\.(\d+)\.(\d+)\.(\d+)/g);
+    // @ts-ignore
+    if (reg.test(ip) && RegExp.$1 < 256 && RegExp.$2 < 256 && RegExp.$3 < 256 && RegExp.$4 < 256) {
+        return true;
+    }
+    return false;
+}
+
 
 /**
  * 判斷是否為JSON
