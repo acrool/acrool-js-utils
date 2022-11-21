@@ -5,11 +5,15 @@ import {
     lowerCaseToUpLineCase,
     paddingLeft,
     decodeToJson,
-    stringSplit, removeStartEnd,
+    stringSplit, removeStartEnd, dashToLowerCase,
 } from '../string';
 
 test('toCapitalize', () => {
     expect(toCapitalize('helloWorld')).toBe('HelloWorld');
+});
+
+test('dashToLowerCase', () => {
+    expect(dashToLowerCase('fill-rule')).toBe('fillRule');
 });
 
 test('upperLineToLowerCase', () => {

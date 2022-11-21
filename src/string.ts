@@ -24,6 +24,20 @@ export function upperLineToLowerCase(str: string): string {
 
 
 /**
+ * -轉小駝峰
+ * ex: Hello_World -> helloWorld
+ *
+ * @param str 需要轉換的字串
+ *
+ */
+export function dashToLowerCase(str: string) {
+    return str.toLowerCase().replace(/\-(\w)/g, function(all, letter){
+        return letter.toUpperCase();
+    });
+}
+
+
+/**
  * 語言代碼格式轉換
  * ex: en-us -> en-US
  *
