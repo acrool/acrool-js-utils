@@ -14,12 +14,14 @@ test('decodeQueryString', () => {
 test('getProtocolDomain', () => {
     expect(getProtocolDomain('http://www.google.com:8080/test?keyword=jack')).toBe('http://www.google.com');
     expect(getProtocolDomain('https://google.com/test?keyword=jack')).toBe('https://google.com');
+    expect(getProtocolDomain('/test?keyword=jack')).toBe('');
 });
 
 test('getMainDomain', () => {
     expect(getMainDomain('http://www.google.com')).toBe('google.com');
     expect(getMainDomain('http://www.google.com:8080/about')).toBe('google.com');
     expect(getMainDomain('https://google.com')).toBe('google.com');
+    expect(getProtocolDomain('/test?keyword=jack')).toBe('');
 });
 
 test('getSubDomain', () => {

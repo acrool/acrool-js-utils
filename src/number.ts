@@ -5,7 +5,7 @@
  * @returns {string}
  * @param num
  */
-export function numToDecimal2(num: number): number {
+export function numToDecimal2(num: number): string {
     const f = Math.floor(num * 100) / 100;
     let s = f.toString();
     let rs = s.indexOf('.');
@@ -16,7 +16,7 @@ export function numToDecimal2(num: number): number {
     while (s.length <= rs + 2) {
         s += '0';
     }
-    return Number(s);
+    return s;
 }
 
 
