@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-alpha.0](https://github.com/imagine10255/jsutils/compare/v1.0.31...v1.1.0-alpha.0) (2023-02-01)
+
+
+### Features
+
+* modify number numToDecimal2 not convert number (miss decimal) ([ab26778](https://github.com/imagine10255/jsutils/commit/ab26778711ab9989f7ed6c02304c85929cb939c7))
+
 ### [1.0.31](https://github.com/imagine10255/jsutils/compare/v1.0.30...v1.0.31) (2022-11-21)
 
 ### [1.0.30](https://github.com/imagine10255/jsutils/compare/v1.0.29...v1.0.30) (2022-11-21)
