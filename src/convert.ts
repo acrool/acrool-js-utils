@@ -78,6 +78,22 @@ export function filterNumber(value: any, defaultValue = 0): number {
  * @param value
  * @param defaultValue
  */
+export function emptyToNull(value?: string|number) {
+    if(typeof value === 'undefined' || ['', 0].includes(value)){
+        return null;
+    }
+
+    return value;
+}
+
+
+/**
+ * 轉數字
+ * ex: 1234 -> 1234
+ *
+ * @param value
+ * @param defaultValue
+ */
 export function anyToNumber(value: any, defaultValue = 0): number {
     const numberValue = Number(value);
     if(!isNaN(numberValue)){

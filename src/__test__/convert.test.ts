@@ -3,6 +3,7 @@ import {
     rgbToHex,
     hexToRGB,
     anyToBoolean,
+    emptyToNull,
 } from '../convert';
 
 test('rgbToHex', () => {
@@ -17,6 +18,15 @@ test('hexToRGB', () => {
     expect(hexToRGB('#12312312')).toBeUndefined();
 });
 
+
+test('emptyToNull', () => {
+    expect(emptyToNull(7)).toBe(7);
+    expect(emptyToNull('07')).toBe('07');
+    expect(emptyToNull('0')).toBe('0');
+    expect(emptyToNull('')).toBe(null);
+    expect(emptyToNull(0)).toBe(null);
+    expect(emptyToNull(undefined)).toBe(null);
+});
 
 test('anyToNumber', () => {
     expect(anyToNumber(7)).toBe(7);
