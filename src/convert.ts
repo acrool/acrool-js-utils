@@ -70,21 +70,23 @@ export function filterNumber(value: any, defaultValue = 0): number {
 }
 
 
-
 /**
- * 轉數字
- * ex: 1234 -> 1234
+ * 空值轉Null
+ * ex: '' -> null
+ * ex: 0 -> null
+ * ex: undefined -> null
  *
  * @param value
  * @param defaultValue
  */
-export function emptyToNull(value?: string|number) {
-    if(typeof value === 'undefined' || ['', 0].includes(value)){
+export function emptyToNull<T extends string|number|null>(value?: T): T|null{
+    if(typeof value === 'undefined' || ['', 0, null].includes(value)){
         return null;
     }
 
     return value;
 }
+
 
 
 /**
