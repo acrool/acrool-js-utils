@@ -4,13 +4,16 @@
  */
 import dayjs from 'dayjs';
 import {isEmpty, isNotEmpty} from './equal';
+import {
+    start
+} from 'repl';
 
 export function simpleDate(date?: string|null): string{
     if(isEmpty(date)){
         return '';
     }
     const dayObj = dayjs(date);
-    return dayObj.year() === dayjs().year() ? dayObj.format('MM/DD'): dayObj.format('YYYY/MM/DD');
+    return dayjs().isSame(dayObj, 'year') ? dayObj.format('MM/DD'): dayObj.format('YYYY/MM/DD');
 }
 
 
@@ -19,10 +22,22 @@ export function simpleDate(date?: string|null): string{
  * 取得簡單顯示的日期
  */
 export function rangeSimpleDate(startDate?: string|null, endDate?: string|null): string{
-    return startDate === endDate ? simpleDate(startDate): [startDate, endDate]
-        .filter(day => day !== '')
-        .map(day => simpleDate(day))
-        .join(' - ');
+
+    const date = [startDate, endDate]
+        .filter(day => day !== '' && day);
+
+    if(date.length === 1 || date[0] === date[1]){
+        return simpleDate(date[0]);
+    }
+
+    if(dayjs(startDate).isSame(endDate, 'year')){
+        return [dayjs(date[0]).format('YYYY/MM/DD'), dayjs(date[1]).format('MM/DD')].join(' - ');
+
+    }else if(dayjs().isSame(endDate, 'year')){
+        return [dayjs(date[0]).format('YYYY/MM/DD'), dayjs(date[1]).format('YYYY/MM/DD')].join(' - ');
+    }
+
+    return [simpleDate(date[0]), simpleDate(date[1])].join(' - ');
 }
 
 
