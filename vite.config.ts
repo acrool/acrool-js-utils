@@ -5,7 +5,7 @@ import {visualizer} from 'rollup-plugin-visualizer';
 import eslint from 'vite-plugin-eslint';
 
 // libraries
-const files = glob.sync(['./src/**/*.ts'])
+const files = glob.sync(['./src/**/index.ts'])
     .map(file => {
         const key = file.match(/(?<=\.\/src\/).*(?=\.ts)/);
         return [key[0], file];
@@ -15,6 +15,7 @@ const entries = Object.fromEntries(files);
 
 // https://vitejs.dev/config/
 export default defineConfig({
+
     plugins: [
         visualizer() as Plugin,
         eslint(),
