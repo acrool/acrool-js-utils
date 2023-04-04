@@ -16,7 +16,7 @@ window.disableBodyModalCount = 0;
  *   overscroll-behavior-x: contain; // chrome 滑動上一頁下一頁
  * }
  */
-export function disableBodyScroll(printLog = false){
+function disableBodyScroll(printLog = false){
     const count = window.disableBodyModalCount;
     if(count >= 0){
         window.disableBodyModalCount += 1;
@@ -28,7 +28,7 @@ export function disableBodyScroll(printLog = false){
 
 }
 
-export function enableBodyScroll(printLog = false){
+function enableBodyScroll(printLog = false){
     const count = window.disableBodyModalCount;
     if(count > 0){
         window.disableBodyModalCount -= 1;
@@ -37,5 +37,9 @@ export function enableBodyScroll(printLog = false){
             removeClass(document.body, 'modal-open');
         }
     }
-
 }
+
+export default {
+    disableBodyScroll,
+    enableBodyScroll
+};

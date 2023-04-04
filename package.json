@@ -1,6 +1,6 @@
 {
   "name": "bear-jsutils",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Common javascript utils methods for project development",
   "keywords": [
     "typescript",
@@ -16,67 +16,67 @@
   "exports": {
     "./array": {
       "require": "./dist/array/index.es.js",
-      "import": "./src/array/index.ts",
+      "import": "./dist/array/index.es.js",
       "types": "./dist/index.d.ts"
     },
     "./browser": {
       "require": "./dist/browser/index.es.js",
-      "import": "./src/browser/index.ts",
+      "import": "./dist/browser/index.es.js",
       "types": "./dist/browser.d.ts"
     },
     "./convert": {
       "require": "./dist/convert/index.es.js",
-      "import": "./src/convert/index.ts",
+      "import": "./dist/convert/index.es.js",
       "types": "./dist/convert.d.ts"
     },
     "./date": {
       "require": "./dist/date/index.es.js",
-      "import": "./src/date/index.ts",
+      "import": "./dist/date/index.es.js",
       "types": "./dist/date.d.ts"
     },
     "./dom": {
       "require": "./dist/dom/index.es.js",
-      "import": "./src/dom/index.ts",
+      "import": "./dist/dom/index.es.js",
       "types": "./dist/dom.d.ts"
     },
     "./enum": {
       "require": "./dist/enum/index.es.js",
-      "import": "./src/enum/index.ts",
+      "import": "./dist/enum/index.es.js",
       "types": "./dist/enum.d.ts"
     },
     "./equal": {
       "require": "./dist/equal/index.es.js",
-      "import": "./src/equal/index.ts",
+      "import": "./dist/equal/index.es.js",
       "types": "./dist/equal.d.ts"
     },
     "./file": {
       "require": "./dist/file/index.es.js",
-      "import": "./src/file/index.ts",
+      "import": "./dist/file/index.es.js",
       "types": "./dist/file.d.ts"
     },
     "./number": {
       "require": "./dist/number/index.es.js",
-      "import": "./src/number/index.ts",
+      "import": "./dist/number/index.es.js",
       "types": "./dist/number.d.ts"
     },
     "./object": {
       "require": "./dist/object/index.es.js",
-      "import": "./src/object/index.ts",
+      "import": "./dist/object/index.es.js",
       "types": "./dist/object.d.ts"
     },
     "./string": {
       "require": "./dist/string/index.es.js",
-      "import": "./src/string/index.ts",
+      "import": "./dist/string/index.es.js",
       "types": "./dist/string.d.ts"
     },
     "./uri": {
       "require": "./dist/uri/index.es.js",
-      "import": "./src/uri/index.ts",
+      "import": "./dist/uri/index.es.js",
       "types": "./dist/uri.d.ts"
     },
     "./regPattern": {
       "require": "./dist/regPattern/index.es.js",
-      "import": "./regPattern/index.ts",
+      "import": "./regPattern/index.es.js",
       "types": "./dist/regPattern.d.ts"
     }
   },
