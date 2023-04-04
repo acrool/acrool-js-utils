@@ -1,7 +1,0 @@
-{
-  "name": "bear-jsutils/equal",
-  "private": true,
-  "main": "../dist/equal.js",
-  "module": "../dist/equal.modern.js",
-  "types": "../dist/equal.d.ts"
-}

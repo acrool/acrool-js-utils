@@ -1,7 +1,0 @@
-{
-  "name": "bear-jsutils/dom",
-  "private": true,
-  "main": "../dist/dom.js",
-  "module": "../dist/dom.modern.js",
-  "types": "../dist/dom.d.ts"
-}

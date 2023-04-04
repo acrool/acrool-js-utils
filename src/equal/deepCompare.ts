@@ -1,6 +1,8 @@
+/* eslint-disable eqeqeq */
+
 function keys(obj: object, hasKey: (obj: object, key: string) => boolean) {
-    var keys = [];
-    for (var key in obj) {
+    const keys = [];
+    for (const key in obj) {
         if (hasKey(obj, key)) {
             keys.push(key);
         }
@@ -43,7 +45,7 @@ function isAsymmetric(obj: any) {
 }
 
 function asymmetricMatch(a: any, b: any) {
-    var asymmetricA = isAsymmetric(a),
+    const asymmetricA = isAsymmetric(a),
         asymmetricB = isAsymmetric(b);
 
     if (asymmetricA && asymmetricB) {
@@ -83,15 +85,15 @@ const eq = (
 
     customTesters = customTesters || [];
 
-    var result = true;
+    let result = true;
 
-    var asymmetricResult = asymmetricMatch(a, b);
+    const asymmetricResult = asymmetricMatch(a, b);
     if (asymmetricResult !== undefined) {
         return asymmetricResult;
     }
 
-    for (var i = 0; i < customTesters.length; i++) {
-        var customTesterResult = customTesters[i](a, b);
+    for (let i = 0; i < customTesters.length; i++) {
+        const customTesterResult = customTesters[i](a, b);
         if (customTesterResult !== undefined) {
             return customTesterResult;
         }
@@ -108,32 +110,32 @@ const eq = (
     if (a === null || b === null) {
         return a === b;
     }
-    var className = Object.prototype.toString.call(a);
+    const className = Object.prototype.toString.call(a);
     if (className != Object.prototype.toString.call(b)) {
         return false;
     }
     switch (className) {
-        case '[object Boolean]':
-        case '[object String]':
-        case '[object Number]':
-            if (typeof a !== typeof b) {
-                // One is a primitive, one a `new Primitive()`
-                return false;
-            } else if (typeof a !== 'object' && typeof b !== 'object') {
-                // both are proper primitives
-                return Object.is(a, b);
-            } else {
-                // both are `new Primitive()`s
-                return Object.is(a.valueOf(), b.valueOf());
-            }
-        case '[object Date]':
-            // Coerce dates to numeric primitive values. Dates are compared by their
-            // millisecond representations. Note that invalid dates with millisecond representations
-            // of `NaN` are not equivalent.
-            return +a == +b;
+    case '[object Boolean]':
+    case '[object String]':
+    case '[object Number]':
+        if (typeof a !== typeof b) {
+            // One is a primitive, one a `new Primitive()`
+            return false;
+        } else if (typeof a !== 'object' && typeof b !== 'object') {
+            // both are proper primitives
+            return Object.is(a, b);
+        } else {
+            // both are `new Primitive()`s
+            return Object.is(a.valueOf(), b.valueOf());
+        }
+    case '[object Date]':
+        // Coerce dates to numeric primitive values. Dates are compared by their
+        // millisecond representations. Note that invalid dates with millisecond representations
+        // of `NaN` are not equivalent.
+        return +a == +b;
         // RegExps are compared by their source patterns and flags.
-        case '[object RegExp]':
-            return a.source === b.source && a.flags === b.flags;
+    case '[object RegExp]':
+        return a.source === b.source && a.flags === b.flags;
     }
     if (typeof a !== 'object' || typeof b !== 'object') {
         return false;
@@ -145,7 +147,7 @@ const eq = (
     }
 
     // Used to detect circular references.
-    var length = aStack.length;
+    let length = aStack.length;
     while (length--) {
         // Linear search. Performance is inversely proportional to the number of
         // unique nested structures.
@@ -167,9 +169,9 @@ const eq = (
     }
 
     // Deep compare objects.
-    var aKeys = keys(a, hasKey),
-        key;
-    var size = aKeys.length;
+    const aKeys = keys(a, hasKey);
+    let key;
+    let size = aKeys.length;
 
     // Ensure that both objects contain the same number of properties before comparing deep equality.
     if (keys(b, hasKey).length !== size) {

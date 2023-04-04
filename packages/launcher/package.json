@@ -1,7 +1,0 @@
-{
-  "name": "bear-jsutils/launcher",
-  "private": true,
-  "main": "../dist/launcher.js",
-  "module": "../dist/launcher.modern.js",
-  "types": "../dist/launcher.d.ts"
-}

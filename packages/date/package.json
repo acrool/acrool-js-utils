@@ -1,7 +1,0 @@
-{
-  "name": "bear-jsutils/date",
-  "private": true,
-  "main": "../dist/date.js",
-  "module": "../dist/date.modern.js",
-  "types": "../dist/date.d.ts"
-}

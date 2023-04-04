@@ -1,7 +1,0 @@
-{
-  "name": "bear-jsutils/object",
-  "private": true,
-  "main": "../dist/object.js",
-  "module": "../dist/object.modern.js",
-  "types": "../dist/object.d.ts"
-}

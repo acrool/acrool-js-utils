@@ -1,7 +1,0 @@
-{
-  "name": "bear-jsutils/bodyScroll",
-  "private": true,
-  "main": "../dist/bodyScroll.js",
-  "module": "../dist/bodyScroll.modern.js",
-  "types": "../dist/bodyScroll.d.ts"
-}
