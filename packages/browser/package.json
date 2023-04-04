@@ -1,0 +1,7 @@
+{
+  "name": "bear-jsutils/browser",
+  "private": true,
+  "main": "../dist/browser.js",
+  "module": "../dist/browser.modern.js",
+  "types": "../dist/browser.d.ts"
+}

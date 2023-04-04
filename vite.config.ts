@@ -28,6 +28,7 @@ export default defineConfig({
         rollupOptions: {
             external: ['dayjs'],
         },
+        outDir: 'packages/dist',
         lib: {
             entry: entries,
             formats: ['es'],

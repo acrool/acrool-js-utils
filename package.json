@@ -1,86 +1,10 @@
 {
   "name": "bear-jsutils",
-  "version": "3.0.2-alpha.5",
-  "description": "Common javascript utils methods for project development",
-  "keywords": [
-    "typescript",
-    "js-utils"
-  ],
-  "private": false,
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/imagine10255/bear-jsutils.git"
-  },
-  "exports": {
-    "./array": {
-      "require": "./dist/array/index.es.js",
-      "import": "./dist/array/index.es.js",
-      "types": "./dist/array/index.d.ts"
-    },
-    "./browser": {
-      "require": "./dist/browser/index.es.js",
-      "import": "./dist/browser/index.es.js",
-      "types": "./dist/browser/index.d.ts"
-    },
-    "./convert": {
-      "require": "./dist/convert/index.es.js",
-      "import": "./dist/convert/index.es.js",
-      "types": "./dist/convert/index.d.ts"
-    },
-    "./date": {
-      "require": "./dist/date/index.es.js",
-      "import": "./dist/date/index.es.js",
-      "types": "./dist/date/index.d.ts"
-    },
-    "./dom": {
-      "require": "./dist/dom/index.es.js",
-      "import": "./dist/dom/index.es.js",
-      "types": "./dist/dom/index.d.ts"
-    },
-    "./enum": {
-      "require": "./dist/enum/index.es.js",
-      "import": "./dist/enum/index.es.js",
-      "types": "./dist/enum/index.d.ts"
-    },
-    "./equal": {
-      "require": "./dist/equal/index.es.js",
-      "import": "./dist/equal/index.es.js",
-      "types": "./dist/equal/index.d.ts"
-    },
-    "./file": {
-      "require": "./dist/file/index.es.js",
-      "import": "./dist/file/index.es.js",
-      "types": "./dist/file/index.d.ts"
-    },
-    "./number": {
-      "require": "./dist/number/index.es.js",
-      "import": "./dist/number/index.es.js",
-      "types": "./dist/number/index.d.ts"
-    },
-    "./object": {
-      "require": "./dist/object/index.es.js",
-      "import": "./dist/object/index.es.js",
-      "types": "./dist/object/index.d.ts"
-    },
-    "./string": {
-      "require": "./dist/string/index.es.js",
-      "import": "./dist/string/index.es.js",
-      "types": "./dist/string/index.d.ts"
-    },
-    "./uri": {
-      "require": "./dist/uri/index.es.js",
-      "import": "./dist/uri/index.es.js",
-      "types": "./dist/uri/index.d.ts"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "publishConfig": {
-    "access": "public",
-    "directory": "dist"
   },
   "engines": {
     "node": ">=14"
@@ -95,11 +19,12 @@
     "cz": "git-cz",
     "test": "jest",
     "gitlog": "git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblueby %an %Cgreen(%cr)%Creset'",
-    "release": "standard-version --release-as",
-    "release:major": "standard-version -r major",
-    "release:minor": "standard-version -r minor",
-    "release:patch": "standard-version -r patch",
-    "release:alpha": "standard-version --prerelease alpha"
+    "release": "yarn release-cli --release-as",
+    "release:major": "yarn release-cli -r major && run-s postrelease",
+    "release:minor": "yarn release-cli -r minor && run-s postrelease",
+    "release:patch": "yarn release-cli -r patch && run-s postrelease",
+    "release:alpha": "yarn release-cli --prerelease alpha && run-s postrelease",
+    "postrelease": "# then run git push --follow-tags origin main && npm publish ./packages to publish"
   },
   "dependencies": {
     "dayjs": "^1.x"

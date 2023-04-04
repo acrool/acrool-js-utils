@@ -1,0 +1,7 @@
+{
+  "name": "bear-jsutils/file",
+  "private": true,
+  "main": "../dist/file.js",
+  "module": "../dist/file.modern.js",
+  "types": "../dist/file.d.ts"
+}

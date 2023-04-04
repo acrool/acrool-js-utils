@@ -1,0 +1,7 @@
+{
+  "name": "bear-jsutils/log",
+  "private": true,
+  "main": "../dist/log.js",
+  "module": "../dist/log.modern.js",
+  "types": "../dist/log.d.ts"
+}
