@@ -1,7 +1,8 @@
 {
   "name": "bear-jsutils/string",
+  "description": "Bear's JS utilities for String manipulation",
   "private": true,
-  "main": "../dist/string.js",
-  "module": "../dist/string.modern.js",
-  "types": "../dist/string.d.ts"
+  "main": "../dist/string/index.cjs.js",
+  "module": "../dist/string/index.es.js",
+  "types": "../dist/string/index.d.ts"
 }

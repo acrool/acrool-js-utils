@@ -1,7 +1,8 @@
 {
   "name": "bear-jsutils/equal",
+  "description": "Bear's JS utilities for Equal manipulation",
   "private": true,
-  "main": "../dist/equal.js",
-  "module": "../dist/equal.modern.js",
-  "types": "../dist/equal.d.ts"
+  "main": "../dist/equal/index.cjs.js",
+  "module": "../dist/equal/index.es.js",
+  "types": "../dist/equal/index.d.ts"
 }

@@ -1,7 +1,8 @@
 {
   "name": "bear-jsutils/date",
+  "description": "Bear's JS utilities for Date manipulation",
   "private": true,
-  "main": "../dist/date.js",
-  "module": "../dist/date.modern.js",
-  "types": "../dist/date.d.ts"
+  "main": "../dist/date/index.cjs.js",
+  "module": "../dist/date/index.es.js",
+  "types": "../dist/date/index.d.ts"
 }

@@ -1,7 +1,8 @@
 {
   "name": "bear-jsutils/uri",
+  "description": "Bear's JS utilities for URI manipulation",
   "private": true,
-  "main": "../dist/uri.js",
-  "module": "../dist/uri.modern.js",
-  "types": "../dist/uri.d.ts"
+  "main": "../dist/uri/index.cjs.js",
+  "module": "../dist/uri/index.es.js",
+  "types": "../dist/uri/index.d.ts"
 }

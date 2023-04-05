@@ -1,13 +1,12 @@
 {
   "name": "bear-jsutils",
-  "version": "3.0.2-alpha.5",
+  "version": "3.0.2-alpha.10",
   "description": "Common javascript utils methods for project development",
   "keywords": [
     "typescript",
     "js-utils"
   ],
   "private": false,
-  "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
