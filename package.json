@@ -19,6 +19,7 @@
     "cz": "git-cz",
     "test": "jest",
     "gitlog": "git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblueby %an %Cgreen(%cr)%Creset'",
+    "release-cli": "standard-version --packageFiles ./packages/package.json --bumpFiles ./packages/package.json",
     "release": "yarn release-cli --release-as",
     "release:major": "yarn release-cli -r major && run-s postrelease",
     "release:minor": "yarn release-cli -r minor && run-s postrelease",
