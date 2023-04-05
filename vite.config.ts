@@ -30,7 +30,7 @@ export default defineConfig({
         rollupOptions: {
             external: ['dayjs'],
         },
-        outDir: 'packages/dist',
+        outDir: 'src/dist',
         lib: {
             entry: entries,
             formats: ['es', 'cjs'],
