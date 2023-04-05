@@ -1,0 +1,8 @@
+{
+  "name": "bear-jsutils/enum",
+  "description": "Bear's JS utilities for Enum manipulation",
+  "private": true,
+  "main": "../dist/enum/index.cjs.js",
+  "module": "../dist/enum/index.es.js",
+  "types": "../dist/enum/index.d.ts"
+}

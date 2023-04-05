@@ -1,0 +1,8 @@
+{
+  "name": "bear-jsutils/dom",
+  "description": "Bear's JS utilities for Dom manipulation",
+  "private": true,
+  "main": "../dist/dom/index.cjs.js",
+  "module": "../dist/dom/index.es.js",
+  "types": "../dist/dom/index.d.ts"
+}

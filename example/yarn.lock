@@ -211,12 +211,9 @@
   dependencies:
     "@swc/core" "^1.3.35"
 
-bear-jsutils@3.0.1-alpha.1:
-  version "3.0.1-alpha.1"
-  resolved "https://registry.yarnpkg.com/bear-jsutils/-/bear-jsutils-3.0.1-alpha.1.tgz#49c4bcfbea5aacd6c0981305a16cbfed1e1aa709"
-  integrity sha512-UaDCTcHmPUsaeA7JXUpoLhEuIv4TE/pCkHQHBOWA9mSvt3l4D9FS2f8WSUUcILuCyKTqZ/f17LusYQ8eKRNYYA==
-  dependencies:
-    dayjs "^1.x"
+"bear-jsutils@link:..":
+  version "0.0.0"
+  uid ""
 
 csstype@^3.0.2:
   version "3.1.1"

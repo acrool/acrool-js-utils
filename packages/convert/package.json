@@ -1,0 +1,8 @@
+{
+  "name": "bear-jsutils/convert",
+  "description": "Bear's JS utilities for Convert manipulation",
+  "private": true,
+  "main": "../dist/convert/index.cjs.js",
+  "module": "../dist/convert/index.es.js",
+  "types": "../dist/convert/index.d.ts"
+}

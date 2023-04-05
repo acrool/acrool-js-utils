@@ -1,0 +1,8 @@
+{
+  "name": "bear-jsutils/browser",
+  "description": "Bear's JS utilities for Browser manipulation",
+  "private": true,
+  "main": "../dist/browser/index.cjs.js",
+  "module": "../dist/browser/index.es.js",
+  "types": "../dist/browser/index.d.ts"
+}

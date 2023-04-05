@@ -1,0 +1,34 @@
+{
+  "name": "bear-jsutils",
+  "version": "3.0.3",
+  "description": "Common javascript utils methods for project development",
+  "keywords": [
+    "typescript",
+    "js-utils"
+  ],
+  "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imagine10255/bear-jsutils.git"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "dist",
+    "array",
+    "browser",
+    "convert",
+    "dom",
+    "enum",
+    "equal",
+    "file",
+    "log",
+    "number",
+    "object",
+    "string",
+    "date",
+    "uri"
+  ]
+}
