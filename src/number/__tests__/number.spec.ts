@@ -1,4 +1,4 @@
-import {intersectionMin, formatCurrency, numToDecimal2} from './number';
+import {intersectionMin, formatCurrency, numToDecimal2} from '../number';
 
 
 

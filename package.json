@@ -19,13 +19,13 @@
     "cz": "git-cz",
     "test": "jest",
     "gitlog": "git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblueby %an %Cgreen(%cr)%Creset'",
-    "release-cli": "standard-version --packageFiles ./packages/package.json --bumpFiles ./packages/package.json",
+    "release-cli": "standard-version --packageFiles ./src/package.json --bumpFiles ./src/package.json",
     "release": "yarn release-cli --release-as",
     "release:major": "yarn release-cli -r major && run-s postrelease",
     "release:minor": "yarn release-cli -r minor && run-s postrelease",
     "release:patch": "yarn release-cli -r patch && run-s postrelease",
     "release:alpha": "yarn release-cli --prerelease alpha && run-s postrelease",
-    "postrelease": "# then run `git push --follow-tags origin main && yarn build && npm publish ./packages --access=public` to publish"
+    "postrelease": "# then run `git push --follow-tags origin main && yarn build && npm publish ./src --access=public` to publish"
   },
   "dependencies": {
     "dayjs": "^1.x"

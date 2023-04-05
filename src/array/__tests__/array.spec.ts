@@ -1,4 +1,4 @@
-import {pull, push, arrayJoin, removeByIndex, modifyByIndex, splitArray, unique} from './array';
+import {pull, push, arrayJoin, removeByIndex, modifyByIndex, splitArray, unique} from '../array';
 
 describe('pull', () => {
     const sourceArray = [1, 2];
