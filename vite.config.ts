@@ -18,12 +18,12 @@ const entries = Object.fromEntries(files);
 export default defineConfig({
 
     plugins: [
+        eslint(),
+        viteCommonjs(),
         dts({
             insertTypesEntry: true,
         }),
-        viteCommonjs(),
         visualizer() as Plugin,
-        eslint(),
     ],
     build: {
         sourcemap: process.env.NODE_ENV !== 'production',
