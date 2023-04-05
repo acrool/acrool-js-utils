@@ -1,6 +1,6 @@
 {
   "name": "bear-jsutils/string",
-  "description": "Bear's JS utilities for String manipulation",
+  "description": "Bear JS utilities for String manipulation",
   "private": true,
   "main": "../dist/string/index.cjs.js",
   "module": "../dist/string/index.es.js",

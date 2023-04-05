@@ -1,6 +1,6 @@
 {
   "name": "bear-jsutils",
-  "version": "3.0.4-alpha.1",
+  "version": "3.0.4-alpha.2",
   "description": "Common javascript utils methods for project development",
   "keywords": [
     "typescript",
@@ -17,18 +17,6 @@
   },
   "files": [
     "dist",
-    "array",
-    "browser",
-    "convert",
-    "dom",
-    "enum",
-    "equal",
-    "file",
-    "log",
-    "number",
-    "object",
-    "string",
-    "date",
-    "uri"
+    "*/package.json"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "bear-jsutils/array",
-  "description": "Bear's JS utilities for Array manipulation",
+  "description": "Bear JS utilities for Array manipulation",
   "private": true,
   "main": "../dist/array/index.cjs.js",
   "module": "../dist/array/index.es.js",

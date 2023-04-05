@@ -1,6 +1,6 @@
 {
   "name": "bear-jsutils/equal",
-  "description": "Bear's JS utilities for Equal manipulation",
+  "description": "Bear JS utilities for Equal manipulation",
   "private": true,
   "main": "../dist/equal/index.cjs.js",
   "module": "../dist/equal/index.es.js",

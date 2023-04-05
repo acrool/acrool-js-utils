@@ -1,6 +1,6 @@
 {
   "name": "bear-jsutils/number",
-  "description": "Bear's JS utilities for Number manipulation",
+  "description": "Bear JS utilities for Number manipulation",
   "private": true,
   "main": "../dist/number/index.cjs.js",
   "module": "../dist/number/index.es.js",

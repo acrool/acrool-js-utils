@@ -1,6 +1,6 @@
 {
   "name": "bear-jsutils/object",
-  "description": "Bear's JS utilities for Object manipulation",
+  "description": "Bear JS utilities for Object manipulation",
   "private": true,
   "main": "../dist/object/index.cjs.js",
   "module": "../dist/object/index.es.js",
