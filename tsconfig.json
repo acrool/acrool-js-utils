@@ -29,6 +29,7 @@
     "src",
   ],
   "exclude": [
+    "src/dist",
     "example",
     "node_modules",
     "**/*.spec.ts"
