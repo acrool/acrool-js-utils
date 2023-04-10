@@ -25,14 +25,20 @@ export function rangeSimpleDate(startDate?: string|null, endDate?: string|null):
         return simpleDate(date[0]);
     }
 
-    if(dayjs(startDate).isSame(endDate, 'year')){
-        return [dayjs(date[0]).format('YYYY/MM/DD'), dayjs(date[1]).format('MM/DD')].join(' - ');
+    const startDayjs = dayjs(startDate);
+    const endDayjs = dayjs(endDate);
 
-    }else if(dayjs().isSame(endDate, 'year')){
-        return [dayjs(date[0]).format('YYYY/MM/DD'), dayjs(date[1]).format('YYYY/MM/DD')].join(' - ');
+    const format = {
+        shortDate: 'MM/DD',
+        fullDate: 'YYYY/MM/DD',
+    };
+
+    // 與現在年份相同
+    if(startDayjs.isSame(endDate, 'year')){
+        return [simpleDate(startDate), endDayjs.format(format.shortDate)].join(' - ');
     }
 
-    return [simpleDate(date[0]), simpleDate(date[1])].join(' - ');
+    return [startDayjs.format(format.fullDate), endDayjs.format(format.fullDate)].join(' - ');
 }
 
 
