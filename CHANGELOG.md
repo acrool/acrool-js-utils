@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.5](https://github.com/imagine10255/bear-jsutils/compare/v3.0.4...v3.0.5) (2023-04-10)
+
+
+### Bug Fixes
+
+* add ts exclude src/dist ([f1f185c](https://github.com/imagine10255/bear-jsutils/commit/f1f185c086341ca296ed482ab127810f5d5fd99a))
+
 ### [3.0.4](https://github.com/imagine10255/bear-jsutils/compare/v3.0.3...v3.0.4) (2023-04-05)
 
 
