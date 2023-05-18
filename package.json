@@ -28,7 +28,8 @@
     "postrelease": "# then run `git push --follow-tags origin main && yarn build && npm publish ./src --access=public` to publish"
   },
   "dependencies": {
-    "dayjs": "^1.x"
+    "dayjs": "^1.x",
+    "ulid": "^2.x"
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",
