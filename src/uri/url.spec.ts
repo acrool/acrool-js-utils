@@ -1,4 +1,4 @@
-import {decodeQueryString, encodeQueryString, getMainDomain, getProtocolDomain, getSubDomain, urlJoin} from '../uri';
+import {decodeQueryString, encodeQueryString, getMainDomain, getProtocolDomain, getSubDomain, urlJoin} from './uri';
 
 
 

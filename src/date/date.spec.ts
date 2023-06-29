@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import {rangeSimpleDate, simpleDate} from '../date';
+import {rangeSimpleDate, simpleDate} from './date';
 
 
 describe('simpleDate', () => {

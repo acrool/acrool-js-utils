@@ -1,4 +1,4 @@
-import {pull, push, arrayJoin, removeByIndex, modifyByIndex, splitArray, unique} from '../array';
+import {pull, push, arrayJoin, removeByIndex, modifyByIndex, splitArray, unique, groupBy} from './array';
 
 describe('pull', () => {
     const sourceArray = [1, 2];
@@ -111,12 +111,47 @@ describe('arrayJoin', () => {
 
 
 describe('splitArray', () => {
-
     it('should return 2 level array for array', () => {
         expect(splitArray([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)).toEqual([[1,2], [3,4], [5,6],[7,8],[9]]);
         expect(splitArray([1, 2, 3, 4, 5, 6], 3)).toEqual([[1,2,3], [4,5,6]]);
     });
-
 });
 
+
+
+
+describe('groupBy', () => {
+    it('should group items based on the provided function', () => {
+        const array = [
+            {id: 1, name: 'Alice'},
+            {id: 2, name: 'Bob'},
+            {id: 3, name: 'Alice'},
+            {id: 4, name: 'Charlie'},
+        ];
+
+        const result = groupBy(array, (item) => item.name);
+
+        expect(result).toEqual({
+            Alice: [
+                {id: 1, name: 'Alice'},
+                {id: 3, name: 'Alice'},
+            ],
+            Bob: [
+                {id: 2, name: 'Bob'},
+            ],
+            Charlie: [
+                {id: 4, name: 'Charlie'},
+            ],
+        });
+    });
+
+    it('should handle empty array', () => {
+        const array: any[] = [];
+
+        const result = groupBy(array, (item) => item);
+
+        expect(result).toEqual({});
+    });
+
+});
 

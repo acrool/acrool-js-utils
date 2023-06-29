@@ -1,4 +1,4 @@
-import {intersectionMin, formatCurrency, numToDecimal2} from '../number';
+import {intersectionMin, formatCurrency, numToDecimal2} from './number';
 
 
 
@@ -6,7 +6,7 @@ describe('numToDecimal2', () => {
     it('should return a decimal2 number for number', () => {
         expect(String(numToDecimal2(2000))).toEqual('2000.00');
         expect(String(numToDecimal2(2000.100))).toEqual('2000.10');
-        expect(String(numToDecimal2(0.20))).toEqual('0.2');
+        expect(String(numToDecimal2(0.20))).toEqual('0.20');
     });
 });
 

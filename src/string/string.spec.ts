@@ -1,4 +1,4 @@
-import {toCapitalize, upperLineToLowerCase, lowerLocaleToISOCode, lowerCaseToUpLineCase, paddingLeft, decodeToJson, removeStartEnd, dashToLowerCase} from '../string';
+import {toCapitalize, upperLineToLowerCase, lowerLocaleToISOCode, lowerCaseToUpLineCase, paddingLeft, decodeToJson, removeStartEnd, dashToLowerCase} from './string';
 
 
 

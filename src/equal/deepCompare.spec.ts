@@ -1,4 +1,4 @@
-import deepCompare from '../deepCompare';
+import deepCompare from './deepCompare';
 
 
 describe('deepCompare', () => {

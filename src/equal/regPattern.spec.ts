@@ -1,4 +1,4 @@
-import regPattern from '../regPattern';
+import regPattern from './regPattern';
 
 
 describe('regPattern', () => {

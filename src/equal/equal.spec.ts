@@ -1,4 +1,4 @@
-import {isDate, isEmpty, isJSON, isNotEmpty, isIP, isIPUrl, objsComposeById, objsComposeByCode} from '../equal';
+import {isDate, isEmpty, isJSON, isNotEmpty, isIP, isIPUrl, objsComposeById, objsComposeByCode} from './equal';
 
 
 
