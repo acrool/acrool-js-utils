@@ -2,7 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-<<<<<<< HEAD
+### [3.1.1](https://github.com/imagine10255/bear-jsutils/compare/v3.0.7...v3.1.1) (2023-06-29)
+
+## [3.1.0-alpha.2](https://github.com/imagine10255/bear-jsutils/compare/v3.1.0-alpha.1...v3.1.0-alpha.2) (2023-05-18)
+
+## [3.1.0-alpha.1](https://github.com/imagine10255/bear-jsutils/compare/v3.1.0-alpha.0...v3.1.0-alpha.1) (2023-05-18)
+
+
+### Bug Fixes
+
+* miss logger in index.ts ([a53e149](https://github.com/imagine10255/bear-jsutils/commit/a53e149c0494aa07ef256e18301b5830eb6355cb))
+
+## [3.1.0-alpha.0](https://github.com/imagine10255/bear-jsutils/compare/v3.0.6...v3.1.0-alpha.0) (2023-05-18)
+
+
+### Features
+
+* add logger, launcher ([b5e8ba1](https://github.com/imagine10255/bear-jsutils/commit/b5e8ba1a764235aa6d6f73e35dc7098bc0edc83c))
+
 ### [3.0.7](https://github.com/imagine10255/bear-jsutils/compare/v3.0.6...v3.0.7) (2023-05-18)
 =======
 ## [3.1.0](https://github.com/imagine10255/bear-jsutils/compare/v3.1.0-alpha.2...v3.1.0) (2023-05-18)
