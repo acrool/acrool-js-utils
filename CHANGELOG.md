@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.2](https://github.com/imagine10255/bear-jsutils/compare/v3.1.1...v3.1.2) (2023-08-16)
+
+
+### Features
+
+* modify unique add customFn ([615b71f](https://github.com/imagine10255/bear-jsutils/commit/615b71f16b54ac5b7f307b4e65b1558f118cf149))
+
 ### [3.1.1](https://github.com/imagine10255/bear-jsutils/compare/v3.0.7...v3.1.1) (2023-06-29)
 
 ## [3.1.0-alpha.2](https://github.com/imagine10255/bear-jsutils/compare/v3.1.0-alpha.1...v3.1.0-alpha.2) (2023-05-18)
