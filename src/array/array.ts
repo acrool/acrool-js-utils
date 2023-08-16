@@ -64,9 +64,18 @@ export function modifyByIndex<T>(arrayData: T[], index: number, indexModifyObj: 
  * ex: ['a', 'a', 'c'] -> ['a','c']
  *
  * @param data
+ * @param fn
  */
-export function unique(data: Array<number|string>): Array<number|string> {
-    return [...(new Set(data))];
+export function unique<T>(data: Array<T>, fn?: (curr: Array<T>, row: T) => boolean): Array<T> {
+    const result = new Array<T>();
+    for (const value of data) {
+        if(fn && !fn(result, value)){
+            result.push(value);
+        }else if(!result.includes(value)){
+            result.push(value);
+        }
+    }
+    return [...result];
 }
 
 

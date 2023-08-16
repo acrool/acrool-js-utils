@@ -80,6 +80,29 @@ describe('unique', () => {
     const sourceArray2 = ['a', 'b', 'b', 'c', 'c'];
     const result2 = unique(sourceArray2);
 
+    const assignr = {
+        imagine: {
+            id: '01h4n8dd13',
+            name: 'Imagine Chiu',
+            avatarUrl: '/sample/avatar/female-1.jpg',
+        },
+        gary: {
+            id: '01h4n7cc12',
+            name: 'Gary Chien',
+            avatarUrl: '/sample/avatar/female-2.jpg',
+        },
+        selin: {
+            id: '01h4n7ee75',
+            name: 'Selin Wu',
+            avatarUrl: '/sample/avatar/female-3.jpg',
+        }
+    };
+    const sourceArray3 = unique([assignr.selin, assignr.imagine, assignr.gary, assignr.selin, assignr.imagine], (curr, row) => {
+        const ids = curr.map(currRow => currRow.id);
+        return ids.includes(row.id);
+    });
+
+
     it('should return a unique for repeated array', () => {
         expect(result1).toStrictEqual([1, 2, 3]);
         expect(result2).toStrictEqual(['a', 'b', 'c']);
@@ -88,6 +111,15 @@ describe('unique', () => {
     it('should return not modify source', () => {
         expect(sourceArray1).toEqual([1, 2, 2, 3, 3]);
         expect(sourceArray2).toEqual(['a', 'b', 'b', 'c', 'c']);
+    });
+
+    it('should return not modify source', () => {
+        expect(sourceArray1).toEqual([1, 2, 2, 3, 3]);
+        expect(sourceArray2).toEqual(['a', 'b', 'b', 'c', 'c']);
+    });
+
+    it('should return not modify source', () => {
+        expect(sourceArray3).toEqual([assignr.selin, assignr.imagine, assignr.gary]);
     });
 });
 
