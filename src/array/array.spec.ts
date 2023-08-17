@@ -1,4 +1,4 @@
-import {pull, push, arrayJoin, removeByIndex, modifyByIndex, splitArray, unique, groupBy} from './array';
+import {pull, push, arrayJoin, removeByIndex, modifyByIndex, splitArray, unique, groupBy, sort} from './array';
 
 describe('pull', () => {
     const sourceArray = [1, 2];
@@ -67,6 +67,36 @@ describe('modifyByIndex', () => {
     it('should return not modify source', () => {
         expect(sourceArray).toEqual(sourceCheckDiffArray);
     });
+});
+
+
+
+describe('sort', () => {
+    const sourceArray = [
+        {id: 1, name: 'jack'},
+        {id: 3, name: 'gary'},
+        {id: 2, name: 'imagine'},
+    ];
+    const sourceCheckDiffArray = [
+        {id: 1, name: 'jack'},
+        {id: 2, name: 'imagine'},
+        {id: 3, name: 'gary'},
+    ];
+
+    const result = sort(sourceArray, (a, b) => {
+        return a.id > b.id ? 1: -1;
+    });
+
+    it('should sort return new array', () => {
+        expect(result).toStrictEqual(sourceCheckDiffArray);
+    });
+
+    it('should sort not modify source array', () => {
+        expect(result).toStrictEqual(result);
+    });
+
+
+
 });
 
 

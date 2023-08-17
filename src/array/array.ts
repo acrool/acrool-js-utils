@@ -127,3 +127,17 @@ export function groupBy<T>(array: T[], fn: GroupByFn<T>): Record<string | number
         return result;
     }, {} as Record<string | number, T[]>);
 }
+
+
+type SortByFn<T> = (a: T, b: T) => number;
+
+/**
+ * Sort 排序陣列
+ * @param array
+ * @param fn
+ */
+export function sort<T>(array: T[], fn: SortByFn<T>): T[] {
+    const clone = [...array];
+    clone.sort(fn);
+    return clone;
+}
