@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.3](https://github.com/imagine10255/bear-jsutils/compare/v3.1.2...v3.1.3) (2023-08-17)
+
+
+### Features
+
+* add immuatable sort method ([be36069](https://github.com/imagine10255/bear-jsutils/commit/be36069bfca42100b1334c1834a587fcfa51c0eb))
+
 ### [3.1.2](https://github.com/imagine10255/bear-jsutils/compare/v3.1.1...v3.1.2) (2023-08-16)
 
 
