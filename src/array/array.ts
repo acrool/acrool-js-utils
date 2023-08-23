@@ -110,14 +110,14 @@ export function splitArray(sourceData: unknown[], splitCount: number){
 }
 
 
-type GroupByFn<T> = (item: T) => string | number;
+type TGroupByFn<T> = (item: T) => string | number;
 
 /**
  * Group
  * @param array
  * @param fn
  */
-export function groupBy<T>(array: T[], fn: GroupByFn<T>): Record<string | number, T[]> {
+export function groupBy<T>(array: T[], fn: TGroupByFn<T>): Record<string | number, T[]> {
     return array.reduce((result, item) => {
         const key = fn(item);
         if (!result[key]) {
@@ -128,29 +128,30 @@ export function groupBy<T>(array: T[], fn: GroupByFn<T>): Record<string | number
     }, {} as Record<string | number, T[]>);
 }
 
-type GroupTreeByFn<T> = (item: T) => { key: string | number, data: Pick<T, keyof T>, child: Pick<T, keyof T> };
+type TGroupTreeBy<T, D, C> = (item: T) => { groupKey: string | number, groupData: D, child: C };
 
 /**
  * Group
  * @param array
  * @param groupByFn
  */
-export function groupTreeByFn<U extends { children: object }, T>(array: T[], groupByFn: GroupTreeByFn<T>): U[] {
-    const groupedData: Record<string | number, {children: T[]}> = {};
+export function groupTreeBy<T, D, C>(array: T[], groupByFn: TGroupTreeBy<T, D, C>): Array<D & { children: C[] }> {
+    const groupedData: Record<string | number, {children: C[]}> = {};
 
     array.forEach(item => {
-        const {key, data, child} = groupByFn(item);
-        if (!groupedData[key]) {
-            groupedData[key] = {
-                ...data,
+        const {groupKey, groupData, child} = groupByFn(item);
+        if (!groupedData[groupKey]) {
+            groupedData[groupKey] = {
+                ...groupData,
                 children: [],
             };
         }
-        groupedData[key].children.push(child);
+        groupedData[groupKey].children.push(child);
     });
 
-    return Object.keys(groupedData).map(key => groupedData[key]) as U[];
+    return Object.keys(groupedData).map(key => groupedData[key]) as Array<D & { children: C[] }>;
 }
+
 
 
 type SortByFn<T> = (a: T, b: T) => number;

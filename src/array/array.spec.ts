@@ -8,7 +8,7 @@ import {
     unique,
     groupBy,
     sort,
-    groupTreeByFn
+    groupTreeBy
 } from './array';
 
 describe('pull', () => {
@@ -254,33 +254,42 @@ describe('groupTreeBy', () => {
         ];
 
 
-        const result = groupTreeByFn<IResultArray, ISourceArray>(
+        const result = groupTreeBy(
             array,
-            <T>(item) => {
+            (item) => {
                 const {team, ...child} = item;
                 return {
-                    key: team.id,
-                    data: team,
-                    child,
+                    groupKey: team.id,
+                    groupData: {
+                        id: team.id,
+                        text: team.name
+                    },
+                    child: {
+                        id: item.id,
+                        nickName: item.name,
+                    },
                 };
             },
         );
+        result.map(row => row.children.map(data => data.nickName));
+
+        // result.map(row => row.)
 
         expect(result).toEqual([
             {
                 id: 'A',
-                name: 'frontend',
+                text: 'frontend',
                 children: [
-                    {id: 1, name: 'Alice'},
-                    {id: 2, name: 'Bob'}
+                    {id: 1, nickName: 'Alice'},
+                    {id: 2, nickName: 'Bob'}
                 ],
             },
             {
                 id: 'B',
-                name: 'backend',
+                text: 'backend',
                 children: [
-                    {id: 3, name: 'Alice'},
-                    {id: 4, name: 'Charlie'}
+                    {id: 3, nickName: 'Alice'},
+                    {id: 4, nickName: 'Charlie'}
                 ],
             }
         ]);
