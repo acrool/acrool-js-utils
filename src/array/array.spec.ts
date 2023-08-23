@@ -1,4 +1,15 @@
-import {pull, push, arrayJoin, removeByIndex, modifyByIndex, splitArray, unique, groupBy, sort} from './array';
+import {
+    pull,
+    push,
+    arrayJoin,
+    removeByIndex,
+    modifyByIndex,
+    splitArray,
+    unique,
+    groupBy,
+    sort,
+    groupTreeByFn
+} from './array';
 
 describe('pull', () => {
     const sourceArray = [1, 2];
@@ -213,6 +224,66 @@ describe('groupBy', () => {
         const result = groupBy(array, (item) => item);
 
         expect(result).toEqual({});
+    });
+
+});
+
+
+
+
+interface ISourceArray {
+    id: number,
+    name: string
+    team: {id: string, name: string}
+}
+interface IResultArray {
+    id: string,
+    name: string
+    children: Array<{id: string, name: string}>
+}
+
+
+describe('groupTreeBy', () => {
+
+    it('should handle empty array', () => {
+        const array: ISourceArray[] = [
+            {id: 1, name: 'Alice', team: {id: 'A', name: 'frontend'}},
+            {id: 2, name: 'Bob', team: {id: 'A', name: 'frontend'}},
+            {id: 3, name: 'Alice', team: {id: 'B', name: 'backend'}},
+            {id: 4, name: 'Charlie', team: {id: 'B', name: 'backend'}},
+        ];
+
+
+        const result = groupTreeByFn<IResultArray, ISourceArray>(
+            array,
+            <T>(item) => {
+                const {team, ...child} = item;
+                return {
+                    key: team.id,
+                    data: team,
+                    child,
+                };
+            },
+        );
+
+        expect(result).toEqual([
+            {
+                id: 'A',
+                name: 'frontend',
+                children: [
+                    {id: 1, name: 'Alice'},
+                    {id: 2, name: 'Bob'}
+                ],
+            },
+            {
+                id: 'B',
+                name: 'backend',
+                children: [
+                    {id: 3, name: 'Alice'},
+                    {id: 4, name: 'Charlie'}
+                ],
+            }
+        ]);
     });
 
 });

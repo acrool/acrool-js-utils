@@ -128,6 +128,30 @@ export function groupBy<T>(array: T[], fn: GroupByFn<T>): Record<string | number
     }, {} as Record<string | number, T[]>);
 }
 
+type GroupTreeByFn<T> = (item: T) => { key: string | number, data: Pick<T, keyof T>, child: Pick<T, keyof T> };
+
+/**
+ * Group
+ * @param array
+ * @param groupByFn
+ */
+export function groupTreeByFn<U extends { children: object }, T>(array: T[], groupByFn: GroupTreeByFn<T>): U[] {
+    const groupedData: Record<string | number, {children: T[]}> = {};
+
+    array.forEach(item => {
+        const {key, data, child} = groupByFn(item);
+        if (!groupedData[key]) {
+            groupedData[key] = {
+                ...data,
+                children: [],
+            };
+        }
+        groupedData[key].children.push(child);
+    });
+
+    return Object.keys(groupedData).map(key => groupedData[key]) as U[];
+}
+
 
 type SortByFn<T> = (a: T, b: T) => number;
 
