@@ -123,20 +123,20 @@ export function isJSON(jsonString: string): boolean {
 
 
 
-type TObjsComposeByKey<P = any> = (keyColumn: string|number, prev: P[], next: P[]) => boolean;
+type TObjsComposeByKey<P = any> = (keyColumn: string|number) => (prev: P[], next: P[]) => boolean;
 /**
  * @param keyColumn
- * @param prev
- * @param next
  */
-const objsComposeByKey: TObjsComposeByKey = (keyColumn, prev, next) => {
-    const prevKeys = prev?.map(row => row[keyColumn]).join('-');
-    const nextKeys = next?.map(row => row[keyColumn]).join('-');
-    return prevKeys === nextKeys;
+export const objsComposeBy: TObjsComposeByKey = (keyColumn) => {
+    return (prev, next) => {
+        const prevKeys = prev?.map(row => row[keyColumn]).join('-');
+        const nextKeys = next?.map(row => row[keyColumn]).join('-');
+        return prevKeys === nextKeys;
+    };
 };
 
 type TObjsComposeById = <P>(prev: Record<'id', P>[]|undefined, next: Record<'id', P>[]|undefined) => boolean;
-export const objsComposeById: TObjsComposeById = (prev, next) => objsComposeByKey('id', prev, next);
+export const objsComposeById: TObjsComposeById = objsComposeBy('id');
 
 type TObjsComposeByCode = <P>(prev: Record<'code', P>[]|undefined, next: Record<'code', P>[]|undefined) => boolean;
-export const objsComposeByCode: TObjsComposeByCode = (prev, next) => objsComposeByKey('code', prev, next);
+export const objsComposeByCode: TObjsComposeByCode = objsComposeBy('code');
