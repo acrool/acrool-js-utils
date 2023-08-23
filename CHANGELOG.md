@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.4](https://github.com/imagine10255/bear-jsutils/compare/v3.1.3...v3.1.4) (2023-08-23)
+
+
+### Features
+
+* add objsComposeByKey -> objsComposeBy export ([a7d1819](https://github.com/imagine10255/bear-jsutils/commit/a7d18196afea233776c14e8c55cd74530a181971))
+
 ### [3.1.3](https://github.com/imagine10255/bear-jsutils/compare/v3.1.2...v3.1.3) (2023-08-17)
 
 
