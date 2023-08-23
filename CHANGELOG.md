@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.5](https://github.com/imagine10255/bear-jsutils/compare/v3.1.4...v3.1.5) (2023-08-23)
+
+
+### Bug Fixes
+
+* fix groupTreeBy 泛型推斷 ([5b420f9](https://github.com/imagine10255/bear-jsutils/commit/5b420f99c3da5e2a7e77fec7f36e3873603193e1))
+
 ### [3.1.4](https://github.com/imagine10255/bear-jsutils/compare/v3.1.3...v3.1.4) (2023-08-23)
 
 
