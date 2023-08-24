@@ -138,7 +138,13 @@ describe('unique', () => {
             avatarUrl: '/sample/avatar/female-3.jpg',
         }
     };
+
     const sourceArray3 = unique([assignr.selin, assignr.imagine, assignr.gary, assignr.selin, assignr.imagine], (curr, row) => {
+        const ids = curr.map(currRow => currRow.id);
+        return ids.includes(row.id);
+    });
+
+    const sourceArray4 = unique([{...assignr.gary}, {...assignr.gary}, {...assignr.gary}], (curr, row) => {
         const ids = curr.map(currRow => currRow.id);
         return ids.includes(row.id);
     });
@@ -159,8 +165,14 @@ describe('unique', () => {
         expect(sourceArray2).toEqual(['a', 'b', 'b', 'c', 'c']);
     });
 
+
     it('should return not modify source', () => {
-        expect(sourceArray3).toEqual([assignr.selin, assignr.imagine, assignr.gary]);
+        expect(sourceArray3).toEqual([{...assignr.selin}, {...assignr.imagine}, {...assignr.gary}]);
+    });
+
+    it('should return not modify source', () => {
+        // expect(sourceArray3).toEqual([assignr.selin, assignr.imagine, assignr.gary]);
+        expect(sourceArray4).toEqual([{...assignr.gary}]);
     });
 });
 
