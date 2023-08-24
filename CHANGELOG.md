@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.6](https://github.com/imagine10255/bear-jsutils/compare/v3.1.5...v3.1.6) (2023-08-24)
+
+
+### Features
+
+* fix array unique ([f817374](https://github.com/imagine10255/bear-jsutils/commit/f81737480896bd768e3ba8d48e4d689e6bfe9586))
+
 ### [3.1.5](https://github.com/imagine10255/bear-jsutils/compare/v3.1.4...v3.1.5) (2023-08-23)
 
 
