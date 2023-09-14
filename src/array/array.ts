@@ -36,7 +36,7 @@ export function removeByIndex<T>(arrayData: T[], index: number): T[] {
 }
 
 /**
- * 更改陣列中的一筆資料
+ * 更改陣列中的一筆資料 (immutable)
  * ps: 不用先複製, 方法內會複製出來
  * ex: [{name: jack}] => [{name: 'imagine'}]
  *
@@ -115,7 +115,7 @@ export function splitArray(sourceData: unknown[], splitCount: number){
 type TGroupByFn<T> = (item: T) => string | number;
 
 /**
- * Group
+ * Group (immutable)
  * @param array
  * @param fn
  */
@@ -133,7 +133,7 @@ export function groupBy<T>(array: T[], fn: TGroupByFn<T>): Record<string | numbe
 type TGroupTreeBy<T, D, C> = (item: T) => { groupKey: string | number, groupData: D, child: C };
 
 /**
- * Group
+ * Group TreeBy (immutable)
  * @param array
  * @param groupByFn
  */
@@ -158,8 +158,9 @@ export function groupTreeBy<T, D, C>(array: T[], groupByFn: TGroupTreeBy<T, D, C
 
 type SortByFn<T> = (a: T, b: T) => number;
 
+
 /**
- * Sort 排序陣列
+ * Sort 排序陣列 (immutable)
  * @param array
  * @param fn
  */
