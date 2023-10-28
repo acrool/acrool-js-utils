@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [](https://github.com/imagine10255/bear-jsutils/compare/v3.1.6...v) (2023-10-28)
+
+
+### Features
+
+* add date utils impleDateTime ([a0c69ff](https://github.com/imagine10255/bear-jsutils/commit/a0c69ff7e661e49dd25cde3b2f69a45287d1f55a))
+
 ### [3.1.6](https://github.com/imagine10255/bear-jsutils/compare/v3.1.5...v3.1.6) (2023-08-24)
 
 
