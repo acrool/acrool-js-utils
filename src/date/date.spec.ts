@@ -1,7 +1,14 @@
 import dayjs from 'dayjs';
-import {rangeSimpleDate, simpleDate} from './date';
+import {rangeSimpleDate, simpleDate, simpleDateTime} from './date';
 
 
+describe('simpleDateTime', () => {
+    it('should return a formatted date time string with year truncated for current year', () => {
+        const currentYear = dayjs().year();
+        const inputDate = `${currentYear}-03-20T10:02:00`;
+        expect(simpleDateTime(inputDate)).toBe('03/20 10:02');
+    });
+});
 describe('simpleDate', () => {
     it('should return a formatted date string with year truncated for current year', () => {
         const currentYear = dayjs().year();

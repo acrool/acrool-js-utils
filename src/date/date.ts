@@ -4,6 +4,17 @@
  */
 import dayjs from 'dayjs';
 
+
+export function simpleDateTime(date?: string|null): string{
+    const resDate = simpleDate(date);
+    if(!resDate){
+        return '';
+    }
+    const time = dayjs(date).format('HH:mm');
+    return `${resDate} ${time}`;
+}
+
+
 export function simpleDate(date?: string|null): string{
     if(typeof date === 'undefined' || date === null || (typeof date === 'string' && date.trim().length === 0)){
         return '';
