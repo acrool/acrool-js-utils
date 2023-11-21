@@ -2,12 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [](https://github.com/imagine10255/bear-jsutils/compare/v3.1.6...v) (2023-10-28)
+### [3.1.8](https://github.com/imagine10255/bear-jsutils/compare/v3.1.6...v3.1.8) (2023-11-21)
 
 
 ### Features
 
 * add date utils impleDateTime ([a0c69ff](https://github.com/imagine10255/bear-jsutils/commit/a0c69ff7e661e49dd25cde3b2f69a45287d1f55a))
+* add date: formatSecondToString, formatTotalSeconds ([c272c9d](https://github.com/imagine10255/bear-jsutils/commit/c272c9d74a0b486e83bdaecd6d0b7d9edea07a6f))
+* add string fn: removeHtmlTag ([d9d3a7b](https://github.com/imagine10255/bear-jsutils/commit/d9d3a7bc03b7da86b056635795cdf7ea2867d202))
+
+
+### Bug Fixes
+
+* modify date: formatSecondToString rule ([bc80c18](https://github.com/imagine10255/bear-jsutils/commit/bc80c18c222e0cced125f02e4418e26c10846833))
 
 ### [3.1.6](https://github.com/imagine10255/bear-jsutils/compare/v3.1.5...v3.1.6) (2023-08-24)
 
