@@ -1,3 +1,4 @@
+import {htmlTags} from './config';
 
 /**
  * 文本中的每個單詞以大寫字母開頭
@@ -127,5 +128,21 @@ export function removeStartEnd(str: string, startStr: string, endStr: string): s
     const regRule = `\\${startStr}|\\${endStr}`;
     const reg = new RegExp(`^${regRule}$`,'g');
     return str.replace(reg, '');
+}
+
+
+/**
+ * 去除 Html tag
+ * @param htmlStr 要被過濾的字串
+ * @param whileTag 想保留的 Tag
+ */
+export function removeHtmlTag(htmlStr: string|number, whileTag?: string[]){
+    const removeTag = whileTag?.length > 0 ? htmlTags.filter(tag => !whileTag.includes(tag)): htmlTags;
+    let tmpStr = htmlStr.toString();
+    for(const tag of removeTag){
+        const regex = new RegExp('<' + tag + '.*?>|<\\/' + tag + '>', 'gi');
+        tmpStr = tmpStr.replace(regex, '');
+    }
+    return tmpStr;
 }
 

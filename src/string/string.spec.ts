@@ -1,4 +1,14 @@
-import {toCapitalize, upperLineToLowerCase, lowerLocaleToISOCode, lowerCaseToUpLineCase, paddingLeft, decodeToJson, removeStartEnd, dashToLowerCase} from './string';
+import {
+    toCapitalize,
+    upperLineToLowerCase,
+    lowerLocaleToISOCode,
+    lowerCaseToUpLineCase,
+    paddingLeft,
+    decodeToJson,
+    removeStartEnd,
+    dashToLowerCase,
+    removeHtmlTag
+} from './string';
 
 
 
@@ -66,4 +76,17 @@ describe('removeStartEnd', () => {
     });
 });
 
+
+
+describe('removeHtmlTag', () => {
+    it('should return a filter html tag by span', () => {
+        expect(removeHtmlTag('<span>my name</span>')).toBe('my name');
+        expect(removeHtmlTag('<span>my name</span>', ['span'])).toBe('<span>my name</span>');
+    });
+    it('should return a filter html tag by multi tag', () => {
+        expect(removeHtmlTag('<span>my <p>name</p></span>')).toBe('my name');
+        expect(removeHtmlTag('<span>my <p>name</p></span>', ['p'])).toBe('my <p>name</p>');
+        expect(removeHtmlTag('<span>my <p>name</p></span>', ['span'])).toBe('<span>my name</span>');
+    });
+});
 
