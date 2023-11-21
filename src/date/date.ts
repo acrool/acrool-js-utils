@@ -85,9 +85,16 @@ export const formatTotalSeconds = (totalSeconds: number, isCountDays = false): T
 export const formatSecondToString = (totalSeconds: number, isVisibleMinimumUnitOnly = false) => {
     const {hours, minutes, seconds} = formatTotalSeconds(totalSeconds, false);
     const unitArr = [hours, minutes, seconds];
-
-    return unitArr
-        .filter(unitStr => !isVisibleMinimumUnitOnly || (isVisibleMinimumUnitOnly && unitStr > 0))
-        .map(unitStr => paddingLeft(unitStr, 2))
+    let actInx = 0;
+    return unitArr.reduce((curr, unitStr, idx) => {
+        if(actInx >= idx){
+            if(isVisibleMinimumUnitOnly && unitStr === 0){
+                actInx = idx;
+                return curr;
+            }
+        }
+        return [...curr, paddingLeft(unitStr, 2)];
+    }, [])
         .join(':');
+
 };

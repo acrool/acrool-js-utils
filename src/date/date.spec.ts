@@ -74,8 +74,10 @@ describe('formatSecondToString', () => {
     it('should return a formatted 121 second to HH:mm:ss', () => {
         expect(formatSecondToString(121)).toBe('00:02:01');
     });
-    it('should return a formatted 121 second to mm:ss', () => {
+    it('should return a formatted 121 second to mm:ss (isVisibleMinimumUnitOnly)', () => {
         expect(formatSecondToString(121, true)).toBe('02:01');
+        expect(formatSecondToString(120, true)).toBe('02:00');
+        expect(formatSecondToString(36001, true)).toBe('10:00:01');
     });
     it('should return a formatted 36000 second to HH:mm:ss', () => {
         expect(formatSecondToString(36000)).toBe('10:00:00');
