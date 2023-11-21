@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import {rangeSimpleDate, simpleDate, simpleDateTime} from './date';
+import {rangeSimpleDate, simpleDate, simpleDateTime, formatSecondToString, formatTotalSeconds} from './date';
 
 
 describe('simpleDateTime', () => {
@@ -53,3 +53,34 @@ describe('rangeSimpleDate', () => {
     });
 });
 
+
+describe('formatTotalSeconds', () => {
+    it('should return a formatted 121 second', () => {
+        expect(formatTotalSeconds(121)).toEqual({days: 0, hours: 0, minutes: 2, seconds: 1});
+    });
+    it('should return a formatted 36000 second to HH:mm:ss', () => {
+        expect(formatTotalSeconds(36000)).toEqual({days: 0, hours: 10, minutes: 0, seconds: 0});
+    });
+    it('should return a formatted 104400 second not isCountDay', () => {
+        expect(formatTotalSeconds(104400)).toEqual({days: 0, hours: 29, minutes: 0, seconds: 0});
+    });
+    it('should return a formatted 104400 second isCountDay', () => {
+        expect(formatTotalSeconds(104400, true)).toEqual({days: 1, hours: 5, minutes: 0, seconds: 0});
+    });
+});
+
+
+describe('formatSecondToString', () => {
+    it('should return a formatted 121 second to HH:mm:ss', () => {
+        expect(formatSecondToString(121)).toBe('00:02:01');
+    });
+    it('should return a formatted 121 second to mm:ss', () => {
+        expect(formatSecondToString(121, true)).toBe('02:01');
+    });
+    it('should return a formatted 36000 second to HH:mm:ss', () => {
+        expect(formatSecondToString(36000)).toBe('10:00:00');
+    });
+    it('should return a formatted 104400 second to HH:mm:ss', () => {
+        expect(formatSecondToString(104400)).toBe('29:00:00');
+    });
+});
