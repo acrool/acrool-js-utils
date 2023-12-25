@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0-alpha.0](https://github.com/imagine10255/bear-jsutils/compare/v3.1.9...v3.2.0-alpha.0) (2023-12-25)
+
+
+### Features
+
+* modify Launcher isMultipleOpen change to openMode multi|self ([7e540e7](https://github.com/imagine10255/bear-jsutils/commit/7e540e769a8f76865a07f4a870fa8303b278f134))
+
 ### [3.1.9](https://github.com/imagine10255/bear-jsutils/compare/v3.1.9-alpha.1...v3.1.9) (2023-12-25)
 
 ### [3.1.9-alpha.1](https://github.com/imagine10255/bear-jsutils/compare/v3.1.9-alpha.0...v3.1.9-alpha.1) (2023-12-25)
