@@ -18,6 +18,7 @@ import logger from './logger';
 export default class Launcher {
     _openTargetId: string;
     _isMultipleOpen = false;
+    _isSelfOpen = false;
     _isWebview = false;
     _isIOS = false;
     _targetWindow: any;
@@ -25,10 +26,12 @@ export default class Launcher {
     _closeNoticeUrl?: string;
     _prefixName?: string;
 
-    constructor(prefixName: string, options?: {isMultipleOpen?: boolean, readyUrl?: string, closeNoticeUrl?: string}) {
+    constructor(prefixName: string, options?: {openMode?: 'multiple'|'self', readyUrl?: string, closeNoticeUrl?: string}) {
         this._prefixName = prefixName;
+        this._isMultipleOpen = options?.openMode === 'multiple';
+        this._isSelfOpen = options?.openMode === 'self';
+
         this._openTargetId = this._createOpenTargetId();
-        this._isMultipleOpen = options?.isMultipleOpen ?? false;
         this._targetWindow = null;
 
         this._isWebview = checkIsWebview();
@@ -47,18 +50,23 @@ export default class Launcher {
      */
     ready(){
         // Webview 不做任何準備
-        if(!this._isWebview){
-            if(this._isIOS && this._targetWindow) {
-                // iOS Safari 先切換到 關閉提示頁面, 在開啟新的準備視窗
-                this._targetWindow.location.href = this._closeNoticeUrl;
-                this._openTargetId = this._createOpenTargetId();
-            }else if(this._isMultipleOpen){
-                // 多開模式需要使用不同ID
-                this._openTargetId = this._createOpenTargetId();
-            }
+        if(this._isWebview || this._isSelfOpen){
+            return;
+        }
+
+        if(this._isIOS && this._targetWindow) {
+            // iOS Safari 先切換到 關閉提示頁面, 在開啟新的準備視窗
+            this._targetWindow.location.href = this._closeNoticeUrl;
+            this._openTargetId = this._createOpenTargetId();
             this._targetWindow = window.open(this._readyUrl, this._openTargetId);
+            return;
+        }
 
-
+        if(this._isMultipleOpen){
+            // 多開模式需要使用不同ID
+            this._openTargetId = this._createOpenTargetId();
+            this._targetWindow = window.open(this._readyUrl, this._openTargetId);
+            return;
         }
     }
 
@@ -67,16 +75,23 @@ export default class Launcher {
      * @param url 開啟目標的Url
      */
     open(url: string){
+        if(this._isSelfOpen){
+            window.open(url, '_self');
+        }
+
         if(this._isWebview){
             logger.printInText(`launch open: ${url}`, false);
             window.open(url);
-
-        }else if(!this._isMultipleOpen && this._targetWindow){
-            // 單一顯示模式中, 如果子視窗未關閉, 則使用子視窗導頁
-            this._targetWindow.location.href = url;
-        }else{
-            window.open(url, this._openTargetId);
+            return;
         }
+
+        // 單一顯示模式中, 如果子視窗未關閉, 則使用子視窗導頁
+        if(!this._isMultipleOpen && this._targetWindow){
+            this._targetWindow.location.href = url;
+            return;
+        }
+
+        window.open(url, this._openTargetId);
     }
 
     /**
