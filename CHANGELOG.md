@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.9-alpha.0](https://github.com/imagine10255/bear-jsutils/compare/v3.1.8...v3.1.9-alpha.0) (2023-12-25)
+
+
+### Bug Fixes
+
+* 修正 bear-jsutils 無法自動找到套件 ([a7391b8](https://github.com/imagine10255/bear-jsutils/commit/a7391b8f29f3fb526cbf57019dc5dc22a5ff809e))
+
 ### [3.1.8](https://github.com/imagine10255/bear-jsutils/compare/v3.1.6...v3.1.8) (2023-11-21)
 
 
