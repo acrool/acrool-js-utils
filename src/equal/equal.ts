@@ -1,4 +1,4 @@
-import regPattern from './regPattern';
+import regPattern from '../regPattern';
 
 /**
  * 判定是否為空

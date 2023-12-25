@@ -16,7 +16,6 @@
     "node": ">=14"
   },
   "files": [
-    "dist",
-    "*/package.json"
+    "dist"
   ]
 }

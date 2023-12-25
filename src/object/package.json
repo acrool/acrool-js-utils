@@ -2,7 +2,7 @@
   "name": "bear-jsutils/object",
   "description": "Bear JS utilities for Object manipulation",
   "private": true,
-  "main": "../dist/object/index.cjs.js",
-  "module": "../dist/object/index.es.js",
-  "types": "../dist/object/index.d.ts"
+  "main": "./index.cjs.js",
+  "module": "./index.es.js",
+  "types": "./index.d.ts"
 }

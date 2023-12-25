@@ -1,4 +1,4 @@
-import regPattern from '../equal/regPattern';
+import regPattern from '../regPattern';
 
 
 /**
