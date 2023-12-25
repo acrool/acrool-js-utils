@@ -2,7 +2,7 @@
   "name": "bear-jsutils/file",
   "description": "Bear JS utilities for File manipulation",
   "private": true,
-  "main": "../dist/file/index.cjs.js",
-  "module": "../dist/file/index.es.js",
-  "types": "../dist/file/index.d.ts"
+  "main": "./index.cjs.js",
+  "module": "./index.es.js",
+  "types": "./index.d.ts"
 }

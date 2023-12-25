@@ -3,7 +3,7 @@
  * 如果是今年, 則僅顯示月日, 否則顯示年月日
  */
 import dayjs from 'dayjs';
-import {paddingLeft} from '../string';
+import {paddingLeft} from '../common';
 
 export function simpleDateTime(date?: string|null): string{
     const resDate = simpleDate(date);

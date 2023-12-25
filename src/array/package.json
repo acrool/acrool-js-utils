@@ -2,7 +2,7 @@
   "name": "bear-jsutils/array",
   "description": "Bear JS utilities for Array manipulation",
   "private": true,
-  "main": "../dist/array/index.cjs.js",
-  "module": "../dist/array/index.es.js",
-  "types": "../dist/array/index.d.ts"
+  "main": "./index.cjs.js",
+  "module": "./index.es.js",
+  "types": "./index.d.ts"
 }

@@ -2,7 +2,7 @@
   "name": "bear-jsutils/convert",
   "description": "Bear JS utilities for Convert manipulation",
   "private": true,
-  "main": "../dist/convert/index.cjs.js",
-  "module": "../dist/convert/index.es.js",
-  "types": "../dist/convert/index.d.ts"
+  "main": "./index.cjs.js",
+  "module": "./index.es.js",
+  "types": "./index.d.ts"
 }

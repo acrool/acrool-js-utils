@@ -2,7 +2,7 @@
   "name": "bear-jsutils/uri",
   "description": "Bear JS utilities for URI manipulation",
   "private": true,
-  "main": "../dist/uri/index.cjs.js",
-  "module": "../dist/uri/index.es.js",
-  "types": "../dist/uri/index.d.ts"
+  "main": "./index.cjs.js",
+  "module": "./index.es.js",
+  "types": "./index.d.ts"
 }

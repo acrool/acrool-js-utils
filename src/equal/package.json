@@ -2,7 +2,7 @@
   "name": "bear-jsutils/equal",
   "description": "Bear JS utilities for Equal manipulation",
   "private": true,
-  "main": "../dist/equal/index.cjs.js",
-  "module": "../dist/equal/index.es.js",
-  "types": "../dist/equal/index.d.ts"
+  "main": "./index.cjs.js",
+  "module": "./index.es.js",
+  "types": "./index.d.ts"
 }

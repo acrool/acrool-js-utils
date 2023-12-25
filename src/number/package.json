@@ -2,7 +2,7 @@
   "name": "bear-jsutils/number",
   "description": "Bear JS utilities for Number manipulation",
   "private": true,
-  "main": "../dist/number/index.cjs.js",
-  "module": "../dist/number/index.es.js",
-  "types": "../dist/number/index.d.ts"
+  "main": "./index.cjs.js",
+  "module": "./index.es.js",
+  "types": "./index.d.ts"
 }

@@ -2,7 +2,7 @@
   "name": "bear-jsutils/dom",
   "description": "Bear JS utilities for Dom manipulation",
   "private": true,
-  "main": "../dist/dom/index.cjs.js",
-  "module": "../dist/dom/index.es.js",
-  "types": "../dist/dom/index.d.ts"
+  "main": "./index.cjs.js",
+  "module": "./index.es.js",
+  "types": "./index.d.ts"
 }

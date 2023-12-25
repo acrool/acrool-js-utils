@@ -12,8 +12,9 @@
   "scripts": {
     "dev": "vite build -w",
     "build:claer": "rm -rf ./dist",
+    "build:post": "ts-node ./build-post-processors.js",
     "prepublishOnly": "run-s build",
-    "build": "run-s build:claer && tsc && vite build",
+    "build": "run-s build:claer && tsc && vite build && run-s build:post",
     "preview": "vite preview",
     "lint:fix": "eslint ./src --fix",
     "cz": "git-cz",
@@ -25,13 +26,14 @@
     "release:minor": "yarn release-cli -r minor && run-s postrelease",
     "release:patch": "yarn release-cli -r patch && run-s postrelease",
     "release:alpha": "yarn release-cli --prerelease alpha && run-s postrelease",
-    "postrelease": "# then run `git push --follow-tags origin main && yarn build && npm publish ./src --access=public` to publish"
+    "postrelease": "# then run `git push --follow-tags origin main && yarn build && npm publish ./dist --access=public` to publish"
   },
   "dependencies": {
     "dayjs": "^1.x",
     "ulid": "^2.x"
   },
   "devDependencies": {
+    "@originjs/vite-plugin-commonjs": "1.0.3",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
@@ -43,11 +45,11 @@
     "rollup-plugin-visualizer": "^5.9.0",
     "standard-version": "^9.5.0",
     "ts-jest": "^29.1.0",
+    "ts-node": "10.9.2",
     "typescript": "^4.9.3",
     "vite": "^4.2.0",
     "vite-plugin-dts": "^2.1.0",
-    "vite-plugin-eslint": "^1.8.1",
-    "@originjs/vite-plugin-commonjs": "1.0.3"
+    "vite-plugin-eslint": "^1.8.1"
   },
   "config": {
     "commitizen": {
