@@ -26,7 +26,7 @@ export default class Launcher {
     _closeNoticeUrl?: string;
     _prefixName?: string;
 
-    constructor(prefixName: string, options?: {openMode?: 'multiple'|'self', readyUrl?: string, closeNoticeUrl?: string}) {
+    constructor(prefixName: string, options?: {openMode?: 'blank'|'multiple'|'self', readyUrl?: string, closeNoticeUrl?: string}) {
         this._prefixName = prefixName;
         this._isMultipleOpen = options?.openMode === 'multiple';
         this._isSelfOpen = options?.openMode === 'self';
@@ -85,8 +85,13 @@ export default class Launcher {
             return;
         }
 
+        if(this._isMultipleOpen){
+            window.open(url);
+            return;
+        }
+
         // 單一顯示模式中, 如果子視窗未關閉, 則使用子視窗導頁
-        if(!this._isMultipleOpen && this._targetWindow){
+        if(this._targetWindow){
             this._targetWindow.location.href = url;
             return;
         }
