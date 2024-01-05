@@ -2,6 +2,22 @@ import {isDate, isEmpty, isJSON, isNotEmpty, isIP, isIPUrl, objsComposeById, obj
 
 
 
+const testEmptyFn = (name: string) => `mr_${name}`;
+
+const testClientFn = (name?: string) => {
+    // 試試看拿掉 ! 會不會判別錯誤
+    if (!isEmpty(name)) {
+        testEmptyFn(name);
+        const nickName: string = name; // 这里 TypeScript 应该能够推断 test 不是 null 或 undefined
+    }
+    // 試試看拿掉 ! 會不會判別錯誤
+    if (isNotEmpty(name)) {
+        testEmptyFn(name);
+        const nickName: string = name; // 这里 TypeScript 应该能够推断 test 不是 null 或 undefined
+    }
+};
+
+
 describe('isEmpty', () => {
     it('should return a true for empty string', () => {
         expect(isEmpty('')).toBeTruthy();

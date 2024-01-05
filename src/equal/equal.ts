@@ -1,15 +1,19 @@
 import regPattern from '../regPattern';
+import {Empty, TObjsComposeByKey, TObjsComposeById, TObjsComposeByCode} from './types';
+
+
+
 
 /**
- * 判定是否為空
+ * 判断是否为空
  * @param value
  * @param checkOption
  * @returns {boolean}
  */
-export function isEmpty(value: any, checkOption?: {
+export function isEmpty<T>(value: T, checkOption?: {
     isZero?: boolean,
     isFalse?: boolean,
-}): boolean {
+}): value is Extract<T, Empty> {
     const defaultCheckOption = {
         isZero: checkOption?.isZero ?? true,
         isFalse: checkOption?.isFalse ?? true,
@@ -24,16 +28,19 @@ export function isEmpty(value: any, checkOption?: {
     );
 }
 
+
+
+
 /**
  * 判定是否不為空
  * @param value
  * @param checkOption
  * @returns {boolean}
  */
-export function isNotEmpty(value: any, checkOption?: {
+export function isNotEmpty<T>(value: T, checkOption?: {
     isZero?: boolean,
     isFalse?: boolean,
-}): boolean {
+}): value is Exclude<T, Empty> {
     const defaultCheckOption = {
         isZero: checkOption?.isZero ?? true,
         isFalse: checkOption?.isFalse ?? true,
@@ -121,9 +128,6 @@ export function isJSON(jsonString: string): boolean {
 }
 
 
-
-
-type TObjsComposeByKey<P = any> = (keyColumn: string|number) => (prev: P[], next: P[]) => boolean;
 /**
  * @param keyColumn
  */
@@ -135,8 +139,6 @@ export const objsComposeBy: TObjsComposeByKey = (keyColumn) => {
     };
 };
 
-type TObjsComposeById = <P>(prev: Record<'id', P>[]|undefined, next: Record<'id', P>[]|undefined) => boolean;
 export const objsComposeById: TObjsComposeById = objsComposeBy('id');
 
-type TObjsComposeByCode = <P>(prev: Record<'code', P>[]|undefined, next: Record<'code', P>[]|undefined) => boolean;
 export const objsComposeByCode: TObjsComposeByCode = objsComposeBy('code');

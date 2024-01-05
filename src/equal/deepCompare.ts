@@ -16,6 +16,7 @@ function keys(obj: object, hasKey: (obj: object, key: string) => boolean) {
     );
 }
 
+
 function hasKey(obj: any, key: string) {
     return Object.prototype.hasOwnProperty.call(obj, key);
 }

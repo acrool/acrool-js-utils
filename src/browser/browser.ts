@@ -14,10 +14,11 @@ export function checkIsIOS(): boolean {
     return /iphone|ipad|ipod/.test(userAgent);
 }
 
+
 /**
  * 判斷是否為IE瀏覽器
  */
-export function checkIsIE(): boolean {
+export function checkIsIEBrowser(): boolean {
     // @ts-ignore
     return (!!window.ActiveXObject || 'ActiveXObject' in window);
 }
@@ -25,7 +26,7 @@ export function checkIsIE(): boolean {
 /**
  * 判斷是否為LINE瀏覽器
  */
-export function checkIsLine(): boolean {
+export function checkIsLineBrowser(): boolean {
     const u = navigator.userAgent;
     return u.includes('Line');
 }
@@ -33,7 +34,7 @@ export function checkIsLine(): boolean {
 /**
  * 判斷是否為FB瀏覽器
  */
-export function checkIsFacebook(): boolean {
+export function checkIsFacebookBrowser(): boolean {
     const u = navigator.userAgent;
     return u.includes('FBAV');
 }
@@ -41,7 +42,7 @@ export function checkIsFacebook(): boolean {
 /**
  * 判斷是否為微信瀏覽器
  */
-export function checkIsWechat(): boolean {
+export function checkIsWechatBrowser(): boolean {
     const ua = navigator.userAgent.toLowerCase();
     // @ts-ignore
     return ua.match(/MicroMessenger/i) === 'micromessenger';
@@ -50,7 +51,7 @@ export function checkIsWechat(): boolean {
 /**
  * 判斷是否為Safari
  */
-export function checkIsSafari(): boolean {
+export function checkIsSafariBrowser(): boolean {
     const userAgent = window.navigator.userAgent.toLowerCase();
     return userAgent.includes('safari') && !userAgent.includes('chrome');
 }
@@ -72,6 +73,7 @@ export function checkIsWebview() {
     const regex = /(WebView|(iPhone|iPod|iPad)(?!.*WebKit\/)|Android.*(wv|.0.0.0))/gi;
     return Boolean(navigator.userAgent.match(regex));
 }
+
 
 /**
  * 取得捲軸的總高度
