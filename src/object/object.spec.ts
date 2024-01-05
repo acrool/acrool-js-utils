@@ -1,4 +1,4 @@
-import {autoMapper, filterIsTrue, reverseObj} from './object';
+import {autoMapper, filterIsTrue, reverseObj, objectKeys} from './object';
 
 
 describe('filterIsTrue', () => {
@@ -18,5 +18,15 @@ describe('autoMapper', () => {
 describe('reverseObj', () => {
     it('should return a reverse obj data for obj', () => {
         expect(reverseObj({name: 'jack'})).toStrictEqual({jack: 'name'});
+    });
+});
+
+
+describe('objectKeys', () => {
+    const source = {name: 2};
+    const t = objectKeys(source).map(key => source[key]);
+
+    it('should return a key obj data for obj', () => {
+        expect(objectKeys({name: 'jack'})).toStrictEqual(['name']);
     });
 });
