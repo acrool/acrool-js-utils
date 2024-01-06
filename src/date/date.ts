@@ -94,7 +94,7 @@ export const formatSecondToString = (totalSeconds: number, isVisibleMinimumUnitO
             }
         }
         return [...curr, paddingLeft(unitStr, 2)];
-    }, [])
+    }, [] as string[])
         .join(':');
 
 };

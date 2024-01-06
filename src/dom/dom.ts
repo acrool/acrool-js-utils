@@ -167,16 +167,3 @@ export const getVisiblePosition = (el: HTMLElement) => {
     const bottom = window.innerHeight - top;
     return bottom > top ? 'bottom': 'top';
 };
-
-
-/**
- * 觸發瀏覽器下載Blob檔案
- * @param blob
- * @param fileName
- */
-export const saveBlob = (blob: Blob, fileName: string): void =>  {
-    const a = document.createElement('a');
-    a.href = window.URL.createObjectURL(blob);
-    a.download = fileName;
-    a.click();
-};

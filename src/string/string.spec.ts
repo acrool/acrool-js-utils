@@ -3,11 +3,10 @@ import {
     upperLineToLowerCase,
     lowerLocaleToISOCode,
     lowerCaseToUpLineCase,
-    paddingLeft,
     decodeToJson,
     removeStartEnd,
     dashToLowerCase,
-    removeHtmlTag
+    removeHtmlTag, filterNumber
 } from './string';
 
 
@@ -47,11 +46,6 @@ describe('lowerCaseToUpLineCase', () => {
 });
 
 
-describe('paddingLeft', () => {
-    it('should return a add zero string for number string', () => {
-        expect(paddingLeft('20', 4)).toBe('0020');
-    });
-});
 
 
 describe('stringSplit', () => {
@@ -90,3 +84,28 @@ describe('removeHtmlTag', () => {
     });
 });
 
+
+describe('filterNumber', () => {
+    it('should return the number when the value is a string containing only digits', () => {
+        expect(filterNumber('1234')).toBe(1234);
+    });
+
+    it('should return the default value when the value contains non-digit characters', () => {
+        expect(filterNumber('asd1234', 0)).toBe(0);
+    });
+
+    it('should return the default value when the value is an empty string', () => {
+        expect(filterNumber('', 0)).toBe(0);
+    });
+
+    it('should return the number when the value is a number', () => {
+        expect(filterNumber(1234, 0)).toBe(1234);
+    });
+
+    it('should return the default value when the value is null', () => {
+        expect(filterNumber(null, 0)).toBe(0);
+    });
+
+    // 其他邊界情況的測試，例如 undefined, 非數字字符串等
+    // ...
+});

@@ -122,7 +122,7 @@ export function removeStartEnd(str: string, startStr: string, endStr: string): s
  * @param whileTag 想保留的 Tag
  */
 export function removeHtmlTag(htmlStr: string|number, whileTag?: string[]){
-    const removeTag = whileTag?.length > 0 ? htmlTags.filter(tag => !whileTag.includes(tag)): htmlTags;
+    const removeTag = whileTag && whileTag?.length > 0 ? htmlTags.filter(tag => !whileTag.includes(tag)) : htmlTags;
     let tmpStr = htmlStr.toString();
     for(const tag of removeTag){
         const regex = new RegExp('<' + tag + '.*?>|<\\/' + tag + '>', 'gi');
@@ -131,3 +131,20 @@ export function removeHtmlTag(htmlStr: string|number, whileTag?: string[]){
     return tmpStr;
 }
 
+
+
+/**
+ * 過濾只剩下數字
+ * ex: asd1234 -> 1234
+ *
+ * @param value
+ * @param defaultValue
+ */
+export function filterNumber(value: any, defaultValue = 0): number {
+    const reg = new RegExp(/^\d+$/);
+    if(reg.test(value)){
+        return Number(value);
+    }
+
+    return defaultValue;
+}

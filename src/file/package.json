@@ -1,8 +1,0 @@
-{
-  "name": "bear-jsutils/file",
-  "description": "Bear JS utilities for File manipulation",
-  "private": true,
-  "main": "./index.cjs.js",
-  "module": "./index.es.js",
-  "types": "./index.d.ts"
-}
