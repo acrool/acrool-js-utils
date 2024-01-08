@@ -139,15 +139,9 @@ describe('unique', () => {
         }
     };
 
-    const sourceArray3 = unique([assignr.selin, assignr.imagine, assignr.gary, assignr.selin, assignr.imagine], (curr, row) => {
-        const ids = curr.map(currRow => currRow.id);
-        return ids.includes(row.id);
-    });
+    const sourceArray3 = unique([assignr.selin, assignr.imagine, assignr.gary, assignr.selin, assignr.imagine], row => row.id);
 
-    const sourceArray4 = unique([{...assignr.gary}, {...assignr.gary}, {...assignr.gary}], (curr, row) => {
-        const ids = curr.map(currRow => currRow.id);
-        return ids.includes(row.id);
-    });
+    const sourceArray4 = unique([{...assignr.gary}, {...assignr.gary}, {...assignr.gary}], row => row.id);
 
 
     it('should return a unique for repeated array', () => {
