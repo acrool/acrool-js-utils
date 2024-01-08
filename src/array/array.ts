@@ -1,3 +1,5 @@
+import {SortOrder, SortByFn, TGroupTreeBy, TGroupByFn} from './types';
+
 /**
  * 插入資料到陣列的第一筆 (immutable)
  * ps: 不用先複製, 方法內會複製出來
@@ -113,7 +115,6 @@ export function splitArray(sourceData: unknown[], splitCount: number){
 }
 
 
-type TGroupByFn<T> = (item: T) => string | number;
 
 /**
  * Group (immutable)
@@ -131,7 +132,6 @@ export function groupBy<T>(array: T[], fn: TGroupByFn<T>): Record<string | numbe
     }, {} as Record<string | number, T[]>);
 }
 
-type TGroupTreeBy<T, D, C> = (item: T) => { groupKey: string | number, groupData: D, child: C };
 
 /**
  * Group TreeBy (immutable)
@@ -157,7 +157,6 @@ export function groupTreeBy<T, D, C>(array: T[], groupByFn: TGroupTreeBy<T, D, C
 
 
 
-type SortByFn<T> = (a: T, b: T) => number;
 
 
 /**
@@ -169,4 +168,22 @@ export function sort<T>(array: T[], fn: SortByFn<T>): T[] {
     const clone = [...array];
     clone.sort(fn);
     return clone;
+}
+
+
+
+
+export function generateSortByProperty<T>(selector: (row: T) => any, order: SortOrder = 'ASC'): (a: T, b: T) => number {
+    return function(a: T, b: T): number {
+        const aValue = selector(a);
+        const bValue = selector(b);
+
+        if (aValue < bValue) {
+            return order === 'ASC' ? -1 : 1;
+        }
+        if (aValue > bValue) {
+            return order === 'ASC' ? 1 : -1;
+        }
+        return 0;
+    };
 }
