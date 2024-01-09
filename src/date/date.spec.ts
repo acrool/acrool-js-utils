@@ -20,35 +20,49 @@ describe('simpleDate', () => {
 
 describe('rangeSimpleDate', () => {
     const currentYear = dayjs().year();
-    const inputStartDate = `${currentYear}-03-20T00:00:00.000Z`;
-    const inputEndDate = `${currentYear}-04-20T00:00:00.000Z`;
-    const inputNextDate = `${currentYear + 1}-08-15T00:00:00.000Z`;
+    const lastYear = currentYear - 1;
+    const nextYear = currentYear + 1;
+
+    // 動態生成的日期
+    const inputStartDate = `${currentYear}-03-20`;
+    const inputEndDate = `${currentYear}-04-20`;
+    const inputNextYearDate = `${nextYear}-08-15`;
+    const inputLastYearDate = `${lastYear}-10-13`;
 
     it('should return a formatted date string with year truncated for same date and current year', () => {
-        expect(rangeSimpleDate('2023-10-13', '2023-10-13')).toBe('10/13');
+        const testDate = `${currentYear}-10-13`;
+        expect(rangeSimpleDate(testDate, testDate)).toBe('10/13');
     });
-    it('should return a formatted date string with year truncated for diff date and not current year', () => {
-        expect(rangeSimpleDate('2022-10-13', '2023-10-14')).toBe('2022/10/13 - 2023/10/14');
+
+    it('should return a formatted date string with year for different dates across years', () => {
+        expect(rangeSimpleDate(inputLastYearDate, `${currentYear}-10-14`)).toBe(`${lastYear}/10/13 - ${currentYear}/10/14`);
     });
-    it('should return a formatted date string with year truncated for diff date and same current year', () => {
+
+    it('should return a formatted date string with year truncated for different dates in the same current year', () => {
         expect(rangeSimpleDate(inputStartDate, inputEndDate)).toBe('03/20 - 04/20');
     });
-    it('should return a formatted date string with year truncated for diff date and  current year', () => {
-        expect(rangeSimpleDate('2022-10-13', '2022-10-13')).toBe('2022/10/13');
+
+    it('should return a formatted date string with year for the same date but not current year', () => {
+        expect(rangeSimpleDate(inputLastYearDate, inputLastYearDate)).toBe(`${lastYear}/10/13`);
     });
-    it('should return a formatted date string with year truncated for start not current year and end current year', () => {
-        expect(rangeSimpleDate('2022-08-14', '2022-08-15')).toBe('2022/08/14 - 08/15');
+
+    it('should return a formatted date string for a range from last year to current year', () => {
+        expect(rangeSimpleDate(inputLastYearDate, `${lastYear}-08-15`)).toBe(`${lastYear}/10/13 - 08/15`);
     });
-    it('should return a formatted date string with year truncated for start not current year and end next year', () => {
-        expect(rangeSimpleDate(inputStartDate, inputNextDate)).toBe('2023/03/20 - 2024/08/15');
+
+    it('should return a formatted date string for a range from current year to next year', () => {
+        expect(rangeSimpleDate(inputStartDate, inputNextYearDate)).toBe(`${currentYear}/03/20 - ${nextYear}/08/15`);
     });
-    it('should return a formatted date string with year truncated for not start date', () => {
-        expect(rangeSimpleDate('', '2022-10-15')).toBe('2022/10/15');
+
+    it('should return a formatted date string for only end date in last year', () => {
+        expect(rangeSimpleDate('', inputLastYearDate)).toBe(`${lastYear}/10/13`);
     });
-    it('should return a formatted date string with year truncated for null date', () => {
+
+    it('should return an empty string for null dates', () => {
         expect(rangeSimpleDate(null, null)).toBe('');
     });
-    it('should return a formatted date string with year truncated for undefined date', () => {
+
+    it('should return an empty string for undefined dates', () => {
         expect(rangeSimpleDate(undefined, undefined)).toBe('');
     });
 });

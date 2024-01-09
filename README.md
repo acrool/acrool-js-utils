@@ -16,6 +16,8 @@
 
 ## Features
 
+type use `strictNullChecks` and `strictNullChecks`
+
 - **[Array](/src/array)** - Methods related to handling arrays, such as groupBy, unique, deleting arrays, and immutable methods for adding to arrays.
 - **[Browser](/src/browser)** - Queries related to browser functionalities, such as console.log, scroll height, window clientHeight.
 - **[Convert](/src/convert)** - Type conversion, color code format conversion, file to base64, base64 to blob.
@@ -29,8 +31,10 @@
 
 ## Installation
 
+date peerDependencies [dayjs](https://day.js.org/) library
+
 ```bash
-yarn add bear-jsutils
+yarn add dayjs bear-jsutils
 ```
 
 ## Examples

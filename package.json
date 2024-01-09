@@ -28,7 +28,7 @@
     "release:alpha": "yarn release-cli --prerelease alpha && run-s postrelease",
     "postrelease": "# then run `git push --follow-tags origin main && yarn build && npm publish ./dist --access=public` to publish"
   },
-  "dependencies": {
+  "peerDependencies": {
     "dayjs": "^1.x"
   },
   "devDependencies": {
@@ -37,6 +37,7 @@
     "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
+    "dayjs": "^1.x",
     "cz-git": "^1.6.1",
     "eslint": "^8.37.0",
     "jest": "^29.5.0",
