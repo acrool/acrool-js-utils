@@ -78,7 +78,7 @@ describe('regPattern', () => {
 
     it('should return a id attr for html', () => {
         const result = svgContent.match(regPattern.htmlAttrId);
-        expect(result[0]).toEqual(`id=\"icon_angle_up\"`);
+        expect(result[0]).toEqual('id=\"icon_angle_up\"');
     });
 
 });

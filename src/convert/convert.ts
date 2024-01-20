@@ -117,14 +117,12 @@ export function anyToBoolean(value: any, isNotBooleanToUndefined = true): boolea
  *
  * @param file
  */
-export function fileConvertBase64(file: File): Promise<string|undefined>{
-    const reader = new FileReader();
-    return new Promise(resolve => {
-        reader.onload = ev => {
-            // @ts-ignore
-            resolve(ev.target.result);
-        };
+export function fileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
         reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result?.toString().replace(/^.*,/, '') || '');
+        reader.onerror = error => reject(error);
     });
 }
 
@@ -135,7 +133,7 @@ export function fileConvertBase64(file: File): Promise<string|undefined>{
  * @param base64Str
  * @param contentType
  */
-export const base64ToBlob = (base64Str: string, contentType: string): Blob => {
+export function base64ToBlob(base64Str: string, contentType: string): Blob {
     contentType = contentType || '';
     const byteCharacters = atob(base64Str);
     const byteArrays = [];
@@ -150,5 +148,5 @@ export const base64ToBlob = (base64Str: string, contentType: string): Blob => {
     }
     const blob = new Blob(byteArrays, {type: contentType});
     return blob;
-};
+}
 
