@@ -118,11 +118,15 @@ export function anyToBoolean(value: any, isNotBooleanToUndefined = true): boolea
  * @param file
  */
 export function fileToBase64(file: File): Promise<string> {
+    const reader = new FileReader();
     return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result?.toString().replace(/^.*,/, '') || '');
+        reader.onload = ev => {
+            if(ev.target?.result){
+                resolve(ev.target.result as string);
+            }
+        };
         reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
     });
 }
 
