@@ -8,6 +8,11 @@ describe('regPattern', () => {
         expect(new RegExp(regPattern.number).test('a')).toBeFalsy();
     });
 
+    it('should return a true for number', () => {
+        expect(new RegExp(regPattern.double).test('110354.88')).toBeTruthy();
+        expect(new RegExp(regPattern.double).test('31321sa')).toBeFalsy();
+    });
+
     it('should return a true for email', () => {
         expect(new RegExp(regPattern.email).test('jack@mail.com')).toBeTruthy();
         expect(new RegExp(regPattern.email).test('jackmail.com')).toBeFalsy();
@@ -64,7 +69,7 @@ describe('regPattern', () => {
   </symbol></svg>`;
 
         const result = svgContent.match(regPattern.svg);
-        expect(result[0]).toEqual(svgResult);
+        expect(result && result[0]).toEqual(svgResult);
     });
 
     it('should return a symbol for html', () => {
@@ -73,12 +78,12 @@ describe('regPattern', () => {
   </symbol>`;
 
         const result = svgContent.match(regPattern.symbol);
-        expect(result[0]).toEqual(symbolResult);
+        expect(result && result[0]).toEqual(symbolResult);
     });
 
     it('should return a id attr for html', () => {
         const result = svgContent.match(regPattern.htmlAttrId);
-        expect(result[0]).toEqual('id=\"icon_angle_up\"');
+        expect(result && result[0]).toEqual('id=\"icon_angle_up\"');
     });
 
 });
