@@ -106,7 +106,7 @@ export function arrayJoin(arr: string[], separator: string): string{
  * @param sourceData
  * @param splitCount
  */
-export function splitArray(sourceData: unknown[], splitCount: number){
+export function splitArray<T>(sourceData: T[], splitCount: number){
     const manyCount = Math.ceil(sourceData.length / splitCount);
     const targetData = new Array(manyCount).fill([]);
     return targetData.map((imageRow, index) => {
