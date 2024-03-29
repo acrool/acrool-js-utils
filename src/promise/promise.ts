@@ -8,7 +8,7 @@ export function delay(ms: number) {
         setTimeout(() => {
             resolve(true);
         }, ms);
-    })
+    });
 }
 
 

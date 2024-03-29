@@ -52,8 +52,11 @@ import {formatCurrency} from 'bear-jsutils/number';
 import {objectKeys} from 'bear-jsutils/object';
 import {removeHtmlTag} from 'bear-jsutils/string';
 import {decodeQueryString} from 'bear-jsutils/uri';
+import {delay} from 'bear-jsutils/prmoise';
 ```
 
+## Add module
+./build-post-processors.js
 
 ## License
 
