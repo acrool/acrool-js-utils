@@ -134,6 +134,7 @@ export function fileToBase64(file: File): Promise<string> {
 
 /**
  * Base64 轉 Blob
+ * ex: JVBERi0xLjYNJeL...
  * @param base64Str
  * @param contentType
  */
@@ -152,5 +153,24 @@ export function base64ToBlob(base64Str: string, contentType: string): Blob {
     }
     const blob = new Blob(byteArrays, {type: contentType});
     return blob;
+}
+
+/**
+ * Base64 轉 Blob (包含 contentType)
+ * ex: data:application/acrobat;base64, JVBERi0xLjYNJeL...
+ *
+ * @param base64Str
+ */
+export function base64ToBlobWithContentType(base64Str: string): Blob|null {
+    const reg = new RegExp(/data:(.+);base64,/);
+    const t = reg.exec(base64Str);
+    if(t && t[0]){
+        const contentType = t[1];
+        const clearStr = base64Str.replace(t[0], '');
+        return base64ToBlob(clearStr, contentType);
+    }
+
+    return null;
+
 }
 
