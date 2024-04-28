@@ -3,7 +3,7 @@ import {
     upperLineToLowerCase,
     lowerLocaleToISOCode,
     lowerCaseToUpLineCase,
-    decodeToJson,
+    jsonDecode,
     removeStartEnd,
     dashToLowerCase,
     removeHtmlTag, filterNumber
@@ -53,8 +53,8 @@ describe('stringSplit', () => {
         const jsonObj = {name: 'jack'};
         const jsonString = JSON.stringify({name: 'jack'});
         const jsonErrorString = '{name:_\'jack\'}';
-        expect(decodeToJson(jsonString)).toStrictEqual(jsonObj);
-        expect(decodeToJson(jsonErrorString)).toBeUndefined();
+        expect(jsonDecode(jsonString)).toStrictEqual(jsonObj);
+        expect(jsonDecode(jsonErrorString)).toBeUndefined();
     });
 });
 

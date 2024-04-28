@@ -171,8 +171,11 @@ export function sort<T>(array: T[], fn: SortByFn<T>): T[] {
 }
 
 
-
-
+/**
+ * 生成排序方法
+ * @param selector
+ * @param order
+ */
 export function generateSortByProperty<T>(selector: (row: T) => any, order: SortOrder = 'ASC'): (a: T, b: T) => number {
     return function(a: T, b: T): number {
         const aValue = selector(a);
