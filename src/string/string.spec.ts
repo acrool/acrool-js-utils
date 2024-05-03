@@ -6,7 +6,7 @@ import {
     jsonDecode,
     removeStartEnd,
     dashToLowerCase,
-    removeHtmlTag, filterNumber
+    removeHtmlTag, filterNumber, decodeStrAndNumber, decodeStrAndNumberGroup
 } from './string';
 
 
@@ -108,4 +108,24 @@ describe('filterNumber', () => {
 
     // 其他邊界情況的測試，例如 undefined, 非數字字符串等
     // ...
+});
+
+
+
+describe('decodeStrAndNumber', () => {
+    it('should return a decode Str And Number', () => {
+        expect(decodeStrAndNumber('b12.31 22.11')).toStrictEqual(['b', 12.31, 22.11]);
+        expect(decodeStrAndNumber('b-12.31-22.11')).toStrictEqual(['b', -12.31, -22.11]);
+        expect(decodeStrAndNumber('a-45.22-35.21')).toStrictEqual(['a', -45.22, -35.21]);
+    });
+
+});
+
+describe('decodeStrAndNumberGroup', () => {
+    it('should return a decode Str And Number', () => {
+        expect(decodeStrAndNumberGroup('b12.31 22.11 a45.22 35.21')).toStrictEqual(['b12.31 22.11', 'a45.22 35.21']);
+        expect(decodeStrAndNumberGroup('b-12.31-22.11 a45.22-35.21')).toStrictEqual(['b-12.31-22.11', 'a45.22-35.21']);
+        // expect(decodeStrAndNumberGroup('a45.22 -35.21')).toStrictEqual(['a', 45.22, -35.21]);
+    });
+
 });

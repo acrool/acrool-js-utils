@@ -148,3 +148,28 @@ export function filterNumber(value: any, defaultValue = 0): number {
 
     return defaultValue;
 }
+
+/**
+ * 解析分離字串和數字(包含浮點數與負數)
+ * expect(decodeStrAndNumber('a-45.22-35.21')).toBe(['a', -45.22, -35.21]);
+ *
+ * @param value
+ */
+export function decodeStrAndNumber(value: string): Array<string|number> {
+    const reg = /(-?\d+(\.\d+)?)/g;
+    const num = value.match(reg);
+    const str = value.replace(reg, '').trim();
+    return [str, ...num?.map(Number) ?? []];
+}
+
+
+/**
+ * 解析分離字串和數字(包含浮點數與負數)
+ * expect(decodeStrAndNumber('a-45.22-35.21')).toBe(['a', -45.22, -35.21]);
+ *
+ * @param value
+ */
+export function decodeStrAndNumberGroup(value: string): Array<string|number> {
+    const res =  value.match(/[a-df-z][^a-df-z]*/ig) || [];
+    return res.map(row => row.trim());
+}
