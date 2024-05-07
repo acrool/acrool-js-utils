@@ -65,6 +65,10 @@ describe('rangeSimpleDate', () => {
     it('should return an empty string for undefined dates', () => {
         expect(rangeSimpleDate(undefined, undefined)).toBe('');
     });
+
+    it('should return an empty string for 0000-00-00 dates', () => {
+        expect(rangeSimpleDate('0000-00-00', '0000-00-00')).toBe('');
+    });
 });
 
 

@@ -81,7 +81,13 @@ export function simpleDate(dateString?: string|null): string{
 export function rangeSimpleDate(startDate?: string|null, endDate?: string|null): string{
 
     const date = [startDate, endDate]
-        .filter(day => day !== '' && day);
+        .filter(day => {
+            return (
+                day !== '' &&
+                day &&
+                day !== '0000-00-00'
+            );
+        });
 
     if(date.length === 1 || date[0] === date[1]){
         return simpleDate(date[0]);
