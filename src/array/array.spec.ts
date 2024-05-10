@@ -8,7 +8,7 @@ import {
     unique,
     groupBy,
     sort,
-    groupTreeBy
+    groupTreeBy, move
 } from './array';
 
 describe('pull', () => {
@@ -34,6 +34,21 @@ describe('push', () => {
     it('should return not modify source', () => {
         expect(sourceArray).toEqual([1, 2]);
     });
+});
+
+describe('move', () => {
+    const sourceArray = ['A', 'B', 'C'];
+
+    it('should return a [A, B, C] mvoe to [A, C, B]', () => {
+        const result = move(sourceArray, 1, 2);
+        expect(result).toStrictEqual(['A', 'C', 'B']);
+    });
+    it('should return a [A, B, C] mvoe to [C, A, B]', () => {
+        const result = move(sourceArray, 2, 0);
+        expect(result).toStrictEqual(['C', 'A', 'B']);
+        expect(sourceArray).toStrictEqual(['A', 'B', 'C']);
+    });
+
 });
 
 

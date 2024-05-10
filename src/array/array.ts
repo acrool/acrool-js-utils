@@ -25,6 +25,26 @@ export function push<T>(arrayData: T[], pushData: T): T[] {
 }
 
 /**
+ * 移動陣列順序 (immutable)
+ * ex: [A, B, C] -> [A, C, B]
+ *
+ * @param arrayData
+ * @param index
+ * @param toIndex
+ */
+export function move<T>(arrayData: T[], index: number, toIndex: number): T[] {
+    if (index === toIndex) {
+        return arrayData;
+    }
+
+    const newArrayData = [...arrayData];
+    const target = newArrayData[index];
+    newArrayData.splice(index, 1);
+    newArrayData.splice(toIndex, 0, target);
+    return newArrayData;
+}
+
+/**
  * 刪除陣列中的一筆資料 (immutable)
  * ps: 不用先複製, 方法內會複製出來
  * ex: [1,2,3] -> [1,3]
