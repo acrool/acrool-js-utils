@@ -8,7 +8,7 @@ import {
     unique,
     groupBy,
     sort,
-    groupTreeBy, move
+    groupTreeBy, move, insert
 } from './array';
 
 describe('pull', () => {
@@ -48,6 +48,18 @@ describe('move', () => {
         expect(result).toStrictEqual(['C', 'A', 'B']);
         expect(sourceArray).toStrictEqual(['A', 'B', 'C']);
     });
+
+});
+
+describe('insert', () => {
+    const sourceArray = ['A', 'B', 'C'];
+
+    it('should return a [A, B, C] insert to [A, D, B, C]', () => {
+        const result = insert(sourceArray, 1, 'D');
+        expect(result).toStrictEqual(['A', 'D', 'B', 'C']);
+        expect(sourceArray).toStrictEqual(['A', 'B', 'C']);
+    });
+
 
 });
 

@@ -25,6 +25,18 @@ export function push<T>(arrayData: T[], pushData: T): T[] {
 }
 
 /**
+ * 插入資料到陣列中
+ * ex: [A, B, C] -> [A, D, B, C]
+ *
+ * @param arrayData
+ * @param index
+ * @param data
+ */
+export function insert<T>(arrayData: T[], index: number, data: T): T[] {
+    return [...arrayData.slice(0, index), data, ...arrayData.slice(index)];
+}
+
+/**
  * 移動陣列順序 (immutable)
  * ex: [A, B, C] -> [A, C, B]
  *
@@ -43,6 +55,8 @@ export function move<T>(arrayData: T[], index: number, toIndex: number): T[] {
     newArrayData.splice(toIndex, 0, target);
     return newArrayData;
 }
+
+
 
 /**
  * 刪除陣列中的一筆資料 (immutable)
