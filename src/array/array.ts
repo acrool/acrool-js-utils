@@ -57,6 +57,19 @@ export function move<T>(arrayData: T[], index: number, toIndex: number): T[] {
 }
 
 
+/**
+ * 依賴 findIndex 後 removeByIndex
+ * @param arrayData
+ * @param fn
+ */
+export function removeFind<T>(arrayData: T[], fn: (item: T) => boolean): T[]{
+    const index = arrayData.findIndex(fn);
+    if(index === -1){
+        return arrayData;
+    }
+    return removeByIndex(arrayData, index);
+}
+
 
 /**
  * 刪除陣列中的一筆資料 (immutable)
