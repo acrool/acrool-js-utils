@@ -2,37 +2,38 @@ import {SortOrder, SortByFn, TGroupTreeBy, TGroupByFn} from './types';
 
 /**
  * 插入資料到陣列的第一筆 (immutable)
- * ps: 不用先複製, 方法內會複製出來
  * ex: [1,2] -> [3,1,2]
  *
  * @param arrayData
- * @param pushData
+ * @param pullData
  */
-export function pull<T>(arrayData: T[], pushData: T): T[] {
-    return [pushData].concat(arrayData.slice(0));
+export function pull<T>(arrayData: T[]|null, pullData: T): T[] {
+    if(!arrayData) return [pullData];
+    return [pullData].concat(arrayData.slice(0));
 }
 
 /**
  * 插入資料到陣列的結尾 (immutable)
- * ps: 不用先複製, 方法內會複製出來
  * ex: [1,2] -> [1,2,3]
  *
  * @param arrayData
  * @param pushData
  */
-export function push<T>(arrayData: T[], pushData: T): T[] {
+export function push<T>(arrayData: T[]|null, pushData: T): T[] {
+    if(!arrayData) return [pushData];
     return arrayData.slice(0).concat(pushData);
 }
 
 /**
- * 插入資料到陣列中
+ * 插入資料到陣列中 (immutable)
  * ex: [A, B, C] -> [A, D, B, C]
  *
  * @param arrayData
  * @param index
  * @param data
  */
-export function insert<T>(arrayData: T[], index: number, data: T): T[] {
+export function insert<T>(arrayData: T[]|null = [], index: number, data: T): T[] {
+    if(!arrayData) return [data];
     return [...arrayData.slice(0, index), data, ...arrayData.slice(index)];
 }
 

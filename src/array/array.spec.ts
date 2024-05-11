@@ -59,6 +59,10 @@ describe('insert', () => {
         expect(result).toStrictEqual(['A', 'D', 'B', 'C']);
         expect(sourceArray).toStrictEqual(['A', 'B', 'C']);
     });
+    it('should return a null insert to [A]', () => {
+        const result = insert(null, 1, 'A');
+        expect(result).toStrictEqual(['A']);
+    });
 
 
 });
