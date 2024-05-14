@@ -7,7 +7,7 @@ import {SortOrder, SortByFn, TGroupTreeBy, TGroupByFn} from './types';
  * @param arrayData
  * @param pullData
  */
-export function pull<T>(arrayData: T[]|null, pullData: T): T[] {
+export function pull<T>(arrayData: T[]|null|undefined, pullData: T): T[] {
     if(!arrayData) return [pullData];
     return [pullData].concat(arrayData.slice(0));
 }
@@ -19,7 +19,7 @@ export function pull<T>(arrayData: T[]|null, pullData: T): T[] {
  * @param arrayData
  * @param pushData
  */
-export function push<T>(arrayData: T[]|null, pushData: T): T[] {
+export function push<T>(arrayData: T[]|null|undefined, pushData: T): T[] {
     if(!arrayData) return [pushData];
     return arrayData.slice(0).concat(pushData);
 }
@@ -32,7 +32,7 @@ export function push<T>(arrayData: T[]|null, pushData: T): T[] {
  * @param index
  * @param data
  */
-export function insert<T>(arrayData: T[]|null = [], index: number, data: T): T[] {
+export function insert<T>(arrayData: T[]|null|undefined = [], index: number, data: T): T[] {
     if(!arrayData) return [data];
     return [...arrayData.slice(0, index), data, ...arrayData.slice(index)];
 }
@@ -45,7 +45,9 @@ export function insert<T>(arrayData: T[]|null = [], index: number, data: T): T[]
  * @param index
  * @param toIndex
  */
-export function move<T>(arrayData: T[], index: number, toIndex: number): T[] {
+export function move<T>(arrayData: T[]|null|undefined, index: number, toIndex: number): T[]|null|undefined {
+    if(!arrayData) return arrayData;
+
     if (index === toIndex) {
         return arrayData;
     }
@@ -63,7 +65,7 @@ export function move<T>(arrayData: T[], index: number, toIndex: number): T[] {
  * @param arrayData
  * @param fn
  */
-export function removeFind<T>(arrayData: T[], fn: (item: T) => boolean): T[]{
+export function removeFind<T>(arrayData: T[], fn: (item: T) => boolean): T[]|null|undefined{
     const index = arrayData.findIndex(fn);
     if(index === -1){
         return arrayData;
@@ -80,7 +82,9 @@ export function removeFind<T>(arrayData: T[], fn: (item: T) => boolean): T[]{
  * @param arrayData
  * @param index
  */
-export function removeByIndex<T>(arrayData: T[], index: number): T[] {
+export function removeByIndex<T>(arrayData: T[]|null|undefined, index: number): T[]|null|undefined {
+    if(!arrayData) return arrayData;
+
     if(index === -1 || index > arrayData.length - 1) return arrayData;
     return [...arrayData.slice(0, index), ...arrayData.slice(index + 1)];
 }
