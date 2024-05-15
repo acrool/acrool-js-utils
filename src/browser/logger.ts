@@ -3,6 +3,7 @@ const baseStyles = [
     'display: block',
     'line-height: 20px',
     'padding-right: 8px',
+    'border-radius: 10px',
 ];
 
 /**

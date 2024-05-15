@@ -45,7 +45,7 @@ export function insert<T>(arrayData: T[]|null|undefined = [], index: number, dat
  * @param index
  * @param toIndex
  */
-export function move<T>(arrayData: T[]|null|undefined, index: number, toIndex: number): T[]|null|undefined {
+export function move<T>(arrayData: T[], index: number, toIndex: number): T[] {
     if(!arrayData) return arrayData;
 
     if (index === toIndex) {
