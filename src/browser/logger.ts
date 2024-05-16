@@ -12,7 +12,7 @@ const baseStyles = [
  * @param styles 顯示樣式
  * @param watchData 需要印出的訊息
  */
-function messageConsole(title: string, styles: any, watchData?: any) {
+function messageConsole(title: string, styles: any, watchData: any) {
     // eslint-disable-next-line no-console
     console.log(`%c ${title}`, styles, watchData);
 }
@@ -22,7 +22,7 @@ function messageConsole(title: string, styles: any, watchData?: any) {
  * @param title
  * @param watchData
  */
-function primary(title: string, watchData?: any) {
+function primary(title: string, ...watchData: any) {
     const styles = baseStyles.concat([
         'background-color: #007bff',
     ]).join(';');
@@ -35,7 +35,7 @@ function primary(title: string, watchData?: any) {
  * @param title
  * @param watchData
  */
-function success(title: string, watchData?: any) {
+function success(title: string, ...watchData: any) {
     const styles = baseStyles.concat([
         'background-color: #28a745',
     ]).join(';');
@@ -48,7 +48,7 @@ function success(title: string, watchData?: any) {
  * @param title
  * @param watchData
  */
-function info(title: string, watchData?: any) {
+function info(title: string, ...watchData: any) {
     const styles = baseStyles.concat([
         'background-color: #17a2b8',
     ]).join(';');
@@ -61,7 +61,7 @@ function info(title: string, watchData?: any) {
  * @param title
  * @param watchData
  */
-function warning(title: string, watchData?: any) {
+function warning(title: string, ...watchData: any) {
     const styles = baseStyles.concat([
         'background-color: #ffc107',
     ]).join(';');
@@ -74,7 +74,7 @@ function warning(title: string, watchData?: any) {
  * @param title
  * @param watchData
  */
-function danger(title: string, watchData?: any) {
+function danger(title: string, ...watchData: any) {
     const styles = baseStyles.concat([
         'background-color: #ec2127',
     ]).join(';');
