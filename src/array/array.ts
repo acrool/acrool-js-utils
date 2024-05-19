@@ -1,51 +1,59 @@
-import {SortOrder, SortByFn, TGroupTreeBy, TGroupByFn} from './types';
+import {SortOrder, TSortByFn, TGroupTreeBy, TGroupByFn, TArrayOrEmpty} from './types';
 
 /**
- * 插入資料到陣列的第一筆 (immutable)
- * ex: [1,2] -> [3,1,2]
+ * 插入資料到陣列的第一筆
+ *
+ * pull([1,2], 3)
+ * > [3,1,2]
  *
  * @param arrayData
  * @param pullData
  */
-export function pull<T>(arrayData: T[]|null|undefined, pullData: T): T[] {
-    if(!arrayData) return [pullData];
-    return [pullData].concat(arrayData.slice(0));
+export function pull<T, A extends TArrayOrEmpty<T>>(arrayData: A, pullData: T): A {
+    if(!arrayData) return [pullData] as A;
+    return [pullData].concat(arrayData.slice(0)) as A;
 }
 
 /**
- * 插入資料到陣列的結尾 (immutable)
- * ex: [1,2] -> [1,2,3]
+ * 插入資料到陣列的結尾
+ *
+ * push([1,2], 3)
+ * > [1,2,3]
  *
  * @param arrayData
  * @param pushData
  */
-export function push<T>(arrayData: T[]|null|undefined, pushData: T): T[] {
-    if(!arrayData) return [pushData];
-    return arrayData.slice(0).concat(pushData);
+export function push<T, A extends TArrayOrEmpty<T>>(arrayData: A, pushData: T): T[] {
+    if(!arrayData) return [pushData] as T[];
+    return arrayData.slice(0).concat(pushData) as T[];
 }
 
 /**
- * 插入資料到陣列中 (immutable)
- * ex: [A, B, C] -> [A, D, B, C]
+ * 插入資料到陣列中
+ *
+ * insert([1,2,3], 1, 4)
+ * > [1,4,2,3]
  *
  * @param arrayData
  * @param index
  * @param data
  */
-export function insert<T>(arrayData: T[]|null|undefined = [], index: number, data: T): T[] {
-    if(!arrayData) return [data];
-    return [...arrayData.slice(0, index), data, ...arrayData.slice(index)];
+export function insert<T, A extends TArrayOrEmpty<T>>(arrayData: A, index: number, data: T): T[] {
+    if(!arrayData) return [data] as T[];
+    return [...arrayData.slice(0, index), data, ...arrayData.slice(index)] as T[];
 }
 
 /**
- * 移動陣列順序 (immutable)
- * ex: [A, B, C] -> [A, C, B]
+ * 移動陣列順序
+ *
+ * move([A, B, C], 1, 2)
+ * > [A, C, B]
  *
  * @param arrayData
  * @param index
  * @param toIndex
  */
-export function move<T>(arrayData: T[], index: number, toIndex: number): T[] {
+export function move<T, A extends TArrayOrEmpty<T>>(arrayData: A, index: number, toIndex: number): A {
     if(!arrayData) return arrayData;
 
     if (index === toIndex) {
@@ -56,50 +64,57 @@ export function move<T>(arrayData: T[], index: number, toIndex: number): T[] {
     const target = newArrayData[index];
     newArrayData.splice(index, 1);
     newArrayData.splice(toIndex, 0, target);
-    return newArrayData;
+    return newArrayData as A;
 }
 
 
 /**
  * 依賴 findIndex 後 removeByIndex
+ *
+ * removeFind([1,2,3], (item) => item === 2)
+ * > [1,3]
+ *
  * @param arrayData
  * @param fn
  */
-export function removeFind<T>(arrayData: T[], fn: (item: T) => boolean): T[]|null|undefined{
-    const index = arrayData.findIndex(fn);
+export function removeFind<T, A extends TArrayOrEmpty<T>>(arrayData: A, fn: (item: T) => boolean): A{
+    const index = arrayData?.findIndex(fn) ?? -1;
     if(index === -1){
         return arrayData;
     }
-    return removeByIndex(arrayData, index);
+    return removeByIndex(arrayData, index) as A;
 }
 
 
 /**
- * 刪除陣列中的一筆資料 (immutable)
- * ps: 不用先複製, 方法內會複製出來
- * ex: [1,2,3] -> [1,3]
+ * 刪除陣列中的一筆資料
+ *
+ * removeByIndex([1,2,3], 1)
+ * > [1,3]
  *
  * @param arrayData
  * @param index
  */
-export function removeByIndex<T>(arrayData: T[]|null|undefined, index: number): T[]|null|undefined {
+export function removeByIndex<T, A extends TArrayOrEmpty<T>>(arrayData: A, index: number): A {
     if(!arrayData) return arrayData;
 
     if(index === -1 || index > arrayData.length - 1) return arrayData;
-    return [...arrayData.slice(0, index), ...arrayData.slice(index + 1)];
+    return [...arrayData.slice(0, index), ...arrayData.slice(index + 1)] as A;
 }
 
 /**
- * 更改陣列中的一筆資料 (immutable)
- * ps: 不用先複製, 方法內會複製出來
- * ex: [{name: jack}] => [{name: 'imagine'}]
+ * 更改陣列中的一筆資料
+ *
+ * modifyByIndex([{name: 'jack'}], 0, {name: 'imagine'})
+ * > [{name: 'imagine'}]
  *
  * @param arrayData
  * @param index
  * @param indexModifyObj
  */
-export function modifyByIndex<T>(arrayData: T[], index: number, indexModifyObj: Partial<T>): T[] {
-    if(index === -1 || index > arrayData.length - 1) return arrayData;
+export function modifyByIndex<T, A extends TArrayOrEmpty<T>>(arrayData: A, index: number, indexModifyObj: Partial<T>): A {
+    if(index === -1 || !arrayData || index > arrayData.length - 1) return arrayData;
+
     // Copy new object
     const newDaa: T = {
         ...arrayData[index],
@@ -108,19 +123,23 @@ export function modifyByIndex<T>(arrayData: T[], index: number, indexModifyObj: 
     // Copy new array
     const newArrayData: T[] = [...arrayData];
     newArrayData[index] = newDaa;
-    return newArrayData;
+    return newArrayData as A;
 }
 
 
 
 /**
  * 取得陣列中的唯一值
- * ex: ['a', 'a', 'c'] -> ['a','c']
+ *
+ * unique(['a', 'a', 'c'])
+ * > ['a', 'c']
  *
  * @param data
  * @param selector
  */
-export function unique<T>(data: Array<T>, selector?: (item: T) => any): Array<T> {
+export function unique<T>(data: T[], selector?: (item: T) => any): T[] {
+    if(!data) return data;
+
     const uniqueItems = new Set();
     const result = new Array<T>();
 
@@ -139,37 +158,47 @@ export function unique<T>(data: Array<T>, selector?: (item: T) => any): Array<T>
 
 /**
  * 陣列轉字串 (發生例外錯誤回傳 空陣列)
- * @param arr
+ *
+ * arrayJoin(['a', 'b'], ',')
+ * > 'a,b'
+ *
+ * @param arrayData
  * @param separator
  */
-export function arrayJoin(arr: string[], separator: string): string{
+export function arrayJoin(arrayData: TArrayOrEmpty<string>, separator: string): string{
+    if(!arrayData) return '';
 
-    try {
-        return arr.join(separator);
-    } catch (err) {}
-
-    return '';
+    return arrayData.join(separator);
 }
 
 
 /**
  * 分割陣列
- * [1,2,3,4,5] => [[1,2], [3,4], [5]]
- * @param sourceData
+ *
+ * splitArray([1,2,3,4,5], 2)
+ * > [[1,2], [3,4], [5]]
+ *
+ * @param arrayData
  * @param splitCount
  */
-export function splitArray<T>(sourceData: T[], splitCount: number){
-    const manyCount = Math.ceil(sourceData.length / splitCount);
+export function splitArray<T, A extends TArrayOrEmpty<T>>(arrayData: A, splitCount: number){
+    if(!arrayData) return arrayData;
+
+    const manyCount = Math.ceil(arrayData.length / splitCount);
     const targetData = new Array(manyCount).fill([]);
     return targetData.map((imageRow, index) => {
-        return sourceData.slice(index * splitCount, (index*splitCount)+ splitCount);
+        return arrayData.slice(index * splitCount, (index*splitCount)+ splitCount);
     });
 }
 
 
 
 /**
- * Group (immutable)
+ * GroupBy
+ *
+ * groupBy([{name: 'a', age: 1}, {name: 'b', age: 2}], (item) => item.age)
+ * > {1: [{name: 'a', age: 1}], 2: [{name: 'b', age: 2}]}
+ *
  * @param array
  * @param fn
  */
@@ -186,7 +215,18 @@ export function groupBy<T>(array: T[], fn: TGroupByFn<T>): Record<string | numbe
 
 
 /**
- * Group TreeBy (immutable)
+ * Group TreeBy
+ *
+ * groupTreeBy([{name: 'a', age: 1}, {name: 'b', age: 2}], (item) => {
+ *    return {
+ *      groupKey: item.age,
+ *      groupData: {age: item.age},
+ *      child: item
+ *    }
+ * })
+ * > [{age: 1, children: [{name: 'a', age: 1}]}, {age: 2, children: [{name: 'b', age: 2}]}]
+ *
+ *
  * @param array
  * @param groupByFn
  */
@@ -212,11 +252,15 @@ export function groupTreeBy<T, D, C>(array: T[], groupByFn: TGroupTreeBy<T, D, C
 
 
 /**
- * Sort 排序陣列 (immutable)
+ * Sort
+ *
+ * sort([3,2,1], (a, b) => a - b)
+ * > [1,2,3]
+ *
  * @param array
  * @param fn
  */
-export function sort<T>(array: T[], fn: SortByFn<T>): T[] {
+export function sort<T>(array: T[], fn: TSortByFn<T>): T[] {
     const clone = [...array];
     clone.sort(fn);
     return clone;
