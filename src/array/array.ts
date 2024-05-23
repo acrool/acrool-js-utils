@@ -1,4 +1,4 @@
-import {SortOrder, TSortByFn, TGroupTreeBy, TGroupByFn, TArrayOrEmpty} from './types';
+import {SortOrder, TSortByFn, TGroupTreeBy, TGroupByFn, TArrayOrEmpty, TEmpty} from './types';
 
 /**
  * 插入資料到陣列的第一筆
@@ -77,12 +77,40 @@ export function move<T, A extends TArrayOrEmpty<T>>(arrayData: A, index: number,
  * @param arrayData
  * @param fn
  */
-export function removeFind<T, A extends TArrayOrEmpty<T>>(arrayData: A, fn: (item: T) => boolean): A{
-    const index = arrayData?.findIndex(fn) ?? -1;
+export function removeFind<T, A extends TArrayOrEmpty<T>>(arrayData: T[]|A, fn: (item: T) => boolean): A{
+    if(!arrayData) return arrayData;
+
+    const index = arrayData.findIndex(fn);
     if(index === -1){
-        return arrayData;
+        return arrayData as A;
     }
     return removeByIndex(arrayData, index) as A;
+}
+
+/**
+ * 依賴 findIndex 後 updateByIndex
+ *
+ * updateFind([
+ *    {id: 1, text: 'a'},
+ *    {id: 2, text: 'b'},
+ * ], 1, (item) => item.text = 'X')
+ * > [
+ *    {id: 1, text: 'a'},
+ *    {id: 2, text: 'X'},
+ *   ]
+ *
+ * @param arrayData
+ * @param fn
+ * @param updateEntity
+ */
+export function updateFind<T, A extends TArrayOrEmpty<T>>(arrayData: T[]|A, fn: (item: T) => boolean, updateEntity: (item: T) => void): A{
+    if(!arrayData) return arrayData;
+
+    const index = arrayData.findIndex(fn);
+    if(index === -1){
+        return arrayData as A;
+    }
+    return updateByIndex(arrayData, index, updateEntity) as A;
 }
 
 
@@ -95,31 +123,31 @@ export function removeFind<T, A extends TArrayOrEmpty<T>>(arrayData: A, fn: (ite
  * @param arrayData
  * @param index
  */
-export function removeByIndex<T, A extends TArrayOrEmpty<T>>(arrayData: A, index: number): A {
+export function removeByIndex<T, A extends TArrayOrEmpty<T>>(arrayData: T[]|A, index: number): A {
     if(!arrayData) return arrayData;
 
-    if(index === -1 || index > arrayData.length - 1) return arrayData;
+    if(index === -1 || index > arrayData.length - 1) return arrayData as A;
     return [...arrayData.slice(0, index), ...arrayData.slice(index + 1)] as A;
 }
 
 /**
  * 更改陣列中的一筆資料
  *
- * modifyByIndex([{name: 'jack'}], 0, {name: 'imagine'})
+ * updateByIndex([{name: 'jack'}], 0, {name: 'imagine'})
  * > [{name: 'imagine'}]
  *
  * @param arrayData
  * @param index
- * @param indexModifyObj
+ * @param updateFn
  */
-export function modifyByIndex<T, A extends TArrayOrEmpty<T>>(arrayData: A, index: number, indexModifyObj: Partial<T>): A {
-    if(index === -1 || !arrayData || index > arrayData.length - 1) return arrayData;
+export function updateByIndex<T, A extends TArrayOrEmpty<T>>(arrayData: T[]|A, index: number, updateFn: (item: T) => void): A {
+    if(index === -1 || !arrayData || index > arrayData.length - 1) return arrayData as A;
 
     // Copy new object
-    const newDaa: T = {
-        ...arrayData[index],
-        ...indexModifyObj,
-    };
+    const newDaa: T = {...arrayData[index]};
+
+    updateFn(newDaa);
+
     // Copy new array
     const newArrayData: T[] = [...arrayData];
     newArrayData[index] = newDaa;

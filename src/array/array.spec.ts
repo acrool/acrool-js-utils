@@ -3,12 +3,12 @@ import {
     push,
     arrayJoin,
     removeByIndex,
-    modifyByIndex,
+    updateByIndex,
     splitArray,
     unique,
     groupBy,
     sort,
-    groupTreeBy, move, insert, generateSortByProperty
+    groupTreeBy, move, insert, generateSortByProperty, updateFind, removeFind
 } from './array';
 
 
@@ -88,7 +88,36 @@ describe('array', () => {
     });
 
 
-    describe('modifyByIndex', () => {
+    describe('removeFind', () => {
+        const sourceArray = [
+            {id: 1, name: 'jack'},
+            {id: 2, name: 'imagine'},
+            {id: 3, name: 'gary'},
+        ];
+        const sourceCheckDiffArray = [
+            {id: 1, name: 'jack'},
+            {id: 3, name: 'gary'},
+        ];
+
+        const result = removeFind(sourceArray, row => row?.id === 2);
+
+        it('should return a [1, 2, 3] for [1, 2] remove 3', () => {
+            expect(result).toStrictEqual(sourceCheckDiffArray);
+        });
+
+        it('should return not modify source', () => {
+            const targetArray = [
+                {id: 1, name: 'jack'},
+                {id: 2, name: 'imagine'},
+                {id: 3, name: 'gary'},
+            ];
+
+            expect(sourceArray).toEqual(targetArray);
+        });
+    });
+
+
+    describe('updateByIndex', () => {
         const sourceArray = [
             {id: 1, name: 'jack'},
             {id: 2, name: 'imagine'},
@@ -100,7 +129,37 @@ describe('array', () => {
             {id: 3, name: 'gary'},
         ];
 
-        const result = modifyByIndex(sourceArray, 0, {name: 'jack wu'});
+        const result = updateByIndex(sourceArray, 0, row => row.name = 'jack wu');
+
+        it('should return a [1, 2, 3] for [1, 2] remove 3', () => {
+
+            const targetArray = [
+                {id: 1, name: 'jack wu'},
+                {id: 2, name: 'imagine'},
+                {id: 3, name: 'gary'},
+            ];
+            expect(result).toStrictEqual(targetArray);
+        });
+
+        it('should return not modify source', () => {
+            expect(sourceArray).toEqual(sourceCheckDiffArray);
+        });
+    });
+
+
+    describe('updateFind', () => {
+        const sourceArray = [
+            {id: 1, name: 'jack'},
+            {id: 2, name: 'imagine'},
+            {id: 3, name: 'gary'},
+        ];
+        const sourceCheckDiffArray = [
+            {id: 1, name: 'jack'},
+            {id: 2, name: 'imagine'},
+            {id: 3, name: 'gary'},
+        ];
+
+        const result = updateFind(sourceArray, row => row.id === 1, row => row.name = 'jack wu');
 
         it('should return a [1, 2, 3] for [1, 2] remove 3', () => {
 
