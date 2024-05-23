@@ -159,7 +159,10 @@ describe('array', () => {
             {id: 3, name: 'gary'},
         ];
 
-        const result = updateFind(sourceArray, row => row.id === 1, row => row.name = 'jack wu');
+        const result = updateFind(sourceArray, {
+            finder: row => row.id === 1,
+            updater: row => row.name = 'jack wu'
+        });
 
         it('should return a [1, 2, 3] for [1, 2] remove 3', () => {
 

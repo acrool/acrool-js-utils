@@ -93,24 +93,30 @@ export function removeFind<T, A extends TArrayOrEmpty<T>>(arrayData: T[]|A, fn: 
  * updateFind([
  *    {id: 1, text: 'a'},
  *    {id: 2, text: 'b'},
- * ], 1, (item) => item.text = 'X')
+ * ],{
+ *   finder: (item) => item.id === 2,
+ *   updater: (item) => { item.text = 'X'; }
+ * }
+ * )
  * > [
  *    {id: 1, text: 'a'},
  *    {id: 2, text: 'X'},
  *   ]
  *
  * @param arrayData
- * @param fn
- * @param updateEntity
+ * @param args
  */
-export function updateFind<T, A extends TArrayOrEmpty<T>>(arrayData: T[]|A, fn: (item: T) => boolean, updateEntity: (item: T) => void): A{
+export function updateFind<T, A extends TArrayOrEmpty<T>>(arrayData: T[]|A, args: {
+    finder: (item: T) => boolean,
+    updater: (item: T) => void
+}): A{
     if(!arrayData) return arrayData;
 
-    const index = arrayData.findIndex(fn);
+    const index = arrayData.findIndex(args.finder);
     if(index === -1){
         return arrayData as A;
     }
-    return updateByIndex(arrayData, index, updateEntity) as A;
+    return updateByIndex(arrayData, index, args.updater) as A;
 }
 
 
