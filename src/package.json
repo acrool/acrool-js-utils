@@ -14,5 +14,8 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "peerDependencies": {
+    "dayjs": "^1.x"
   }
 }
