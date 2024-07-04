@@ -149,8 +149,18 @@ export const copyToClipboard = (
  * @param fileName
  */
 export const downloadBlob = (blob: Blob, fileName: string): void =>  {
+    downloadUrl(window.URL.createObjectURL(blob), fileName);
+};
+
+
+/**
+ * 下載 Url (ex: base64 url)
+ * @param url
+ * @param fileName
+ */
+export const downloadUrl = (url: string, fileName: string): void =>  {
     const a = document.createElement('a');
-    a.href = window.URL.createObjectURL(blob);
+    a.href = url;
     a.download = fileName;
     a.click();
 };
