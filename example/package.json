@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "bear-jsutils": "link:..",
+    "bear-jsutils": "link:../src",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

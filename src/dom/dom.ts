@@ -167,3 +167,11 @@ export const getVisiblePosition = (el: HTMLElement) => {
     const bottom = window.innerHeight - top;
     return bottom > top ? 'bottom': 'top';
 };
+
+
+/**
+ * 讓注視中的元素 失去焦點
+ */
+export const activeElementBlur = () => {
+    (document.activeElement as HTMLElement).blur();
+};
