@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.5](https://github.com/imagine10255/bear-jsutils/compare/v3.2.5-alpha.16...v3.2.5) (2024-07-14)
+
 ### [3.2.5-alpha.16](https://github.com/imagine10255/bear-jsutils/compare/v3.2.5-alpha.15...v3.2.5-alpha.16) (2024-07-04)
 
 ### [3.2.5-alpha.15](https://github.com/imagine10255/bear-jsutils/compare/v3.2.5-alpha.14...v3.2.5-alpha.15) (2024-07-04)
