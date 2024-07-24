@@ -1,6 +1,6 @@
 {
-  "name": "bear-jsutils/date",
-  "description": "Bear JS utilities for Date manipulation",
+  "name": "@acrool/js-utils/date",
+  "description": "Acrool JS utilities for Date manipulation",
   "private": true,
   "main": "./index.cjs.js",
   "module": "./index.es.js",

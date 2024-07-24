@@ -1,6 +1,6 @@
 {
-  "name": "bear-jsutils/array",
-  "description": "Bear JS utilities for Array manipulation",
+  "name": "@acrool/js-utils/array",
+  "description": "Acrool JS utilities for Array manipulation",
   "private": true,
   "main": "./index.cjs.js",
   "module": "./index.es.js",

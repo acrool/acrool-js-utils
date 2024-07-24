@@ -1,6 +1,6 @@
 {
-  "name": "bear-jsutils/convert",
-  "description": "Bear JS utilities for Convert manipulation",
+  "name": "@acrool/js-utils/convert",
+  "description": "Acrool JS utilities for Convert manipulation",
   "private": true,
   "main": "./index.cjs.js",
   "module": "./index.es.js",

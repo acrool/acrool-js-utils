@@ -1,6 +1,6 @@
 {
-  "name": "bear-jsutils/object",
-  "description": "Bear JS utilities for Object manipulation",
+  "name": "@acrool/js-utils/object",
+  "description": "Acrool JS utilities for Object manipulation",
   "private": true,
   "main": "./index.cjs.js",
   "module": "./index.es.js",

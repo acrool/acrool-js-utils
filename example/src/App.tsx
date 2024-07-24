@@ -1,7 +1,7 @@
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import {pull} from 'bear-jsutils/array';
-import {simpleDate} from 'bear-jsutils/date';
+import {pull} from '@acrool/js-utils/array';
+import {simpleDate} from '@acrool/js-utils/date';
 
 import './App.css';
 import './bootstrap-base.min.css';
@@ -28,7 +28,7 @@ function App() {
             <div className="card">
                 <div>
                 <code>
-                   import {pull} from 'bear-jsutils/array';
+                   import {pull} from '@acrool/js-utils/array';
 
                    const res = pull(['a', 'b'], 'c').join('-');
                 </code>
@@ -36,7 +36,7 @@ function App() {
                 </div>
                 <div>
                     <code>
-                        import {simpleDate} from 'bear-jsutils/date';
+                        import {simpleDate} from '@acrool/js-utils/date';
 
                         const date = simpleDate('2023-04-04');
                     </code>

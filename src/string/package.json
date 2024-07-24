@@ -1,6 +1,6 @@
 {
-  "name": "bear-jsutils/string",
-  "description": "Bear JS utilities for String manipulation",
+  "name": "@acrool/js-utils/string",
+  "description": "Acrool JS utilities for String manipulation",
   "private": true,
   "main": "./index.cjs.js",
   "module": "./index.es.js",

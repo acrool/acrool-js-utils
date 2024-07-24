@@ -1,6 +1,6 @@
 {
-  "name": "bear-jsutils/dom",
-  "description": "Bear JS utilities for Dom manipulation",
+  "name": "@acrool/js-utils/dom",
+  "description": "Acrool JS utilities for Dom manipulation",
   "private": true,
   "main": "./index.cjs.js",
   "module": "./index.es.js",
