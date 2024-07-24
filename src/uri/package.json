@@ -1,6 +1,6 @@
 {
-  "name": "bear-jsutils/uri",
-  "description": "Bear JS utilities for URI manipulation",
+  "name": "@acrool/js-utils/uri",
+  "description": "Acrool JS utilities for URI manipulation",
   "private": true,
   "main": "./index.cjs.js",
   "module": "./index.es.js",

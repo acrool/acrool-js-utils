@@ -1,4 +1,4 @@
-# Bear JS Utils / Equal
+# Acrool JS Utils / Equal
 
 <p>
     Determining if it's empty (including 0, empty array, blank string, null, empty object), whether it's JSON, and Compose matching.
@@ -10,7 +10,7 @@
 **isEmpty**
 
 ```ts
-import {isEmpty} from 'bear-jsutils/equal';
+import {isEmpty} from '@acrool/js-utils/equal';
 
 isEmpty('');
 // true

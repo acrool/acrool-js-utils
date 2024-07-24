@@ -1,4 +1,4 @@
-# Bear JS Utils
+# Acrool JS Utils
 
 <p align="center">
     This is a commonly used JS toolbox, designed to facilitate rapid daily development.
@@ -6,10 +6,10 @@
 
 <div align="center">
 
-[![NPM](https://img.shields.io/npm/v/bear-jsutils.svg?style=for-the-badge)](https://www.npmjs.com/package/bear-jsutils)
-[![npm downloads](https://img.shields.io/npm/dm/bear-jsutils.svg?style=for-the-badge)](https://www.npmjs.com/package/bear-jsutils)
-[![npm](https://img.shields.io/npm/dt/bear-jsutils.svg?style=for-the-badge)](https://www.npmjs.com/package/bear-jsutils)
-[![npm](https://img.shields.io/npm/l/bear-jsutils?style=for-the-badge)](https://github.com/imagine10255/bear-jsutils/blob/main/LICENSE)
+[![NPM](https://img.shields.io/npm/v/acrool/js-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/acrool/js-utils)
+[![npm downloads](https://img.shields.io/npm/dm/acrool/js-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/acrool/js-utils)
+[![npm](https://img.shields.io/npm/dt/acrool/js-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/acrool/js-utils)
+[![npm](https://img.shields.io/npm/l/acrool/js-utils?style=for-the-badge)](https://github.com/acrool/acrool/js-utils/blob/main/LICENSE)
 
 </div>
 
@@ -34,7 +34,7 @@ type use `strictNullChecks` and `strictNullChecks`
 date peerDependencies [dayjs](https://day.js.org/) library
 
 ```bash
-yarn add dayjs bear-jsutils
+yarn add dayjs @acrool/js-utils
 ```
 
 ## Examples
@@ -42,23 +42,30 @@ yarn add dayjs bear-jsutils
 These are examples of imports for various types. Refer to the documentation inside each library for other methods.
 
 ```tsx
-import {groupBy} from 'bear-jsutils/array';
-import {getScrollHeight} from 'bear-jsutils/browser';
-import {emptyToNull} from 'bear-jsutils/convert';
-import {simpleDate} from 'bear-jsutils/date';
-import {copyToClipboard} from 'bear-jsutils/dom';
-import {isEmpty, isNotEmpty} from 'bear-jsutils/equal';
-import {formatCurrency} from 'bear-jsutils/number';
-import {objectKeys} from 'bear-jsutils/object';
-import {removeHtmlTag} from 'bear-jsutils/string';
-import {decodeQueryString} from 'bear-jsutils/uri';
-import {delay} from 'bear-jsutils/prmoise';
+import {groupBy} from '@acrool/js-utils/array';
+import {getScrollHeight} from '@acrool/js-utils/browser';
+import {emptyToNull} from '@acrool/js-utils/convert';
+import {simpleDate} from '@acrool/js-utils/date';
+import {copyToClipboard} from '@acrool/js-utils/dom';
+import {isEmpty, isNotEmpty} from '@acrool/js-utils/equal';
+import {formatCurrency} from '@acrool/js-utils/number';
+import {objectKeys} from '@acrool/js-utils/object';
+import {removeHtmlTag} from '@acrool/js-utils/string';
+import {decodeQueryString} from '@acrool/js-utils/uri';
+import {delay} from '@acrool/js-utils/prmoise';
 ```
 
 ## Add module
 ./build-post-processors.js
 
+
+# Publishing
+
+```bash
+$ yarn build && npm publish ./dist --access=public
+```
+
 ## License
 
-MIT © [imagine10255](https://github.com/imagine10255)
+MIT © [Acrool](https://github.com/acrool) & [Imagine](https://github.com/imagine10255)
 

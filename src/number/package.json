@@ -1,6 +1,6 @@
 {
-  "name": "bear-jsutils/number",
-  "description": "Bear JS utilities for Number manipulation",
+  "name": "@acrool/js-utils/number",
+  "description": "Acrool JS utilities for Number manipulation",
   "private": true,
   "main": "./index.cjs.js",
   "module": "./index.es.js",

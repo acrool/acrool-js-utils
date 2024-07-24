@@ -1,6 +1,6 @@
 {
-  "name": "bear-jsutils/promise",
-  "description": "Bear JS utilities for about promise",
+  "name": "@acrool/js-utils/promise",
+  "description": "Acrool JS utilities for about promise",
   "private": true,
   "main": "./index.cjs.js",
   "module": "./index.es.js",

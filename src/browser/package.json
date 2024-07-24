@@ -1,6 +1,6 @@
 {
-  "name": "bear-jsutils/browser",
-  "description": "Bear JS utilities for Browser manipulation",
+  "name": "@acrool/js-utils/browser",
+  "description": "Acrool JS utilities for Browser manipulation",
   "private": true,
   "main": "./index.cjs.js",
   "module": "./index.es.js",

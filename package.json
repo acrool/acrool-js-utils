@@ -1,10 +1,10 @@
 {
-  "name": "bear-jsutils",
+  "name": "@acrool/js-utils",
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/imagine10255/bear-jsutils.git"
+    "url": "https://github.com/acrool/acrool/js-utils.git"
   },
   "engines": {
     "node": ">=14"
