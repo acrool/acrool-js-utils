@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/acrool/acrool/js-utils.git"
+    "url": "https://github.com/acrool/js-utils.git"
   },
   "engines": {
     "node": ">=14"
@@ -27,6 +27,9 @@
     "release:patch": "yarn release-cli -r patch && run-s postrelease",
     "release:alpha": "yarn release-cli --prerelease alpha && run-s postrelease",
     "postrelease": "# then run `git push --follow-tags origin main && yarn build && npm publish ./dist --access=public` to publish"
+  },
+  "peerDependencies": {
+    "dayjs": "^1.x"
   },
   "devDependencies": {
     "@originjs/vite-plugin-commonjs": "1.0.3",

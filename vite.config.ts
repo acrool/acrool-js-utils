@@ -27,9 +27,6 @@ export default defineConfig({
     ],
     build: {
         sourcemap: process.env.NODE_ENV !== 'production',
-        rollupOptions: {
-            external: ['dayjs'],
-        },
         outDir: 'dist',
         lib: {
             entry: entries,

@@ -9,7 +9,7 @@
 [![NPM](https://img.shields.io/npm/v/acrool/js-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/@acrool/js-utils)
 [![npm downloads](https://img.shields.io/npm/dm/acrool/js-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/acrool/js-utils)
 [![npm](https://img.shields.io/npm/dt/acrool/js-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/acrool/js-utils)
-[![npm](https://img.shields.io/npm/l/acrool/js-utils?style=for-the-badge)](https://github.com/acrool/acrool/js-utils/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/l/acrool/js-utils?style=for-the-badge)](https://github.com/acrool/js-utils/blob/main/LICENSE)
 
 </div>
 
@@ -34,7 +34,7 @@ type use `strictNullChecks` and `strictNullChecks`
 date peerDependencies [dayjs](https://day.js.org/) library
 
 ```bash
-yarn add dayjs @acrool/js-utils
+yarn add @acrool/js-utils
 ```
 
 ## Examples
