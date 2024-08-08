@@ -36,7 +36,7 @@ type use `strictNullChecks` and `strictNullChecks`
 
 ## Installation
 
-date peerDependencies [dayjs](https://day.js.org/) library
+date dependencies [dayjs](https://day.js.org/) library
 
 ```bash
 yarn add @acrool/js-utils
