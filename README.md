@@ -11,8 +11,7 @@
 <div align="center">
 
 [![NPM](https://img.shields.io/npm/v/@acrool/js-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/@acrool/js-utils)
-[![npm](https://img.shields.io/bundlejs/size/@acrool/js-utils?style=for-the-badge)](https://github.com/acrool/@acrool/js-utils/blob/main/LICENSE)
-[![npm](https://img.shields.io/npm/l/@acrool/js-utils?style=for-the-badge)](https://github.com/acrool/js-utils/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/l/@acrool/js-utils?style=for-the-badge)](https://github.com/acrool/acrool-js-utils/blob/main/LICENSE)
 
 [![npm downloads](https://img.shields.io/npm/dm/@acrool/js-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/@acrool/js-utils)
 [![npm](https://img.shields.io/npm/dt/@acrool/js-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/@acrool/js-utils)

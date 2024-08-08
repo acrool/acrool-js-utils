@@ -10,7 +10,7 @@
 
 **simpleDate**
 
-簡化顯示日期 ( 如果日期在當前年份，則僅顯示月和日。)
+Simplified display of dates (If the date is in the current year, only the month and day are displayed.)
 
 ```ts
 import {simpleDate} from '@acrool/js-utils/date'
@@ -24,7 +24,7 @@ simpleDate(`${currentYear}-03-20 12:30:45`)
 
 **simpleDateTime**
 
-格式化日期和時間 ( 如果日期在當前年份，則僅顯示月和日。)
+Format date and time (If the date is in the current year, only the month and day are displayed.)
 
 ```ts
 import {simpleDateTime} from '@acrool/js-utils/date'
@@ -38,7 +38,7 @@ simpleDateTime(`${currentYear}-03-02 12:30:00`)
 
 **rangeSimpleDate**
 
-獲得日期範圍的簡化表示 ( 如果日期在當前年份，則僅顯示月和日。)
+Gets a simplified representation of the date range (If the date is in the current year, only the month and day are displayed.)
 
 ```ts
 import {rangeSimpleDate} from '@acrool/js-utils/date'
@@ -54,7 +54,7 @@ rangeSimpleDate(`${currentYear}-03-20'` ,`'${currentYear}-05-11`)
 
 **formatTotalSeconds**
 
-總秒數轉換時間物件
+Total seconds converted time object
 
 ```ts
 import {formatTotalSeconds} from '@acrool/js-utils/date'
@@ -67,7 +67,7 @@ formatTotalSeconds(104483, true)
 
 **formatSecondToString**
 
-總秒數轉換時間戳字串
+Convert total seconds to timestamp string
 
 ```ts
 import {formatSecondToString} from '@acrool/js-utils/date'

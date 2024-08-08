@@ -10,7 +10,7 @@
 
 **getScrollHeight**
 
-取得捲軸的總高度
+Get the total height of the scroll
 
 ```ts
 import {getScrollHeight} from '@acrool/js-utils/browser'
@@ -21,7 +21,7 @@ getScrollHeight()
 
 **getWindowHeight**
 
-取得瀏覽器顯示的高度
+Get the height displayed by the browser
 
 ```ts
 import {getWindowHeight} from '@acrool/js-utils/browser'

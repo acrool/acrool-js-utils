@@ -10,7 +10,7 @@
 
 **numToDecimal2**
 
-保留小數第二位
+Keep the second decimal place
 
 ```ts
 import {numToDecimal2} from '@acrool/js-utils/number'
@@ -21,7 +21,7 @@ numToDecimal2(2000)
 
 **formatCurrency**
 
-千分位格式化
+Thousands formatting
 
 ```ts
 import {formatCurrency} from '@acrool/js-utils/number'
@@ -34,7 +34,7 @@ formatCurrency(2000, true)
 
 **intersectionMin**
 
-取得數組中的交集最小範圍
+Get the minimum range of intersection in an array
 
 ```ts
 import {intersectionMin} from '@acrool/js-utils/number'

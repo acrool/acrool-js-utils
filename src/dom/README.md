@@ -10,113 +10,111 @@
 
 **hasClass**
 
-判斷 elements 中的 css class
+Determine the css class in elements
 
-```tsx
-<div className="App">
-    <div id="test" className='test'>test</div> 
-</div>
+```html
+<div id="testEl" class="promotion_wrapper">test</div> 
 ```
+
 ```tsx
 import {hasClass} from '@acrool/js-utils/dom';
 
-var dom = document.getElementById('test');
-console.log(hasClass(dom, 'test'));
+var dom = document.getElementById('testEl');
+console.log(hasClass(dom, 'promotion_wrapper'));
 // true
 ```
 
 **addClass**
 
-在 elements 中新增 css class
+Add css class in elements
 
-```tsx
-<div className="App">
-    <div id="test">test</div>
-</div>
+```html
+<div id="testEl">MyName</div>
 ```
 
 ```tsx
 import {addClass} from '@acrool/js-utils/dom';
 
-var dom = document.getElementById('test');
-addClass(dom, 'test');
+var dom = document.getElementById('testEl');
+addClass(dom, 'promotion_wrapper');
 ```
+
 output
-```tsx
-<div className="App">
-    <div id="test" className="test">test</div>
-</div>
+```html
+<div id="testEl" class="promotion_wrapper">MyName</div>
 ```
 
 **removeClass**
 
-刪除 elements 中的 css class
-```tsx
-<div className="App">
-    <div className="test">test</div>
-</div>
+Delete css class in elements
+
+```html
+<div id="testEl" class="promotion_wrapper hidden">MyName</div>
 ```
 ```tsx
 import {removeClass} from '@acrool/js-utils/dom';
 
-var dom = document.getElementsByClassName('test');
-removeClass(dom, 'test');
+var dom = document.getElementsByClassName('testEl');
+removeClass(dom, 'hidden');
 ```
 output
-```tsx
-<div className="App">
-    <div>test</div>
-</div>
+```html
+<div id="testEl" class="promotion_wrapper">MyName</div>
 ````
 
 **insertIFrame**
 
-插入IFrame
+Insert iframe in <body>x</body>
 
 ```tsx
 import {insertIFrame} from '@acrool/js-utils/dom';
 
-insertIFrame('iframe', 'https://www.google.com/');
+insertIFrame('promotion', 'https://www.google.com/');
 ```
 
 output
-```tsx
+
+```html
 <html>
     <body>
-        <iframe id="iframe" src="https://www.google.com/" scrolling="no" width="0" height="0"></iframe> {/* <~ add this */}
+        <iframe id="promotion" src="https://www.google.com/" scrolling="no" width="0" height="0"/>
     </body>
 </html>
 ```
 
 **insertScriptContent**
 
-插入Script
+Insert script content in <head>x</head>
 
 ```tsx
 import {insertScriptContent} from '@acrool/js-utils/dom';
 
-insertScriptContent('content', 'test content');
+insertScriptContent('info', 'console.log("version: v5.0.0")');
 ```
 output
-```tsx
+
+```html
 <html>
     <head>
-        <script id="content">test content</script> {/* <~ add this */}
+        <script id="info">
+            console.log("version: v5.0.0")
+        </script>
     </head>
 </html>
 ```
 
 **insertScriptSrc**
 
-插入Script
+Insert script in <body>x</body>
 
 ```tsx
 import {insertScriptSrc} from '@acrool/js-utils/dom';
 
 insertScriptSrc('content', 'https://www.google.com/');
 ```
+
 output
-```tsx
+```html
 <html>
     <body>
         <script type="module" src="/src/main.tsx?t=1722597359935"></script> {/* <~ add this */}
@@ -126,18 +124,20 @@ output
 
 **copyToClipboard**
 
-複製字串到剪貼簿
+Copy string to clipboard
 
 ```ts
 import {copyToClipboard} from '@acrool/js-utils/dom';
 
 copyToClipboard('abcd');
-//'abcd'為複製的內容
+
+// Ctrl + V
+// > abcd
 ```
 
 **downloadBlob**
 
-下載 Blob
+Download blob
 
 ```tsx
 import {downloadBlob} from '@acrool/js-utils/dom';
@@ -149,7 +149,7 @@ downloadBlob(blob);
 
 **downloadUrl**
 
-下載 Url
+Download url
 
 ```ts
 import {downloadUrl} from '@acrool/js-utils/dom';
@@ -159,20 +159,22 @@ downloadUrl('data:image/jpeg;base64,kZJRgABAQAAkACQAAD...', 'name');
 
 **getVisiblePosition**
 
-取得適合的顯示位置  
-ex: 取得下拉選單位置，並判斷上下位置哪邊較大
+Get a suitable display position
+ex: Get the position of the drop-down menu and determine which side of the upper and lower positions is larger
 
 ```ts
 import {getVisiblePosition} from '@acrool/js-utils/dom';
 
-const select = document.getElementsByClassName("select");
+const select = document.getElementsById('categorySelect');
+
 getVisiblePosition(select);
+
 // bottom or top
 ```
 
 **activeElementBlur**
 
-讓注視中的元素 失去焦點
+Make the element you are looking at lose focus
 
 ```ts
 import {activeElementBlur} from '@acrool/js-utils/dom';

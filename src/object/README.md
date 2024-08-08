@@ -10,7 +10,7 @@
 
 **filterIsTrue**
 
-過濾物件 Value 等於 true 的收集為陣列
+Filter objects whose Value is equal to true and collect them into arrays
 
 ```ts
 import {filterIsTrue} from '@acrool/js-utils/object'
@@ -21,7 +21,7 @@ filterIsTrue({_1: true, _2: false, _3: true})
 
 **autoMapper**
 
-物件對應轉換
+Object mapping conversion
 
 ```ts
 import {autoMapper} from '@acrool/js-utils/object'
@@ -32,7 +32,7 @@ autoMapper({name: 'jack', age: 30}, {name: 'id', data: 'body'})
 
 **reverseObj**
 
-反轉物件    
+Invert object
 
 ```ts
 import {reverseObj} from '@acrool/js-utils/object'
@@ -43,7 +43,7 @@ reverseObj({name: 'jack'})
 
 **objectKeys**
 
-將物件的 key 轉成陣列
+Convert the object's key to an array
 
 ```ts
 import {objectKeys} from '@acrool/js-utils/object'
@@ -54,7 +54,9 @@ objectKeys({name: 'jack', year: 12})
 
 **objToFormData**
 
-將物件資料轉成 FormData (最多兩層)
+Convert object data to FormData (up to two levels)
+
+> This is useful when the API interface format is formData
 
 ```ts
 import {objToFormData} from '@acrool/js-utils/object'

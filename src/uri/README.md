@@ -10,7 +10,7 @@
 
 **encodeQueryString**
 
-Obj 轉 QueryString
+Obj to QueryString
 
 ```ts
 import {encodeQueryString} from '@acrool/js-utils/uri'
@@ -21,7 +21,7 @@ encodeQueryString({keyword: '블랙프라이데이 (BlackFriday)', sex: 'F'})
 
 **decodeQueryString**
 
-解析 Search QueryString 轉成 物件
+Parse Search QueryString into object
 
 ```ts
 import {decodeQueryString} from '@acrool/js-utils/uri'
@@ -32,7 +32,7 @@ decodeQueryString('?keyword=jack&sex=F')
 
 **getProtocolDomain**
 
-取得網域
+Get domain
 
 ```ts
 import {getProtocolDomain} from '@acrool/js-utils/uri'
@@ -43,7 +43,7 @@ getProtocolDomain('http://www.google.com:8080/test?keyword=jack')
 
 **getMainDomain**
 
-取得主網域(二級域名)
+Obtain the main domain (secondary domain name)
 
 ```ts
 import {getMainDomain} from '@acrool/js-utils/uri'
@@ -54,7 +54,7 @@ getMainDomain('http://www.google.com')
 
 **getSubDomain**
 
-取得子網域(最後一段)
+Get subdomain (last paragraph)
 
 ```ts
 import {getSubDomain} from '@acrool/js-utils/uri'
@@ -65,7 +65,7 @@ getSubDomain('http://www.google.com')
 
 **urlJoin**
 
-將字串合併成一個完整的 URL
+Combine strings into a complete URL
 
 ```ts
 import {urlJoin} from '@acrool/js-utils/uri'

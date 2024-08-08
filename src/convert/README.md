@@ -10,7 +10,7 @@
 
 **rgbToHex**
 
-RGB轉HEX(16進位)色碼
+RGB to HEX (hexadecimal) color code
 
 ```ts
 import {rgbToHex} from '@acrool/js-utils/convert'
@@ -21,7 +21,7 @@ rgbToHex('rgb(0,0,0)')
 
 **hexToRGB**
 
-HEX(16進位)色碼轉 RGB，若提供透明度參數轉 RGBA
+Convert HEX (hexadecimal) color code to RGB, if transparency parameter is provided, convert to RGBA
 
 ```ts
 import {hexToRGB} from '@acrool/js-utils/convert'
@@ -34,7 +34,7 @@ hexToRGB('#000000', .7)
 
 **emptyToNull**
 
-空值轉Null
+Convert empty value to Null
 
 ```ts
 import {emptyToNull} from '@acrool/js-utils/convert'
@@ -47,7 +47,7 @@ emptyToNull(undefined)
 
 **anyToNumber**
 
-將value轉數字
+Convert value to number
 
 ```ts
 import {anyToNumber} from '@acrool/js-utils/convert'
@@ -62,7 +62,7 @@ anyToNumber('test')
 
 **anyToBoolean**
 
-轉布林
+transfer brin
 
 ```ts
 import {anyToBoolean} from '@acrool/js-utils/convert'
@@ -79,7 +79,7 @@ anyToBoolean(7)
 
 **fileToBase64**
 
-File 轉 Base64Str
+File to Base64Str
 
 ```ts
 import {fileToBase64} from '@acrool/js-utils/convert'
@@ -90,7 +90,7 @@ fileToBase64(file)
 
 **base64ToBlob**
 
-Base64 轉 Blob
+Base64 to Blob
 
 ```ts
 import {base64ToBlob} from '@acrool/js-utils/convert'
@@ -101,7 +101,7 @@ base64ToBlob('JVBERi0xLjYNJeL...', 'data:application/acrobat;base64')
 
 **base64ToBlobWithContentType**
 
-Base64 轉 Blob (包含 contentType)
+Base64 to Blob (including contentType)
 
 ```ts
 import {base64ToBlobWithContentType} from '@acrool/js-utils/convert'

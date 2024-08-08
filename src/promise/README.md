@@ -10,7 +10,7 @@
 
 **delay**
 
-延遲 ( 毫秒 )
+Delay (ms)
 
 ```ts
 import {delay} from '@acrool/js-utils/prmoise'

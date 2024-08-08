@@ -4,13 +4,13 @@
     Methods related to handling arrays, such as groupBy, unique, deleting arrays, and immutable methods for adding to arrays.
 </p>
 
-
+> Has immutability and type inference
 
 ## Features
 
 **pull**
 
-插入資料到陣列的第一筆
+Insert data into the first entry of the array
 
 ```ts
 import {pull} from '@acrool/js-utils/array'
@@ -21,7 +21,7 @@ pull(['A', 'B'], 'C')
 
 **push**
 
-插入資料到陣列的最後一筆
+Insert data into the last entry of the array
 
 ```ts
 import {push} from '@acrool/js-utils/array'
@@ -32,7 +32,7 @@ push(['A', 'B'], 'C')
 
 **insert**
 
-插入資料到陣列中
+Insert data into array
 
 ```ts
 import {insert} from '@acrool/js-utils/array'
@@ -43,7 +43,7 @@ insert(['A', 'B', 'C'], 1, 'D')
 
 **move**
 
-移動陣列順序
+Move array order
 
 ```ts
 import {move} from '@acrool/js-utils/array'
@@ -54,7 +54,7 @@ move(['A', 'B', 'C'], 1, 2)
 
 **removeFind**
 
-刪除陣列中的一筆資料
+Delete an item of data in the array
 
 ```ts
 import {removeFind} from '@acrool/js-utils/array'
@@ -72,7 +72,7 @@ removeFind([
 
 **updateFind**
 
-更改陣列中的一筆資料
+Change an item in an array
 
 ```ts
 import {updateFind} from '@acrool/js-utils/array'
@@ -94,7 +94,7 @@ updateFind([
 
 **removeByIndex**
 
-刪除陣列中的一筆資料
+Delete an item of data in the array
 
 ```ts
 import {removeByIndex} from '@acrool/js-utils/array'
@@ -105,7 +105,7 @@ removeByIndex(['A', 'B', 'C'], 1)
 
 **updateByIndex**
 
-更改陣列中的一筆資料
+Change an item in an array
 
 ```ts
 import {updateByIndex} from '@acrool/js-utils/array'
@@ -124,7 +124,7 @@ updateByIndex([
 
 **unique**
 
-取得陣列中的唯一值
+Get unique value in array
 
 ```ts
 import {unique} from '@acrool/js-utils/array'
@@ -135,7 +135,7 @@ unique(['a', 'b', 'b', 'c', 'c'])
 
 **arrayJoin**
 
-陣列轉字串
+Array to string
 
 ```ts
 import {arrayJoin} from '@acrool/js-utils/array'
@@ -146,7 +146,7 @@ arrayJoin(['uploads', 'profile'], '/')
 
 **splitArray**
 
-分割陣列
+split array
 
 ```ts
 import {splitArray} from '@acrool/js-utils/array'
@@ -157,7 +157,7 @@ splitArray([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)
 
 **groupBy**
 
-將陣列裡的資料分類
+Classify the data in the array
 
 ```ts
 import {groupBy} from '@acrool/js-utils/array'
@@ -184,7 +184,7 @@ groupBy([
 
 **groupTreeBy**
 
-將陣列裡的資料分類
+Classify the data in the array
 
 ```ts
 import {groupTreeBy} from '@acrool/js-utils/array'
@@ -230,7 +230,7 @@ groupTreeBy([
 
 **sort**
 
-將陣列依順序排列
+Arrange array in order
 
 ```ts
 import {sort} from '@acrool/js-utils/array'
@@ -249,7 +249,7 @@ sort([
 
 **generateSortByProperty**
 
-生成排序方法後比對資料排序
+Generate sorting methods and then compare data sorting
 
 ```ts
 import {generateSortByProperty} from '@acrool/js-utils/array'
