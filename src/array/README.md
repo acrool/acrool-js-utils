@@ -8,7 +8,7 @@
 
 ## Features
 
-**pull**
+## pull
 
 Insert data into the first entry of the array
 
@@ -19,7 +19,7 @@ pull(['A', 'B'], 'C')
 // ['C', 'A', 'B']
 ```
 
-**push**
+## push
 
 Insert data into the last entry of the array
 
@@ -30,7 +30,7 @@ push(['A', 'B'], 'C')
 // ['A', 'B', 'C']
 ```
 
-**insert**
+## insert
 
 Insert data into array
 
@@ -41,7 +41,7 @@ insert(['A', 'B', 'C'], 1, 'D')
 // ['A', 'D', 'B', 'C']
 ```
 
-**move**
+## move
 
 Move array order
 
@@ -52,7 +52,7 @@ move(['A', 'B', 'C'], 1, 2)
 // ['A', 'C', 'B']
 ```
 
-**removeFind**
+## removeFind
 
 Delete an item of data in the array
 
@@ -70,7 +70,7 @@ removeFind([
 // ]
 ```
 
-**updateFind**
+## updateFind
 
 Change an item in an array
 
@@ -92,7 +92,7 @@ updateFind([
 // ]
 ```
 
-**removeByIndex**
+## removeByIndex
 
 Delete an item of data in the array
 
@@ -103,7 +103,7 @@ removeByIndex(['A', 'B', 'C'], 1)
 // ['A', 'C']
 ```
 
-**updateByIndex**
+## updateByIndex
 
 Change an item in an array
 
@@ -122,7 +122,7 @@ updateByIndex([
 // ]
 ```
 
-**unique**
+## unique
 
 Get unique value in array
 
@@ -133,7 +133,7 @@ unique(['a', 'b', 'b', 'c', 'c'])
 // ['a', 'b', 'c']
 ```
 
-**arrayJoin**
+## arrayJoin
 
 Array to string
 
@@ -144,7 +144,7 @@ arrayJoin(['uploads', 'profile'], '/')
 // uploads/profile
 ```
 
-**splitArray**
+## splitArray
 
 split array
 
@@ -155,7 +155,7 @@ splitArray([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)
 // [ [1,2], [3,4], [5,6], [7,8], [9] ]
 ```
 
-**groupBy**
+## groupBy
 
 Classify the data in the array
 
@@ -182,7 +182,7 @@ groupBy([
 // }
 ```
 
-**groupTreeBy**
+## groupTreeBy
 
 Classify the data in the array
 
@@ -228,9 +228,9 @@ groupTreeBy([
 // ]
 ```
 
-**sort**
+## sort
 
-Arrange array in order
+`(immuable)` array in order
 
 ```ts
 import {sort} from '@acrool/js-utils/array'
@@ -247,7 +247,7 @@ sort([
 // ]
 ```
 
-**generateSortByProperty**
+## generateSortByProperty
 
 Generate sorting methods and then compare data sorting
 
