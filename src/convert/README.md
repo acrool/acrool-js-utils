@@ -109,3 +109,18 @@ import {base64ToBlobWithContentType} from '@acrool/js-utils/convert'
 base64ToBlobWithContentType('data:application/acrobat;base64, JVBERi0xLjYNJeL...')
 // Blob {size: 11, type: 'application/acrobat'}
 ```
+
+
+
+**objToFormData**
+
+Convert object data to FormData (up to two levels)
+
+> This is useful when the API interface format is formData
+
+```ts
+import {objToFormData} from '@acrool/js-utils/object'
+
+objToFormData({profile: {name: 'jack'}})
+// FormData {}
+```

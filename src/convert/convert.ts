@@ -174,3 +174,39 @@ export function base64ToBlobWithContentType(base64Str: string): Blob|null {
 
 }
 
+
+
+/**
+ * 將物件資料轉成 FormData
+ * ex: {
+ *     profile: {name: 'jack'}
+ * }
+ *
+ * @param data
+ */
+export function objToFormData(data: { [key: string]: any }): FormData {
+    const formData = new FormData() as any;
+
+    const appendData = (whileData: any, parentKey = '') => {
+        for (const [key, value] of Object.entries(whileData)) {
+            const formKey = parentKey ? `${parentKey}[${key}]` : key;
+
+            if (Array.isArray(value)) {
+                value.forEach((item, index) => {
+                    if (typeof item === 'object' && item !== null) {
+                        appendData(item, `${formKey}[${index}]`);
+                    } else {
+                        formData.append(`${formKey}[${index}]`, item);
+                    }
+                });
+            } else if (typeof value === 'object' && value !== null) {
+                appendData(value, formKey);
+            } else if (value !== undefined && value !== null) {
+                formData.append(formKey, value);
+            }
+        }
+    };
+
+    appendData(data);
+    return formData;
+}

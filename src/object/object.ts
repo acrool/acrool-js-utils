@@ -1,4 +1,3 @@
-
 /**
  * 過濾物件keyValue中, 將等於true的收集為陣列
  * ex: {_1: false, _2: true} -> [2]
@@ -7,56 +6,18 @@
  * @param checkedId
  */
 export function filterIsTrue(checkedId: {
-    [key: string]: string|number|boolean|undefined
+    [key: string]: string | number | boolean | undefined
 }): number[] {
     const ids = [];
-    for(const id in checkedId){
+    for (const id in checkedId) {
         // 過濾掉不等於 true 的 Key
-        if(checkedId[id]){
-            ids.push(Number(id.replace('_','')));
+        if (checkedId[id]) {
+            ids.push(Number(id.replace('_', '')));
         }
     }
     return ids;
 }
 
-
-
-/**
- * 將物件資料轉成 FormData (最多兩層)
- * ex: {
- *     profile: {name: 'jack'}
- * }
- *
- * @param data
- */
-export function objToFormData(data: {[key: string]: any}): FormData {
-    const formData = new FormData() as any;
-
-    const appendData = (whileData: any) => {
-        for(const [key, value] of Object.entries(whileData)){
-            if(Array.isArray(value)){
-                let i = 0;
-                for(const w of value){
-                    if(typeof w === 'object'){
-                        for(const [objKey, objVal] of Object.entries(w)){
-                            // @ts-ignore
-                            formData.append(`${key}[${i}][${objKey}]`, objVal);
-                        }
-                    }else{
-                        formData.append(`${key}[${i}]`, w);
-                    }
-                    i += 1;
-                }
-            }else if(typeof value !== 'undefined' && value !== null){
-                // @ts-ignore
-                formData.append(key, value);
-            }
-        }
-    };
-
-    appendData(data);
-    return formData;
-}
 
 
 
@@ -67,14 +28,13 @@ export function objToFormData(data: {[key: string]: any}): FormData {
  * use: reverseObj({'name': 'jack'})
  * @param obj
  */
-export function reverseObj<T = any>(obj: {[key: string]: any}): T {
+export function reverseObj<T = any>(obj: { [key: string]: any }): T {
     const prev = {} as any;
     return Object.entries(obj)
         .reduce((prev, [key, value]: any) => {
             return {...prev, [value]: key};
         }, prev);
 }
-
 
 
 /**

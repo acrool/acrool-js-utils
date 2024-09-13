@@ -1,4 +1,4 @@
-import {anyToNumber, rgbToHex, hexToRGB, anyToBoolean, emptyToNull} from './convert';
+import {anyToNumber, rgbToHex, hexToRGB, anyToBoolean, emptyToNull, objToFormData} from './convert';
 
 describe('rgbToHex', () => {
     it('should return a hex string for rgb(0,0,0)', () => {
@@ -85,3 +85,86 @@ describe('anyToBoolean', () => {
     });
 });
 
+
+
+
+
+describe('objToFormData', () => {
+    const formDataToObject = (formData: FormData) => {
+        const obj: any = {};
+        formData.forEach((value, key) => {
+            if (key.includes('[')) {
+                // Handles array-like keys, such as `profile[0][name]`
+                const keys = key.split(/\[|]\[|]/).filter(Boolean);
+                keys.reduce((acc, cur, idx) => {
+                    if (idx === keys.length - 1) {
+                        acc[cur] = value;
+                    } else {
+                        if (!acc[cur]) {
+                            acc[cur] = isNaN(Number(keys[idx + 1])) ? {} : [];
+                        }
+                    }
+                    return acc[cur];
+                }, obj);
+            } else {
+                obj[key] = value;
+            }
+        });
+        return obj;
+    };
+
+    it('should convert an object to FormData', () => {
+        const data = {
+            name: 'Jack',
+            age: 30,
+            profile: {
+                username: 'jacky'
+            }
+        };
+
+        const formData = objToFormData(data);
+        const result = formDataToObject(formData);
+
+        expect(result).toEqual({
+            name: 'Jack',
+            age: '30', // FormData always stores values as strings
+            profile: {
+                username: 'jacky'
+            }
+        });
+    });
+
+    it('should handle arrays and nested objects in FormData', () => {
+        const data = {
+            files: [
+                {name: 'file1.txt', size: '123KB'},
+                {name: 'file2.txt', size: '456KB'}
+            ]
+        };
+
+        const formData = objToFormData(data);
+        const result = formDataToObject(formData);
+
+        expect(result).toEqual({
+            files: [
+                {name: 'file1.txt', size: '123KB'},
+                {name: 'file2.txt', size: '456KB'}
+            ]
+        });
+    });
+
+    it('should skip undefined or null values', () => {
+        const data = {
+            name: 'Jack',
+            age: null,
+            profile: undefined
+        };
+
+        const formData = objToFormData(data);
+        const result = formDataToObject(formData);
+
+        expect(result).toEqual({
+            name: 'Jack'
+        });
+    });
+});

@@ -51,16 +51,3 @@ import {objectKeys} from '@acrool/js-utils/object'
 objectKeys({name: 'jack', year: 12})
 // ['name', 'year']
 ```
-
-**objToFormData**
-
-Convert object data to FormData (up to two levels)
-
-> This is useful when the API interface format is formData
-
-```ts
-import {objToFormData} from '@acrool/js-utils/object'
-
-objToFormData({profile: {name: 'jack'}})
-// FormData {}
-```
