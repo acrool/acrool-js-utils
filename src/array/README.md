@@ -274,3 +274,16 @@ fn(arrayData[0], arrayData[1]);
 fn(arrayData[2], arrayData[1]);
 // 1
 ```
+
+
+## generatorArray
+
+Generate count item
+
+```ts
+import {generatorArray} from '@acrool/js-utils/array'
+
+generatorArray(3);
+
+// ['skeleton_0', 'skeleton_1', 'skeleton_2']
+```

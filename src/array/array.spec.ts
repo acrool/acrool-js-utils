@@ -8,7 +8,7 @@ import {
     unique,
     groupBy,
     sort,
-    groupTreeBy, move, insert, generateSortByProperty, updateFind, removeFind
+    groupTreeBy, move, insert, generateSortByProperty, updateFind, removeFind, generatorArray
 } from './array';
 
 
@@ -466,3 +466,33 @@ describe('array', () => {
 
 });
 
+
+
+
+describe('generatorArray', () => {
+    it('should generate an array of specified count with default prefix', () => {
+        const count = 3;
+        const result = generatorArray(count, 'card_');
+
+        expect(result).toEqual(['card_0', 'card_1', 'card_2']);
+    });
+
+    it('should generate an array of specified count without prefix', () => {
+        const count = 3;
+        const result = generatorArray(count);
+
+        expect(result).toEqual(['skeleton_0', 'skeleton_1', 'skeleton_2']);
+    });
+
+    it('should return an empty array when count is 0', () => {
+        const result = generatorArray(0, 'skeleton_');
+
+        expect(result).toEqual([]);
+    });
+
+    it('should handle negative count values and return an empty array', () => {
+        const result = generatorArray(-1, 'skeleton_');
+
+        expect(result).toEqual([]);
+    });
+});

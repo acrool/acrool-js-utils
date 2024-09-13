@@ -320,3 +320,13 @@ export function generateSortByProperty<T>(selector: (row: T) => any, order: Sort
         return 0;
     };
 }
+
+
+/**
+ * 生成 Array 數量
+ * @param count 生成多少個
+ * @param prefixKeyName 前綴 Key name
+ */
+export const generatorArray = (count: number, prefixKeyName = 'skeleton_') => {
+    return Array.from({length: count}).map((row, idx) => `${prefixKeyName}${idx}`);
+};
