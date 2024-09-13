@@ -1,6 +1,6 @@
 {
   "name": "@acrool/js-utils",
-  "version": "3.2.10-alpha.0",
+  "version": "3.2.10",
   "description": "Common javascript utils methods for project development",
   "keywords": [
     "typescript",
