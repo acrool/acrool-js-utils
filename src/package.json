@@ -16,6 +16,6 @@
     "node": ">=14"
   },
   "dependencies": {
-    "dayjs": "^1.11.12"
+    "dayjs": "^1.x"
   }
 }
