@@ -163,11 +163,14 @@ describe('isDate', () => {
 describe('isIp', () => {
     it('should return a true for ip', () => {
         expect(isIP('192.168.1.10')).toBeTruthy();
+        expect(isIP('1.168.11.11')).toBeTruthy();
     });
 
     it('should return a false for value exceeded date', () => {
         expect(isIP('192.168.299.299')).toBeFalsy();
         expect(isIP('a.d.12312')).toBeFalsy();
+        expect(isIP('2402:7500:a17:f8')).toBeFalsy();
+        expect(isIP('::1')).toBeFalsy();
     });
 
     it('should return a false for non-ip format', () => {
