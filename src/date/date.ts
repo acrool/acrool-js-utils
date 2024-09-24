@@ -146,5 +146,34 @@ export const formatSecondToString = (totalSeconds: number, isVisibleMinimumUnitO
         return [...curr, paddingLeft(unitStr, 2)];
     }, [] as string[])
         .join(':');
-
 };
+
+
+/**
+ * 毫秒轉秒數
+ * @param millisecond 毫秒
+ * @param isDecimal 是否保留小數
+ */
+export const millisecondToSeconds = (millisecond: number, isDecimal = false) => {
+    const res = millisecond / 1000;
+    return isDecimal ? Math.floor(res) : res;
+};
+
+
+/**
+ * 分鐘轉毫秒
+ * @param minute 分數
+ */
+export const minuteToMillisecond = (minute: number) => minute * 60 * 1000;
+
+/**
+ * 小時轉毫秒
+ * @param hour 小時
+ */
+export const hourToMillisecond = (hour: number) => minuteToMillisecond(hour * 60);
+
+/**
+ * 天轉毫秒
+ * @param day
+ */
+export const dayToMillisecond = (day: number) => hourToMillisecond(day * 24);

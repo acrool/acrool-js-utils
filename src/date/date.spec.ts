@@ -1,5 +1,12 @@
 import dayjs from 'dayjs';
-import {rangeSimpleDate, simpleDate, simpleDateTime, formatSecondToString, formatTotalSeconds} from './date';
+import {
+    rangeSimpleDate,
+    simpleDate,
+    simpleDateTime,
+    formatSecondToString,
+    formatTotalSeconds,
+    millisecondToSeconds, dayToMillisecond, hourToMillisecond, minuteToMillisecond
+} from './date';
 
 
 describe('simpleDateTime', () => {
@@ -102,5 +109,40 @@ describe('formatSecondToString', () => {
     });
     it('should return a formatted 104400 second to HH:mm:ss', () => {
         expect(formatSecondToString(104400)).toBe('29:00:00');
+    });
+});
+
+
+
+
+
+
+describe('millisecondToSeconds', () => {
+    it('should 3000 millisecond to 3 sec', () => {
+        expect(millisecondToSeconds(3000)).toEqual(3);
+    });
+    it('should 3500 millisecond to 3 sec', () => {
+        expect(millisecondToSeconds(3500)).toEqual(3.5);
+    });
+});
+
+
+describe('minuteToMillisecond', () => {
+    it('should 1 minute to 60000 sec', () => {
+        expect(minuteToMillisecond(1)).toEqual(60000);
+    });
+});
+
+
+describe('hourToMillisecond', () => {
+    it('should 1 hour to 3600000 sec', () => {
+        expect(hourToMillisecond(1)).toEqual(3600000);
+    });
+});
+
+
+describe('dayToMillisecond', () => {
+    it('should 1 millisecond to 86400000 millisecond', () => {
+        expect(dayToMillisecond(1)).toEqual(86400000);
     });
 });

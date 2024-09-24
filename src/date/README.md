@@ -79,3 +79,53 @@ formatSecondToString(121, true)
 formatSecondToString(104483)
 // 29:01:23
 ```
+
+
+**millisecondToSeconds**
+
+Convert millisecond to seconds
+
+```ts
+import {millisecondToSeconds} from '@acrool/js-utils/date'
+
+millisecondToSeconds(3500)
+// 3.5
+millisecondToSeconds(35000, true)
+// 3
+```
+
+
+**minuteToMillisecond**
+
+Convert minute to millisecond
+
+```ts
+import {minuteToMillisecond} from '@acrool/js-utils/date'
+
+minuteToMillisecond(1)
+// 60000
+```
+
+
+**hourToMillisecond**
+
+Convert hour to millisecond
+
+```ts
+import {hourToMillisecond} from '@acrool/js-utils/date'
+
+hourToMillisecond(1)
+// 3600000
+```
+
+
+**dayToMillisecond**
+
+Convert day to millisecond
+
+```ts
+import {dayToMillisecond} from '@acrool/js-utils/date'
+
+dayToMillisecond(1)
+// 86400000
+```
