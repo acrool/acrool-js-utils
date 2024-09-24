@@ -209,13 +209,13 @@ export function arrayJoin(arrayData: TArrayOrEmpty<string>, separator: string): 
 /**
  * 分割陣列
  *
- * splitArray([1,2,3,4,5], 2)
+ * arraySplit([1,2,3,4,5], 2)
  * > [[1,2], [3,4], [5]]
  *
  * @param arrayData
  * @param splitCount
  */
-export function splitArray<T, A extends TArrayOrEmpty<T>>(arrayData: A, splitCount: number){
+export function arraySplit<T, A extends TArrayOrEmpty<T>>(arrayData: A, splitCount: number){
     if(!arrayData) return arrayData;
 
     const manyCount = Math.ceil(arrayData.length / splitCount);
