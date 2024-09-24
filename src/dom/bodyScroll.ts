@@ -4,16 +4,12 @@ import {addClass, hasClass, removeClass} from './dom';
 window.disableBodyModalCount = 0;
 
 /**
+ * @Deprecated 計畫與
  * 需加上 model-open 樣式
- *
  * body.modal-open{
- *   position: fixed;
- *   top: 0;
- *   right: 0;
- *   bottom: 0;
- *   left: 0;
- *   overflow: hidden;
- *   overscroll-behavior-x: contain; // chrome 滑動上一頁下一頁
+ *     overflow: hidden;
+ *     overscroll-behavior-x: contain;
+ *     max-width: 100vw;
  * }
  */
 function disableBodyScroll(printLog = false){
