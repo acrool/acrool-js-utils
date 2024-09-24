@@ -207,6 +207,16 @@ export function arrayJoin(arrayData: TArrayOrEmpty<string>, separator: string): 
 
 
 /**
+ * 取得陣列第一筆資料
+ * arraySplit(['a','b','c']);
+ * > a
+ */
+export function arrayFirst<T>(array?: T[]): T | undefined {
+    return array?.[0];
+}
+
+
+/**
  * 分割陣列
  *
  * arraySplit([1,2,3,4,5], 2)
