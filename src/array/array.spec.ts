@@ -8,7 +8,15 @@ import {
     unique,
     groupBy,
     sort,
-    groupTreeBy, move, insert, generateSortByProperty, updateFind, removeFind, generatorArray, arrayFirst
+    groupTreeBy,
+    move,
+    insert,
+    generateSortByProperty,
+    updateFind,
+    removeFind,
+    generatorArray,
+    arrayFirst,
+    generatorArrayToggle
 } from './array';
 
 
@@ -505,5 +513,47 @@ describe('generatorArray', () => {
         const result = generatorArray(-1, 'skeleton_');
 
         expect(result).toEqual([]);
+    });
+});
+
+
+
+
+
+describe('generatorArrayToggle', () => {
+    it('should toggle through an array of strings', () => {
+        const toggle = generatorArrayToggle(['a', 'b', 'c']);
+
+        expect(toggle('a')).toBe('b');
+        expect(toggle('b')).toBe('c');
+        expect(toggle('c')).toBe('a');
+    });
+
+    it('should work with numbers', () => {
+        const toggle = generatorArrayToggle([1, 2, 3]);
+
+        expect(toggle(1)).toBe(2);
+        expect(toggle(2)).toBe(3);
+        expect(toggle(3)).toBe(1);
+    });
+
+    it('should return the next item in array with mixed types', () => {
+        const toggle = generatorArrayToggle(['a', 1, true]);
+
+        expect(toggle('a')).toBe(1);
+        expect(toggle(1)).toBe(true);
+        expect(toggle(true)).toBe('a');
+    });
+
+    it('should handle array with single element', () => {
+        const toggle = generatorArrayToggle(['only']);
+
+        expect(toggle('only')).toBe('only');
+    });
+
+    it('should return first if current value is not in the array', () => {
+        const toggle = generatorArrayToggle(['a', 'b', 'c']);
+
+        expect(toggle('vvv')).toBe('a');
     });
 });

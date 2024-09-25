@@ -287,3 +287,21 @@ generatorArray(3);
 
 // ['skeleton_0', 'skeleton_1', 'skeleton_2']
 ```
+
+
+## generatorArrayToggle
+
+toggle array to next -> next -> next loop
+
+```ts
+import {generatorArray} from '@acrool/js-utils/array'
+
+const toggle = generatorArrayToggle(['a','b','c']);
+toggle(a) 
+// b
+toggle(b) 
+// c
+toggle(c)
+// a
+
+```

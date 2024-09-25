@@ -211,9 +211,16 @@ export function arrayJoin(arrayData: TArrayOrEmpty<string>, separator: string): 
  * arraySplit(['a','b','c']);
  * > a
  */
-export function arrayFirst<T>(array?: T[]): T | undefined {
+export function arrayFirst<T = undefined>(array?: T[]) {
     return array?.[0];
 }
+
+
+
+
+
+
+
 
 
 /**
@@ -340,3 +347,26 @@ export function generateSortByProperty<T>(selector: (row: T) => any, order: Sort
 export const generatorArray = (count: number, prefixKeyName = 'skeleton_') => {
     return Array.from({length: count}).map((row, idx) => `${prefixKeyName}${idx}`);
 };
+
+
+
+
+
+
+/**
+ * 循環切換
+ * const toggle = generatorArrayToggle(['a','b','c']);
+ * toggle(a)
+ * > b
+ * toggle(b)
+ * > c
+ * toggle(c)
+ * > a
+ */
+export function generatorArrayToggle<T>(data: T[]) {
+    return (current: T) => {
+        const currentIndex = data.indexOf(current);
+        const nextIndex = (currentIndex + 1) % data.length;
+        return data[nextIndex];
+    };
+}
