@@ -38,7 +38,7 @@ export function reverseObj<T = any>(obj: { [key: string]: any }): T {
 
 
 /**
- * 物件對應轉換
+ * 物件對應 Key值轉換
  * ex: {name: 'jack'} -> {name: 'id'}
  *
  * use:
@@ -55,6 +55,22 @@ export function autoMapper<T = any>(obj: object, mapping: any): T {
         prev[newKey] = value;
         return prev;
     }, prev);
+}
+
+
+
+/**
+ * 物件賦值(只賦予原始資料存在的Key)
+ * @param originObj 原始資料物件
+ * @param assignObj 賦予資料物件
+ */
+export function objectAssignValue<T extends object>(originObj: T, assignObj: object): T {
+    return objectKeys(assignObj).reduce((acc: T, key) => {
+        if (key in originObj) {
+            acc[key] = assignObj[key];
+        }
+        return acc;
+    }, {...originObj});  // 將 acc 初始化為 originObj 的拷貝
 }
 
 
