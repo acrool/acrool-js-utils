@@ -267,12 +267,15 @@ const arrayData: ISourceArray[] = [
     {id: 4, name: 'Charlie', team: {id: 'B', name: 'backend'}},
 ];
 
-const fn = generateSortByProperty<ISourceArray>((item) => item.id, 'ASC');
+const sortFn = generateSortByProperty<ISourceArray>((item) => item.id, 'ASC');
 
-fn(arrayData[0], arrayData[1]);
+sortFn(arrayData[0], arrayData[1]);
 // -1
-fn(arrayData[2], arrayData[1]);
+sortFn(arrayData[2], arrayData[1]);
 // 1
+
+
+sort(arrayData, sortFn);
 ```
 
 
