@@ -83,6 +83,15 @@ export function isDate(str: string): boolean {
 }
 
 /**
+ * 判斷是否為數字
+ * @returns {boolean}
+ * @param value
+ */
+export function isNumber<T>(value: T): value is Extract<T, number> {
+    return !isNaN(value as any);
+}
+
+/**
  * 判斷是否為IP
  * @param ip
  * @returns {boolean}
