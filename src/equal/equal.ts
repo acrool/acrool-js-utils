@@ -88,6 +88,12 @@ export function isDate(str: string): boolean {
  * @param value
  */
 export function isNumber<T>(value: T): value is Extract<T, number> {
+    if(value === null){
+        return false;
+    }
+    if(value === ''){
+        return false;
+    }
     return !isNaN(value as any);
 }
 

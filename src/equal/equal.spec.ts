@@ -172,14 +172,19 @@ describe('isDate', () => {
 
 describe('isNumber', () => {
     it('should return a true for number', () => {
-        expect(isNumber('192.168')).toBeTruthy();
+        // expect(isNumber('192.168')).toBeTruthy();
+        expect(isNumber(192.168)).toBeTruthy();
         expect(isNumber('100')).toBeTruthy();
+        expect(isNumber(100)).toBeTruthy();
     });
 
     it('should return a false for number', () => {
         expect(isNumber('192.168.223')).toBeFalsy();
         expect(isNumber('100x')).toBeFalsy();
         expect(isNumber('100e')).toBeFalsy();
+        expect(isNumber(undefined)).toBeFalsy();
+        expect(isNumber(null)).toBeFalsy();
+        expect(isNumber('')).toBeFalsy();
     });
 
 });
