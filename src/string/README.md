@@ -18,6 +18,36 @@ toCapitalize('helloWorld');
 // HelloWorld
 ```
 
+
+
+
+**dashToLowerCase**
+
+lower case string for string
+
+```ts
+import {dashToLowerCase} from '@acrool/js-utils/String';
+
+dashToLowerCase('fill-rule');
+// fillRule
+```
+
+
+
+**lowerCaseToLowerDashCase**
+
+lower dash case string for lower Case string
+
+```ts
+import {lowerCaseToLowerDashCase} from '@acrool/js-utils/String';
+
+lowerCaseToLowerDashCase('fillRule');
+// fill-rule
+```
+
+
+
+
 **upperLineToLowerCase**
 
 capital base to small hump
