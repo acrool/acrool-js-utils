@@ -127,6 +127,18 @@ export function removeStartEnd(str: string, startStr: string, endStr: string): s
 
 
 /**
+ * 去除undefined value
+ * @param obj
+ */
+export function removeUndefinedValues(obj: any) {
+    return Object.fromEntries(
+        Object.entries(obj).filter(([key, value]) => value !== undefined)
+    );
+}
+
+
+
+/**
  * 去除 Html tag
  * @param htmlStr 要被過濾的字串
  * @param whileTag 想保留的 Tag
