@@ -6,7 +6,7 @@ import {
     jsonDecode,
     removeStartEnd,
     dashToLowerCase,
-    removeHtmlTag, filterNumber, decodeStrAndNumber, decodeStrAndNumberGroup
+    removeHtmlTag, filterNumber, decodeStrAndNumber, decodeStrAndNumberGroup, lowerCaseToLowerDashCase
 } from './string';
 
 
@@ -24,6 +24,12 @@ describe('dashToLowerCase', () => {
     });
 });
 
+
+describe('lowerCaseToLowerDashCase', () => {
+    it('should return a lower dash case string for lower Case string', () => {
+        expect(lowerCaseToLowerDashCase('fillRule')).toBe('fill-rule');
+    });
+});
 
 describe('upperLineToLowerCase', () => {
     it('should return a lower case string for upperLine string', () => {

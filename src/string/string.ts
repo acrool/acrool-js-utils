@@ -52,6 +52,16 @@ export function lowerLocaleToISOCode(localeCode: string) {
 
 
 /**
+ * 小駝峰轉小寫底線
+ * ex: helloWorld -> HELLO_WORLD
+ *
+ * @param str 需要轉換的字串
+ */
+export function lowerCaseToLowerDashCase(str: string): string {
+    return str.replace(/([A-Z])/g,'-$1').toLowerCase();
+}
+
+/**
  * 小駝峰轉大寫底線
  * ex: helloWorld -> HELLO_WORLD
  *
