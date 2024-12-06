@@ -157,3 +157,31 @@ export const objsComposeBy: TObjsComposeByKey = (keyColumn) => {
 export const objsComposeById: TObjsComposeById = objsComposeBy('id');
 
 export const objsComposeByCode: TObjsComposeByCode = objsComposeBy('code');
+
+
+/**
+ * 比對 array (不考慮順序)
+ * @param arr1
+ * @param arr2
+ */
+export function arrayCompose<T>(arr1: T[], arr2: T[]): boolean {
+    if (arr1.length !== arr2.length) return false;
+
+    const frequencyMap = new Map<T, number>();
+
+    for (const value of arr1) {
+        frequencyMap.set(value, (frequencyMap.get(value) || 0) + 1);
+    }
+
+    for (const value of arr2) {
+        if (!frequencyMap.has(value)) return false;
+        const count = frequencyMap.get(value)! - 1;
+        if (count === 0) {
+            frequencyMap.delete(value);
+        } else {
+            frequencyMap.set(value, count);
+        }
+    }
+
+    return frequencyMap.size === 0;
+}

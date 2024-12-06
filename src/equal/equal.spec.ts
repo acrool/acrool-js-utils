@@ -7,7 +7,7 @@ import {
     isIPUrl,
     objsComposeById,
     objsComposeByCode,
-    isNumber
+    isNumber, arrayCompose
 } from './equal';
 
 
@@ -274,3 +274,49 @@ describe('objsComposeByCode', () => {
 
 
 
+describe('arrayCompose', () => {
+    test('should return true for arrays with the same elements in different orders', () => {
+        expect(arrayCompose([1, 2, 3], [3, 2, 1])).toBe(true);
+    });
+
+    test('should return false for arrays with different elements', () => {
+        expect(arrayCompose([1, 2, 3], [3, 2, 4])).toBe(false);
+    });
+
+    test('should return true for arrays with duplicate elements and the same frequencies', () => {
+        expect(arrayCompose([1, 2, 2, 3], [3, 2, 2, 1])).toBe(true);
+    });
+
+    test('should return false for arrays with duplicate elements but different frequencies', () => {
+        expect(arrayCompose([1, 2, 2], [2, 1, 1])).toBe(false);
+    });
+
+    test('should return true for empty arrays', () => {
+        expect(arrayCompose([], [])).toBe(true);
+    });
+
+    test('should return false when one array is empty and the other is not', () => {
+        expect(arrayCompose([1], [])).toBe(false);
+        expect(arrayCompose([], [1])).toBe(false);
+    });
+
+    test('should return true for arrays with mixed types but same values', () => {
+        expect(arrayCompose([1, "2", true], [true, "2", 1])).toBe(true);
+    });
+
+    test('should return false for arrays with objects (reference comparison)', () => {
+        expect(arrayCompose([{ a: 1 }], [{ a: 1 }])).toBe(false);
+    });
+
+    test('should handle special cases like NaN correctly', () => {
+        expect(arrayCompose([NaN], [NaN])).toBe(true);
+    });
+
+    test('should treat 0 and -0 as equal', () => {
+        expect(arrayCompose([0, -0], [-0, 0])).toBe(true);
+    });
+
+    test('should return true for arrays with null and undefined in different orders', () => {
+        expect(arrayCompose([null, undefined], [undefined, null])).toBe(true);
+    });
+});
