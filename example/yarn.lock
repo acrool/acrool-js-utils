@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@acrool/js-utils@3.2.7":
-  version "3.2.7"
-  resolved "https://registry.yarnpkg.com/@acrool/js-utils/-/js-utils-3.2.7.tgz#aaa8d4f1f79b76182e5c144fb5c965ceb0e5aac4"
-  integrity sha512-V8+Dz5RuMu+jk82t7px5LTNaKFr3280QPclt+3IjtM334Dn6xs89uV89IpCRa/Hx92tnwgEZJgRyYcpVaGnUAA==
+"@acrool/js-utils@3.2.14":
+  version "3.2.14"
+  resolved "https://registry.yarnpkg.com/@acrool/js-utils/-/js-utils-3.2.14.tgz#89cdc52aef36cd5cf1fac19c7ed568c5c81bd9b5"
+  integrity sha512-NyYbpxYsTyUEOUvWToMYY5ul3u5MJh/zTX+9D2bWW3mbgBPvLYFL8FGm46iQjNlhVVYTafOZMHypv4MI848cCA==
   dependencies:
-    dayjs "^1.11.12"
+    dayjs "^1.x"
 
 "@acrool/react-grid@5.2.1", "@acrool/react-grid@5.x":
   version "5.2.1"
@@ -989,10 +989,10 @@ data-uri-to-buffer@^2.0.0:
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-2.0.2.tgz#d296973d5a4897a5dbe31716d118211921f04770"
   integrity sha512-ND9qDTLc6diwj+Xe5cdAgVTbLVdXbtxTJRXRhli8Mowuaan+0EJOtdqJ0QCHNSSPyoXGx9HX2/VMnKeC34AChA==
 
-dayjs@^1.11.12:
-  version "1.11.12"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.12.tgz#5245226cc7f40a15bf52e0b99fd2a04669ccac1d"
-  integrity sha512-Rt2g+nTbLlDWZTwwrIXjy9MeiZmSDI375FvZs72ngxx8PDC6YXOeR3q5LAuPzjZQxhiWdRKac7RKV+YyQYfYIg==
+dayjs@^1.x:
+  version "1.11.13"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.13.tgz#92430b0139055c3ebb60150aa13e860a4b5a366c"
+  integrity sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==
 
 debug@^4.1.0, debug@^4.3.1:
   version "4.3.5"
