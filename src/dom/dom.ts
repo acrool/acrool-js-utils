@@ -111,32 +111,54 @@ export function insertScriptSrc(scriptId: string, scriptUrl: string, callBack?: 
 /**
  * 複製字串到剪貼簿
  * @param value 要複製的內容
- * @param options
+ * @param isNewLine 是否複製換行
  */
-export const copyToClipboard = (
+export const copyToClipboard = async (
     value: string,
-    options?: {
-        isNewLine?: boolean,
-        callBack?: () => void,
-    }
-):void => {
-    const textField = document.createElement('textarea');
+    isNewLine?: boolean
+): Promise<void> => {
 
-    if(options?.isNewLine){
-        // 包含換行
-        textField.value = value;
-    }else{
-        textField.innerText = value;
+    if (navigator.clipboard && window.ClipboardItem) {
+        try {
+            const blob = new Blob([value], {type: 'text/plain'});
+            const clipboardItem = new ClipboardItem({'text/plain': blob});
+            await navigator.clipboard.write([clipboardItem]);
+            console.log('Text copied using Clipboard API');
+            return;
+        } catch (err) {
+            console.warn('Clipboard API failed, falling back to execCommand');
+        }
     }
 
-    document.body.appendChild(textField);
-    textField.select();
-    document.execCommand('copy');
-    textField.remove();
+    return new Promise((resolve, reject) => {
+        const textField = document.createElement('textarea');
+        textField.style.position = 'fixed'; // 避免滾動
+        textField.style.opacity = '0';
+        textField.inputMode = 'none';
 
-    if(options?.callBack){
-        options.callBack();
-    }
+        if (isNewLine) {
+            textField.value = value; // 包含換行
+        } else {
+            textField.innerText = value;
+        }
+
+        document.body.appendChild(textField);
+        textField.select();
+
+        try {
+            if (document.execCommand('copy')) {
+                console.log('Text copied using execCommand');
+                resolve();
+            } else {
+                reject(new Error('execCommand failed'));
+            }
+        } catch (err) {
+            reject(err);
+        } finally {
+            textField.remove();
+        }
+    });
+
 };
 
 
