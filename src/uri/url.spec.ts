@@ -7,6 +7,7 @@ describe('encodeQueryString', () => {
     it('should return a query string for key value object', () => {
         expect(encodeQueryString({keyword: '블랙프라이데이 (BlackFriday)', sex: 'F'})).toBe('keyword=%EB%B8%94%EB%9E%99%ED%94%84%EB%9D%BC%EC%9D%B4%EB%8D%B0%EC%9D%B4%20(BlackFriday)&sex=F');
         expect(encodeQueryString({})).toBe('');
+        expect(encodeQueryString({startDate: '2024-01-02', endDate: undefined})).toBe('startDate=2024-01-02');
     });
 });
 
