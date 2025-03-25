@@ -4,19 +4,20 @@
  * 保留小數第二位
  * @returns {string}
  * @param num
+ * @param decimalPlaces
  */
-export function numToDecimal2(num: number): string {
-    const f = Math.floor(num * 100) / 100;
-    let s = f.toString();
-    let rs = s.indexOf('.');
-    if (rs < 0) {
-        rs = s.length;
-        s += '.';
-    }
-    while (s.length <= rs + 2) {
-        s += '0';
-    }
-    return s;
+export function numToDecimal2(num: number, decimalPlaces = 2): string {
+    const str = Number(num).toString(); // 確保輸入是數字
+
+    const splitStr = str.split('.');
+    const integerPart = splitStr[0];
+    let decimalPart = splitStr[1] ?? '';
+
+    decimalPart = decimalPart
+        .padEnd(decimalPlaces, '0')
+        .slice(0, decimalPlaces);
+
+    return `${integerPart}.${decimalPart}`;
 }
 
 
