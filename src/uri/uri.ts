@@ -8,14 +8,16 @@ import regPattern from '../regPattern';
  * @param queryObj key value 物件
  */
 export function encodeQueryString(queryObj: {
-    [key: string]: string|number|boolean
+    [key: string]: string|number|boolean|undefined
 } = {}): string {
     const queryStringList: string[] = [];
 
 
     Object.keys(queryObj).forEach(key => {
         const value = queryObj[key];
-        queryStringList.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
+        if(typeof value !== 'undefined'){
+            queryStringList.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
+        }
     });
     if(queryStringList.length > 0){
         return `${queryStringList.join('&')}`;

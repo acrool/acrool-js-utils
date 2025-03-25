@@ -301,11 +301,11 @@ describe('arrayCompose', () => {
     });
 
     test('should return true for arrays with mixed types but same values', () => {
-        expect(arrayCompose([1, "2", true], [true, "2", 1])).toBe(true);
+        expect(arrayCompose([1, '2', true], [true, '2', 1])).toBe(true);
     });
 
     test('should return false for arrays with objects (reference comparison)', () => {
-        expect(arrayCompose([{ a: 1 }], [{ a: 1 }])).toBe(false);
+        expect(arrayCompose([{a: 1}], [{a: 1}])).toBe(false);
     });
 
     test('should handle special cases like NaN correctly', () => {
