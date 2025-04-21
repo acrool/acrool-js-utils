@@ -167,4 +167,19 @@ describe('objToFormData', () => {
             name: 'Jack'
         });
     });
+
+    it('should handle File objects in FormData', () => {
+        const file = new File(['test content'], 'test.txt', { type: 'text/plain' });
+        const data = {
+            name: 'Jack',
+            file: file
+        };
+
+        const formData = objToFormData(data);
+        
+        // 验证 FormData 中是否包含文件
+        expect(formData.get('name')).toBe('Jack');
+        expect(formData.get('file')).toBeInstanceOf(File);
+        expect(formData.get('file')).toBe(file);
+    });
 });

@@ -1,7 +1,7 @@
 module.exports = {
     coverageDirectory: 'coverage',
     preset: 'ts-jest',
-    testEnvironment: 'node',
+    testEnvironment: 'jsdom',
     testMatch: ['**/*.spec.[jt]s?(x)'],
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/src/$1'

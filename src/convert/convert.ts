@@ -191,7 +191,11 @@ export function objToFormData(data: { [key: string]: any }): FormData {
         for (const [key, value] of Object.entries(whileData)) {
             const formKey = parentKey ? `${parentKey}[${key}]` : key;
 
-            if (Array.isArray(value)) {
+
+            if (value instanceof File || value instanceof Blob) {
+                formData.append(formKey, value);
+
+            }else if (Array.isArray(value)) {
                 value.forEach((item, index) => {
                     if (typeof item === 'object' && item !== null) {
                         appendData(item, `${formKey}[${index}]`);
