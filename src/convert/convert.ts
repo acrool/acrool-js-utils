@@ -191,11 +191,17 @@ export function objToFormData(data: { [key: string]: any }): FormData {
         for (const [key, value] of Object.entries(whileData)) {
             const formKey = parentKey ? `${parentKey}[${key}]` : key;
 
-
-            if (value instanceof File || value instanceof Blob) {
+            if (value instanceof Blob) {
+                // 获取 Blob 的 mimeType
+                const mimeType = value.type;
+                // 从 mimeType 获取文件扩展名
+                const extension = mimeType.split('/')[1] || 'bin';
+                // 生成带扩展名的文件名
+                const fileName = `${key}.${extension}`;
+                formData.append(formKey, value, fileName);
+            } else if (value instanceof File) {
                 formData.append(formKey, value);
-
-            }else if (Array.isArray(value)) {
+            } else if (Array.isArray(value)) {
                 value.forEach((item, index) => {
                     if (typeof item === 'object' && item !== null) {
                         appendData(item, `${formKey}[${index}]`);
