@@ -169,7 +169,7 @@ describe('objToFormData', () => {
     });
 
     it('should handle File objects in FormData', () => {
-        const file = new File(['test content'], 'test.txt', { type: 'text/plain' });
+        const file = new File(['test content'], 'test.txt', {type: 'text/plain'});
         const data = {
             name: 'Jack',
             file: file
@@ -181,5 +181,45 @@ describe('objToFormData', () => {
         expect(formData.get('name')).toBe('Jack');
         expect(formData.get('file')).toBeInstanceOf(File);
         expect(formData.get('file')).toBe(file);
+    });
+
+    it('should handle File objects with correct extension in FormData', () => {
+        const file = new File(['test content'], 'test.png', {type: 'image/png'});
+        const data = {
+            name: 'Jack',
+            image: file
+        };
+
+        const formData = objToFormData(data);
+        
+        // 验证 FormData 中是否包含文件
+        expect(formData.get('name')).toBe('Jack');
+        expect(formData.get('image')).toBeInstanceOf(File);
+        expect(formData.get('image')).toBe(file);
+        
+        // 验证文件名是否正确
+        const formDataEntry = formData.get('image') as File;
+        expect(formDataEntry.name).toBe('test.png');
+        expect(formDataEntry.type).toBe('image/png');
+    });
+
+    it('should handle Blob objects with correct extension in FormData', () => {
+        const blob = new Blob(['test content'], {type: 'image/jpeg'});
+        const data = {
+            name: 'Jack',
+            image: blob
+        };
+
+        const formData = objToFormData(data);
+        
+        // 验证 FormData 中是否包含文件
+        expect(formData.get('name')).toBe('Jack');
+        expect(formData.get('image')).toBeInstanceOf(File); // Blob 会被转换为 File
+        expect(formData.get('image')).not.toBe(blob); // 不是同一个对象
+        
+        // 验证 File 的类型和文件名
+        const formDataEntry = formData.get('image') as File;
+        expect(formDataEntry.type).toBe('image/jpeg');
+        expect(formDataEntry.name).toBe('image.jpeg');
     });
 });
