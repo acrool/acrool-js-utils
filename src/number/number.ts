@@ -1,23 +1,23 @@
 
 
+
+
 /**
- * 保留小數第二位
- * @returns {string}
- * @param num
- * @param decimalPlaces
+ * 安全保留小數位（無條件捨去、不產生浮點誤差）
+ * @param val 原始數值
+ * @param decimalPlaces 保留幾位小數，預設為 0
+ * @returns 字串格式的小數數值
  */
-export function numToDecimal2(num: number, decimalPlaces = 2): string {
-    const str = Number(num).toString(); // 確保輸入是數字
+export function safeFormatDecimal(val: number | string = 0, decimalPlaces = 0): string {
+    const safeVal = Number(val);
+    if (isNaN(safeVal)) {
+        return (0).toFixed(decimalPlaces);
+    }
 
-    const splitStr = str.split('.');
-    const integerPart = splitStr[0];
-    let decimalPart = splitStr[1] ?? '';
+    const factor = Math.pow(10, decimalPlaces);
+    const truncated = Math.trunc(safeVal * factor) / factor;
 
-    decimalPart = decimalPart
-        .padEnd(decimalPlaces, '0')
-        .slice(0, decimalPlaces);
-
-    return `${integerPart}.${decimalPart}`;
+    return truncated.toFixed(decimalPlaces);
 }
 
 
@@ -25,10 +25,10 @@ export function numToDecimal2(num: number, decimalPlaces = 2): string {
 /**
  * 千分位格式化
  * @param val 原數值
- * @param isDecimal2 保留小數2位
+ * @param decimalPlaces
  */
-export function formatCurrency(val = 0, isDecimal2 = false): string {
-    const dec = isDecimal2 ? numToDecimal2(val) : Math.floor(val);
+export function formatCurrency(val = 0, decimalPlaces = 0): string {
+    const dec = safeFormatDecimal(val, decimalPlaces);
     const parts = dec.toString().split('.');
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     return parts.join('.');
