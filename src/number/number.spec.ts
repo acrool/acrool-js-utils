@@ -3,37 +3,43 @@ import {intersectionMin, formatCurrency, safeFormatDecimal} from './number';
 
 
 describe('safeFormatDecimal', () => {
-    it('should return a decimal2 number for number', () => {
-        expect(String(safeFormatDecimal(2000,2 ))).toEqual('2000.00');
-        expect(String(safeFormatDecimal(2000.100, 2))).toEqual('2000.10');
-        expect(String(safeFormatDecimal(2033.88, 3))).toEqual('2033.880');
-        expect(String(safeFormatDecimal(0.20, 3))).toEqual('0.200');
-        expect(String(safeFormatDecimal(33.87, 3))).toEqual('33.870');
-        expect(String(safeFormatDecimal(33.88, 3))).toEqual('33.880');
-        expect(String(safeFormatDecimal(33.847, 3))).toEqual('33.847');
-        expect(String(safeFormatDecimal(33.853,3))).toEqual('33.853');
+    it('should handle basic integers and decimals correctly', () => {
+        expect(safeFormatDecimal(1234.5678, 2)).toBe('1234.56');
+        expect(safeFormatDecimal(1234.5, 2)).toBe('1234.50');
+        expect(safeFormatDecimal(0, 2)).toBe('0.00');
+        expect(safeFormatDecimal(-1234.5678, 2)).toBe('-1234.56');
     });
 
-    it('should handle different decimal places', () => {
-        expect(String(safeFormatDecimal(123.456, 0))).toEqual('123');
-        expect(String(safeFormatDecimal(123.456, 1))).toEqual('123.4');
-        expect(String(safeFormatDecimal(123.456, 4))).toEqual('123.4560');
-        expect(String(safeFormatDecimal(123.456789, 5))).toEqual('123.45678');
+    it('should handle no decimal places', () => {
+        expect(safeFormatDecimal(1234.5678, 0)).toBe('1234');
+        expect(safeFormatDecimal(-1234.5678, 0)).toBe('-1234');
     });
 
-    it('should handle edge cases and special numbers', () => {
-        expect(String(safeFormatDecimal(0, 2))).toEqual('0.00');
-        expect(String(safeFormatDecimal(-123.456, 2))).toEqual('-123.45');
-        expect(String(safeFormatDecimal(9999999.999, 2))).toEqual('9999999.99');
-        expect(String(safeFormatDecimal(0.0001, 4))).toEqual('0.0001');
+    it('should handle more decimal places', () => {
+        expect(safeFormatDecimal(1.23456789, 5)).toBe('1.23456');
+        expect(safeFormatDecimal(0.999999, 3)).toBe('0.999');
     });
 
-    it('should handle string input values', () => {
-        expect(String(safeFormatDecimal('123.456', 2))).toEqual('123.45');
-        expect(String(safeFormatDecimal('0.123', 3))).toEqual('0.123');
-        expect(String(safeFormatDecimal('invalid', 2))).toEqual('0.00');
-        expect(String(safeFormatDecimal('', 2))).toEqual('0.00');
-        expect(String(safeFormatDecimal(0.2 + 0.1, 2))).toEqual('0.30');
+    it('should handle Taiwanese Dollar (TWD) style amounts', () => {
+        expect(safeFormatDecimal(500, 0)).toBe('500');
+        expect(safeFormatDecimal(1234567, 0)).toBe('1234567');
+    });
+
+    it('should handle USD and international currency formats', () => {
+        expect(safeFormatDecimal(1234.567, 2)).toBe('1234.56');
+        expect(safeFormatDecimal(0.1 + 0.2, 2)).toBe('0.30'); // float precision test
+    });
+
+    it('should handle cryptocurrency precision (up to 18 decimals)', () => {
+        expect(safeFormatDecimal('0.000000000000000001', 18)).toBe('0.000000000000000001');
+        expect(safeFormatDecimal('1234567890123456789', 0)).toBe('1234567890123456789');
+        expect(safeFormatDecimal('0.123456789123456789', 18)).toBe('0.123456789123456789');
+    });
+
+    it('should handle invalid inputs gracefully', () => {
+        expect(safeFormatDecimal('abc', 2)).toBe('0.00');
+        expect(safeFormatDecimal(undefined, 2)).toBe('0.00');
+        expect(safeFormatDecimal(null as any, 2)).toBe('0.00');
     });
 });
 

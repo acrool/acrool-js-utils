@@ -30,7 +30,8 @@
     "postrelease": "# then run `git push --follow-tags origin main && yarn build && npm publish ./dist --access=public` to publish"
   },
   "dependencies": {
-    "dayjs": "^1.x"
+    "dayjs": "^1.x",
+    "decimal.js": "^10.x"
   },
   "devDependencies": {
     "@originjs/vite-plugin-commonjs": "1.0.3",

@@ -1,6 +1,4 @@
-
-
-
+import Decimal from 'decimal.js';
 
 /**
  * 安全保留小數位（無條件捨去、不產生浮點誤差）
@@ -9,15 +7,13 @@
  * @returns 字串格式的小數數值
  */
 export function safeFormatDecimal(val: number | string = 0, decimalPlaces = 0): string {
-    const safeVal = Number(val);
-    if (isNaN(safeVal)) {
-        return (0).toFixed(decimalPlaces);
+    try {
+        const d = new Decimal(val);
+        const truncated = d.toDecimalPlaces(decimalPlaces, Decimal.ROUND_DOWN);
+        return truncated.toFixed(decimalPlaces);
+    } catch {
+        return new Decimal(0).toFixed(decimalPlaces);
     }
-
-    const factor = Math.pow(10, decimalPlaces);
-    const truncated = Math.trunc(safeVal * factor) / factor;
-
-    return truncated.toFixed(decimalPlaces);
 }
 
 
@@ -57,4 +53,3 @@ export function intersectionMin(arrayNumber: Array<[number, number]>): {min: num
 
     return {min: min ?? 0, max: max ?? 0};
 }
-
