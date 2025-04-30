@@ -1,4 +1,4 @@
-import Decimal from 'decimal.js';
+import Big from 'big.js';
 
 /**
  * 安全保留小數位（無條件捨去、不產生浮點誤差）
@@ -8,11 +8,11 @@ import Decimal from 'decimal.js';
  */
 export function safeFormatDecimal(val: number | string = 0, decimalPlaces = 0): string {
     try {
-        const d = new Decimal(val);
-        const truncated = d.toDecimalPlaces(decimalPlaces, Decimal.ROUND_DOWN);
+        const d = new Big(val);
+        const truncated = d.round(decimalPlaces, 0); // 0 = ROUND_DOWN
         return truncated.toFixed(decimalPlaces);
     } catch {
-        return new Decimal(0).toFixed(decimalPlaces);
+        return new Big(0).toFixed(decimalPlaces);
     }
 }
 
@@ -70,4 +70,4 @@ export function removeLeadingZero(str: string) {
         return str.replace(/^0+(?=\d)/, '');
     }
     return str;
-};
+}

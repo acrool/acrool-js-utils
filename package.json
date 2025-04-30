@@ -30,11 +30,12 @@
     "postrelease": "# then run `git push --follow-tags origin main && yarn build && npm publish ./dist --access=public` to publish"
   },
   "dependencies": {
-    "dayjs": "^1.x",
-    "decimal.js": "^10.x"
+    "big.js": "^7.0.1",
+    "dayjs": "^1.x"
   },
   "devDependencies": {
     "@originjs/vite-plugin-commonjs": "1.0.3",
+    "@types/big.js": "^6.2.2",
     "@types/jest": "^29.5.14",
     "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.10.1",

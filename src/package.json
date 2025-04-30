@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "dayjs": "^1.x",
-    "decimal.js": "^10.x"
+    "big.js": "^7.0.1"
   }
 }
