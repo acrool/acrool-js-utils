@@ -1,44 +1,57 @@
 # Acrool JS Utils / Number
 
 <p>
-    Handling currency formatting, decimal point retention, and obtaining the difference between two ranges.
+    Processing of numbers, such as formatting currency, handling decimals, and so on.
 </p>
 
 
 
 ## Features
 
-**numToDecimal2**
+**safeFormatDecimal**
 
-Keep the second decimal place
+Safely format decimal numbers with specified decimal places
 
 ```ts
-import {numToDecimal2} from '@acrool/js-utils/number'
+import {safeFormatDecimal} from '@acrool/js-utils/Number';
 
-numToDecimal2(2000)
-// 2000.00
+safeFormatDecimal(1234.5678, 2);
+// '1234.56'
 ```
 
 **formatCurrency**
 
-Thousands formatting
+Format numbers with thousand separators
 
 ```ts
-import {formatCurrency} from '@acrool/js-utils/number'
+import {formatCurrency} from '@acrool/js-utils/Number';
 
-formatCurrency(2000)
-// 2,000
-formatCurrency(2000, true)
-// 2,000.00
+formatCurrency(2000, 2);
+// '2,000.00'
 ```
 
 **intersectionMin**
 
-Get the minimum range of intersection in an array
+Find the intersection range of number arrays
 
 ```ts
-import {intersectionMin} from '@acrool/js-utils/number'
+import {intersectionMin} from '@acrool/js-utils/Number';
 
-intersectionMin([ [1, 20], [5, 24] ])
+intersectionMin([[1,20], [5,24]]);
 // {min: 5, max: 20}
+```
+
+**removeLeadingZero**
+
+Remove leading zeros from number strings
+
+```ts
+import {removeLeadingZero} from '@acrool/js-utils/Number';
+
+removeLeadingZero('0123.456');
+// '123.456'
+removeLeadingZero('0.123');
+// '.123'
+removeLeadingZero('000123');
+// '123'
 ```

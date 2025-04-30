@@ -1,4 +1,4 @@
-import {intersectionMin, formatCurrency, safeFormatDecimal} from './number';
+import {intersectionMin, formatCurrency, safeFormatDecimal, removeLeadingZero} from './number';
 
 
 
@@ -67,4 +67,32 @@ describe('intersectionMin', () => {
         ])).toStrictEqual({min: 5, max: 20});
     });
 });
+
+describe('removeLeadingZero', () => {
+    it('should remove leading zeros from decimal numbers', () => {
+        expect(removeLeadingZero('0.123')).toBe('.123');
+        expect(removeLeadingZero('0.0')).toBe('.0');
+        expect(removeLeadingZero('0.0001')).toBe('.0001');
+    });
+
+    it('should remove leading zeros from integer numbers', () => {
+        expect(removeLeadingZero('0123')).toBe('123');
+        expect(removeLeadingZero('000123')).toBe('123');
+        expect(removeLeadingZero('0000')).toBe('0');
+    });
+
+    it('should handle numbers with decimal points', () => {
+        expect(removeLeadingZero('0123.456')).toBe('123.456');
+        expect(removeLeadingZero('000123.456')).toBe('123.456');
+        expect(removeLeadingZero('0.456')).toBe('.456');
+    });
+
+    it('should handle edge cases', () => {
+        expect(removeLeadingZero('0')).toBe('0');
+        expect(removeLeadingZero('')).toBe('');
+        expect(removeLeadingZero('abc')).toBe('abc');
+    });
+});
+
+
 

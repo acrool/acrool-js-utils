@@ -53,3 +53,21 @@ export function intersectionMin(arrayNumber: Array<[number, number]>): {min: num
 
     return {min: min ?? 0, max: max ?? 0};
 }
+
+
+/**
+ * 安全地移除数字字符串中的前导零
+ * @param str 要处理的字符串
+ * @returns 处理后的字符串
+ */
+export function removeLeadingZero(str: string) {
+    // 检查是否为小数（以0开头）
+    if (/^0\.\d+$/.test(str)) {
+        return str.replace(/^0/, '');
+    }
+    // 检查是否为其他数字字符串（可能包含小数点）
+    if (/^\d*\.?\d+$/.test(str)) {
+        return str.replace(/^0+(?=\d)/, '');
+    }
+    return str;
+};
