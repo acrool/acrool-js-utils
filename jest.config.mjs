@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     coverageDirectory: 'coverage',
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
@@ -6,5 +6,4 @@ module.exports = {
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/src/$1'
     },
-    // setupFilesAfterEnv: ['./jest.setup.js']
 };
