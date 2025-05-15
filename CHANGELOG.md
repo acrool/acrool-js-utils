@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.21-alpha.1](https://github.com/acrool/acrool-js-utils/compare/v3.2.21-alpha.0...v3.2.21-alpha.1) (2025-05-15)
+
+
+### Bug Fixes
+
+* fix arraySplit return type ([7f1ec89](https://github.com/acrool/acrool-js-utils/commit/7f1ec899e64030ea6663728268b4e49ba315ea70))
+
 ### [3.2.21-alpha.0](https://github.com/acrool/acrool-js-utils/compare/v3.2.20...v3.2.21-alpha.0) (2025-05-15)
 
 
