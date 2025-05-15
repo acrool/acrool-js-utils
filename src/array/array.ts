@@ -233,11 +233,11 @@ export function arrayFirst<T = undefined>(array?: T[]) {
  * @param splitCount
  */
 export function arraySplit<T, A extends TArrayOrEmpty<T>>(arrayData: A, splitCount: number){
-    if(!arrayData) return arrayData;
+    if(!arrayData) return [] as T[][];
 
     const manyCount = Math.ceil(arrayData.length / splitCount);
     const targetData = new Array(manyCount).fill([]);
-    return targetData.map((imageRow, index) => {
+    return targetData.map((_, index) => {
         return arrayData.slice(index * splitCount, (index*splitCount)+ splitCount);
     });
 }

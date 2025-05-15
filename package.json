@@ -31,15 +31,16 @@
   },
   "dependencies": {
     "big.js": "^7.0.1",
+    "cz-git": "^1.11.1",
     "dayjs": "^1.x"
   },
   "devDependencies": {
     "@originjs/vite-plugin-commonjs": "1.0.3",
+    "@types/big.js": "^6.2.2",
     "@types/jest": "^29.5.14",
     "@types/node": "20.17.32",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^8.23.0",
-    "@types/big.js": "^6.2.2",
     "cz-conventional-changelog": "3.3.0",
     "cz-customizable": "6.6.0",
     "eslint": "^9.19.0",
