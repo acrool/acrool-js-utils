@@ -232,14 +232,14 @@ export function arrayFirst<T = undefined>(array?: T[]) {
  * @param arrayData
  * @param splitCount
  */
-export function arraySplit<T, A extends TArrayOrEmpty<T>>(arrayData: A, splitCount: number){
-    if(!arrayData) return [] as T[][];
+export function arraySplit<T, A extends TArrayOrEmpty<T>>(arrayData: A, splitCount: number): A[]|undefined{
+    if(!arrayData) return undefined;
 
     const manyCount = Math.ceil(arrayData.length / splitCount);
     const targetData = new Array(manyCount).fill([]);
     return targetData.map((_, index) => {
         return arrayData.slice(index * splitCount, (index*splitCount)+ splitCount);
-    });
+    }) as A[];
 }
 
 

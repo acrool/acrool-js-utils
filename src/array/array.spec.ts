@@ -298,6 +298,8 @@ describe('array', () => {
 
     describe('arraySplit', () => {
         it('should return 2 level array for array', () => {
+            const t = arraySplit([1, 2, 3, 4, 5, 6, 7, 8, 9], 2);
+
             expect(arraySplit([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)).toEqual([[1,2], [3,4], [5,6],[7,8],[9]]);
             expect(arraySplit([1, 2, 3, 4, 5, 6], 3)).toEqual([[1,2,3], [4,5,6]]);
         });
