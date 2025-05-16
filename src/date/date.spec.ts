@@ -1,12 +1,12 @@
 import dayjs from 'dayjs';
+
 import {
+    dayToMillisecond,     formatSecondToString,
+    formatTotalSeconds,
+    hourToMillisecond,     millisecondToSeconds, minuteToMillisecond,
     rangeSimpleDate,
     simpleDate,
-    simpleDateTime,
-    formatSecondToString,
-    formatTotalSeconds,
-    millisecondToSeconds, dayToMillisecond, hourToMillisecond, minuteToMillisecond
-} from './date';
+    simpleDateTime} from './date';
 
 
 describe('simpleDateTime', () => {

@@ -1,5 +1,5 @@
 import regPattern from '../regPattern';
-import {Empty, TObjsComposeByKey, TObjsComposeById, TObjsComposeByCode} from './types';
+import {Empty, TObjsComposeByCode,TObjsComposeById, TObjsComposeByKey} from './types';
 
 
 

@@ -1,23 +1,22 @@
 import {
-    pull,
-    push,
+    arrayFirst,
     arrayJoin,
     arraySplit,
-    removeByIndex,
-    updateByIndex,
-    unique,
-    groupBy,
-    sort,
-    groupTreeBy,
-    move,
-    insert,
     generateSortByProperty,
-    updateFind,
-    removeFind,
     generatorArray,
-    arrayFirst,
-    generatorArrayToggle
-} from './array';
+    generatorArrayToggle,
+    groupBy,
+    groupTreeBy,
+    insert,
+    move,
+    pull,
+    push,
+    removeByIndex,
+    removeFind,
+    sort,
+    unique,
+    updateByIndex,
+    updateFind} from './array';
 
 
 describe('array', () => {

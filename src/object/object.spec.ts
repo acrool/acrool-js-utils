@@ -1,4 +1,4 @@
-import {autoMapper, filterIsTrue, reverseObj, objectKeys, objectAssignValue} from './object';
+import {autoMapper, filterIsTrue, objectAssignValue,objectKeys, reverseObj} from './object';
 
 
 describe('filterIsTrue', () => {

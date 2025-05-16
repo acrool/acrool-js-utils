@@ -1,13 +1,12 @@
 import {
-    toCapitalize,
-    upperLineToLowerCase,
-    lowerLocaleToISOCode,
-    lowerCaseToUpLineCase,
-    jsonDecode,
-    removeStartEnd,
     dashToLowerCase,
-    removeHtmlTag, filterNumber, decodeStrAndNumber, decodeStrAndNumberGroup, lowerCaseToLowerDashCase
-} from './string';
+    decodeStrAndNumber, decodeStrAndNumberGroup, filterNumber,     jsonDecode,
+    lowerCaseToLowerDashCase,
+    lowerCaseToUpLineCase,
+    lowerLocaleToISOCode,
+    removeHtmlTag,     removeStartEnd,
+    toCapitalize,
+    upperLineToLowerCase} from './string';
 
 
 

@@ -1,14 +1,13 @@
 import {
+    arrayCompose,
     isDate,
     isEmpty,
-    isJSON,
-    isNotEmpty,
     isIP,
     isIPUrl,
-    objsComposeById,
-    objsComposeByCode,
-    isNumber, arrayCompose
-} from './equal';
+    isJSON,
+    isNotEmpty,
+    isNumber,     objsComposeByCode,
+    objsComposeById} from './equal';
 
 
 

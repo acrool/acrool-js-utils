@@ -1,4 +1,4 @@
-import {intersectionMin, formatCurrency, safeFormatDecimal, removeLeadingZero} from './number';
+import {formatCurrency, intersectionMin, removeLeadingZero,safeFormatDecimal} from './number';
 
 
 

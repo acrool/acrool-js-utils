@@ -1,4 +1,4 @@
-import {anyToNumber, rgbToHex, hexToRGB, anyToBoolean, emptyToNull, objToFormData} from './convert';
+import {anyToBoolean, anyToNumber, emptyToNull, hexToRGB, objToFormData,rgbToHex} from './convert';
 
 describe('rgbToHex', () => {
     it('should return a hex string for rgb(0,0,0)', () => {

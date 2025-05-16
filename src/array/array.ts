@@ -1,4 +1,4 @@
-import {SortOrder, TSortByFn, TGroupTreeBy, TGroupByFn, TArrayOrEmpty, TEmpty} from './types';
+import {SortOrder, TArrayOrEmpty, TEmpty,TGroupByFn, TGroupTreeBy, TSortByFn} from './types';
 
 /**
  * 插入資料到陣列的第一筆

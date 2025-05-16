@@ -1,4 +1,4 @@
-/* eslint-disable eqeqeq */
+ 
 
 function keys(obj: object, hasKey: (obj: object, key: string) => boolean) {
     const keys = [];
