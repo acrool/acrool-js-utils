@@ -302,6 +302,13 @@ describe('array', () => {
             expect(arraySplit([1, 2, 3, 4, 5, 6, 7, 8, 9], 2)).toEqual([[1,2], [3,4], [5,6],[7,8],[9]]);
             expect(arraySplit([1, 2, 3, 4, 5, 6], 3)).toEqual([[1,2,3], [4,5,6]]);
         });
+
+        it('should not share references between subarrays', () => {
+            const result = arraySplit([1, 2, 3, 4], 2);
+            expect(result).toBeDefined();
+            expect(result!.length).toBe(2);
+            expect(result![0]).not.toBe(result![1]); // 🔥 關鍵測試：不同參考
+        });
     });
 
 

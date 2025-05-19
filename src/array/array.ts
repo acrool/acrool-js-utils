@@ -232,14 +232,22 @@ export function arrayFirst<T = undefined>(array?: T[]) {
  * @param arrayData
  * @param splitCount
  */
-export function arraySplit<T, A extends TArrayOrEmpty<T>>(arrayData: A, splitCount: number): A[]|undefined{
-    if(!arrayData) return undefined;
+/**
+ * 分割陣列
+ *
+ * arraySplit([1,2,3,4,5], 2)
+ * > [[1,2], [3,4], [5]]
+ *
+ * @param arrayData
+ * @param splitCount
+ */
+export function arraySplit<T>(arrayData: TArrayOrEmpty<T>, splitCount: number): T[][] | undefined {
+    if (!arrayData || splitCount <= 0) return undefined;
 
-    const manyCount = Math.ceil(arrayData.length / splitCount);
-    const targetData = new Array(manyCount).fill([]);
-    return targetData.map((_, index) => {
-        return arrayData.slice(index * splitCount, (index*splitCount)+ splitCount);
-    }) as A[];
+    const groupCount = Math.ceil(arrayData.length / splitCount);
+    return Array.from({length: groupCount}, (_, index) => {
+        return arrayData.slice(index * splitCount, (index + 1) * splitCount);
+    });
 }
 
 
