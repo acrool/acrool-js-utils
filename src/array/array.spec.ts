@@ -35,6 +35,12 @@ describe('array', () => {
         it('should return not modify source', () => {
             expect(sourceArray).toEqual([1, 2]);
         });
+
+        it('should not share object reference', () => {
+            const obj = {id: 1};
+            const result = pull([{id: 2}], obj);
+            expect(result[0]).not.toBe(obj);
+        });
     });
 
     describe('push', () => {
@@ -46,6 +52,11 @@ describe('array', () => {
         });
         it('should return not modify source', () => {
             expect(sourceArray).toEqual([1, 2]);
+        });
+        it('should not share object reference', () => {
+            const obj = {id: 1};
+            const result = push([{id: 2}], obj);
+            expect(result[2]).not.toBe(obj);
         });
     });
 
@@ -76,8 +87,11 @@ describe('array', () => {
             const result = insert(null, 1, 'A');
             expect(result).toStrictEqual(['A']);
         });
-
-
+        it('should not share object reference', () => {
+            const obj = {id: 9};
+            const result = insert([{id: 1}, {id: 2}], 1, obj);
+            expect(result[1]).not.toBe(obj);
+        });
     });
 
 

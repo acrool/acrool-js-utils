@@ -10,8 +10,10 @@ import {SortOrder, TArrayOrEmpty, TEmpty,TGroupByFn, TGroupTreeBy, TSortByFn} fr
  * @param pullData
  */
 export function pull<T, A extends TArrayOrEmpty<T>>(arrayData: A, pullData: T): A {
-    if(!arrayData) return [pullData] as A;
-    return [pullData].concat(arrayData.slice(0)) as A;
+    // 防止物件共享引用：對物件進行淺拷貝
+    const item = (pullData && typeof pullData === 'object') ? {...pullData} : pullData;
+    if(!arrayData) return [item] as A;
+    return [item].concat(arrayData.slice(0)) as A;
 }
 
 /**
@@ -24,8 +26,10 @@ export function pull<T, A extends TArrayOrEmpty<T>>(arrayData: A, pullData: T): 
  * @param pushData
  */
 export function push<T, A extends TArrayOrEmpty<T>>(arrayData: A, pushData: T): T[] {
-    if(!arrayData) return [pushData] as T[];
-    return arrayData.slice(0).concat(pushData) as T[];
+    // 防止物件共享引用：對物件進行淺拷貝
+    const item = (pushData && typeof pushData === 'object') ? {...pushData} : pushData;
+    if(!arrayData) return [item] as T[];
+    return arrayData.slice(0).concat(item) as T[];
 }
 
 /**
@@ -39,8 +43,10 @@ export function push<T, A extends TArrayOrEmpty<T>>(arrayData: A, pushData: T): 
  * @param data
  */
 export function insert<T, A extends TArrayOrEmpty<T>>(arrayData: A, index: number, data: T): T[] {
-    if(!arrayData) return [data] as T[];
-    return [...arrayData.slice(0, index), data, ...arrayData.slice(index)] as T[];
+    // 防止物件共享引用：對物件進行淺拷貝
+    const item = (data && typeof data === 'object') ? {...data} : data;
+    if(!arrayData) return [item] as T[];
+    return [...arrayData.slice(0, index), item, ...arrayData.slice(index)] as T[];
 }
 
 /**
@@ -150,13 +156,13 @@ export function updateByIndex<T, A extends TArrayOrEmpty<T>>(arrayData: T[]|A, i
     if(index === -1 || !arrayData || index > arrayData.length - 1) return arrayData as A;
 
     // Copy new object
-    const newDaa: T = {...arrayData[index]};
+    const newData: T = {...arrayData[index]};
 
-    updateFn(newDaa);
+    updateFn(newData);
 
     // Copy new array
     const newArrayData: T[] = [...arrayData];
-    newArrayData[index] = newDaa;
+    newArrayData[index] = newData;
     return newArrayData as A;
 }
 
