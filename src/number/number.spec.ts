@@ -66,6 +66,19 @@ describe('intersectionMin', () => {
             [1,20], [5, 24]
         ])).toStrictEqual({min: 5, max: 20});
     });
+    it('should return NaN for no intersection', () => {
+        expect(intersectionMin([
+            [1,5], [10, 20]
+        ])).toStrictEqual({min: NaN, max: NaN});
+    });
+    it('should return NaN for empty array', () => {
+        expect(intersectionMin([])).toStrictEqual({min: NaN, max: NaN});
+    });
+    it('should return a min and max for overlapping zero', () => {
+        expect(intersectionMin([
+            [0, 10], [-5, 15]
+        ])).toStrictEqual({min: 0, max: 10});
+    });
 });
 
 describe('removeLeadingZero', () => {

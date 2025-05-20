@@ -43,15 +43,20 @@ export function formatCurrency(val = 0, decimalPlaces = 0): string {
  * @param arrayNumber
  */
 export function intersectionMin(arrayNumber: Array<[number, number]>): {min: number, max: number} {
-    let min: number|undefined;
-    let max: number|undefined;
+    if (!arrayNumber.length) return { min: NaN, max: NaN };
+    let min = -Infinity;
+    let max = Infinity;
 
-    arrayNumber.forEach((row) => {
-        min = min ? (row[0] > min ? row[0] : min) : row[0];
-        max = max ? (row[1] < max ? row[1] : max) : row[1];
+    arrayNumber.forEach(([start, end]) => {
+        min = Math.max(min, start);
+        max = Math.min(max, end);
     });
 
-    return {min: min ?? 0, max: max ?? 0};
+    // 無交集
+    if (min > max) {
+        return { min: NaN, max: NaN };
+    }
+    return { min, max };
 }
 
 
