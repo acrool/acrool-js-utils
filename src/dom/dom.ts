@@ -67,13 +67,15 @@ export function insertIFrame(frameId: string, url: string, callBack?: (element: 
  * 插入Script
  * @param scriptId
  * @param scriptContent
+ * @param type
  */
-export function insertScriptContent(scriptId: string, scriptContent: string): void {
+export function insertScriptContent(scriptId: string, scriptContent: string, type: string): void {
     // 插入測速工具
     if (document.getElementById(scriptId) === null) {
         const s = document.createElement('script');
 
         s.id = scriptId;
+        if(type) s.type = type;
         s.append(scriptContent);
 
         // add script
