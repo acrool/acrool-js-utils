@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.26](https://github.com/acrool/acrool-js-utils/compare/v3.2.26-alpha.1...v3.2.26) (2025-09-16)
+
 ### [3.2.26-alpha.1](https://github.com/acrool/acrool-js-utils/compare/v3.2.26-alpha.0...v3.2.26-alpha.1) (2025-09-16)
 
 ### [3.2.26-alpha.0](https://github.com/acrool/acrool-js-utils/compare/v3.2.25...v3.2.26-alpha.0) (2025-09-16)
