@@ -1,6 +1,6 @@
 {
   "name": "@acrool/js-utils",
-  "version": "3.2.27",
+  "version": "3.2.28",
   "description": "Common javascript utils methods for project development",
   "keywords": [
     "typescript",
@@ -8,6 +8,7 @@
   ],
   "private": false,
   "license": "MIT",
+  "packageManager": "yarn@4.9.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/acrool/acrool-js-utils.git"
