@@ -220,3 +220,41 @@ export function objToFormData(data: { [key: string]: any }): FormData {
     appendData(data);
     return formData;
 }
+
+
+/**
+ * 將物件資料轉成 URLSearchParams (用於 x-www-form-urlencoded)
+ * ex: {
+ *     account: 'xxxxx',
+ *     password: '12345'
+ * }
+ * -> URLSearchParams with account=xxxxx&password=12345
+ *
+ * @param data
+ */
+export function objToFormUrl(data: { [key: string]: any }): URLSearchParams {
+    const urlencoded = new URLSearchParams();
+
+    const appendData = (whileData: any, parentKey = '') => {
+        for (const [key, value] of Object.entries(whileData)) {
+            const formKey = parentKey ? `${parentKey}[${key}]` : key;
+
+            if (Array.isArray(value)) {
+                value.forEach((item, index) => {
+                    if (typeof item === 'object' && item !== null) {
+                        appendData(item, `${formKey}[${index}]`);
+                    } else {
+                        urlencoded.append(`${formKey}[${index}]`, String(item));
+                    }
+                });
+            } else if (typeof value === 'object' && value !== null) {
+                appendData(value, formKey);
+            } else if (value !== undefined && value !== null) {
+                urlencoded.append(formKey, String(value));
+            }
+        }
+    };
+
+    appendData(data);
+    return urlencoded;
+}

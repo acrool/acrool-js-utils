@@ -1,4 +1,4 @@
-import {anyToBoolean, anyToNumber, emptyToNull, hexToRGB, objToFormData,rgbToHex} from './convert';
+import {anyToBoolean, anyToNumber, emptyToNull, hexToRGB, objToFormData, objToFormUrl, rgbToHex} from './convert';
 
 describe('rgbToHex', () => {
     it('should return a hex string for rgb(0,0,0)', () => {
@@ -211,15 +211,131 @@ describe('objToFormData', () => {
         };
 
         const formData = objToFormData(data);
-        
+
         // 验证 FormData 中是否包含文件
         expect(formData.get('name')).toBe('Jack');
         expect(formData.get('image')).toBeInstanceOf(File); // Blob 会被转换为 File
         expect(formData.get('image')).not.toBe(blob); // 不是同一个对象
-        
+
         // 验证 File 的类型和文件名
         const formDataEntry = formData.get('image') as File;
         expect(formDataEntry.type).toBe('image/jpeg');
         expect(formDataEntry.name).toBe('image.jpeg');
+    });
+});
+
+
+describe('objToFormUrl', () => {
+    it('should convert a simple object to URLSearchParams', () => {
+        const data = {
+            account: 'xxxxx',
+            password: '12345'
+        };
+
+        const urlencoded = objToFormUrl(data);
+
+        expect(urlencoded.get('account')).toBe('xxxxx');
+        expect(urlencoded.get('password')).toBe('12345');
+        expect(urlencoded.toString()).toBe('account=xxxxx&password=12345');
+    });
+
+    it('should convert an object with nested properties to URLSearchParams', () => {
+        const data = {
+            name: 'Jack',
+            age: 30,
+            profile: {
+                username: 'jacky'
+            }
+        };
+
+        const urlencoded = objToFormUrl(data);
+
+        expect(urlencoded.get('name')).toBe('Jack');
+        expect(urlencoded.get('age')).toBe('30');
+        expect(urlencoded.get('profile[username]')).toBe('jacky');
+    });
+
+    it('should handle arrays in URLSearchParams', () => {
+        const data = {
+            tags: ['javascript', 'typescript', 'react']
+        };
+
+        const urlencoded = objToFormUrl(data);
+
+        expect(urlencoded.get('tags[0]')).toBe('javascript');
+        expect(urlencoded.get('tags[1]')).toBe('typescript');
+        expect(urlencoded.get('tags[2]')).toBe('react');
+    });
+
+    it('should handle arrays with nested objects in URLSearchParams', () => {
+        const data = {
+            users: [
+                {name: 'Jack', age: 30},
+                {name: 'Mary', age: 25}
+            ]
+        };
+
+        const urlencoded = objToFormUrl(data);
+
+        expect(urlencoded.get('users[0][name]')).toBe('Jack');
+        expect(urlencoded.get('users[0][age]')).toBe('30');
+        expect(urlencoded.get('users[1][name]')).toBe('Mary');
+        expect(urlencoded.get('users[1][age]')).toBe('25');
+    });
+
+    it('should skip undefined or null values', () => {
+        const data = {
+            name: 'Jack',
+            age: null,
+            profile: undefined,
+            active: true
+        };
+
+        const urlencoded = objToFormUrl(data);
+
+        expect(urlencoded.get('name')).toBe('Jack');
+        expect(urlencoded.get('age')).toBeNull();
+        expect(urlencoded.get('profile')).toBeNull();
+        expect(urlencoded.get('active')).toBe('true');
+    });
+
+    it('should convert boolean and number values to strings', () => {
+        const data = {
+            active: true,
+            count: 100,
+            price: 99.99
+        };
+
+        const urlencoded = objToFormUrl(data);
+
+        expect(urlencoded.get('active')).toBe('true');
+        expect(urlencoded.get('count')).toBe('100');
+        expect(urlencoded.get('price')).toBe('99.99');
+    });
+
+    it('should handle empty object', () => {
+        const data = {};
+
+        const urlencoded = objToFormUrl(data);
+
+        expect(urlencoded.toString()).toBe('');
+    });
+
+    it('should handle complex nested structure', () => {
+        const data = {
+            user: {
+                profile: {
+                    name: 'Jack',
+                    contact: {
+                        email: 'jack@example.com'
+                    }
+                }
+            }
+        };
+
+        const urlencoded = objToFormUrl(data);
+
+        expect(urlencoded.get('user[profile][name]')).toBe('Jack');
+        expect(urlencoded.get('user[profile][contact][email]')).toBe('jack@example.com');
     });
 });
