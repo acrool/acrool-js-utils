@@ -28,7 +28,7 @@
     "release:minor": "yarn release-cli -r minor && run-s postrelease",
     "release:patch": "yarn release-cli -r patch && run-s postrelease",
     "release:alpha": "yarn release-cli --prerelease alpha && run-s postrelease",
-    "postrelease": "# then run `git push --follow-tags origin main && yarn build && npm publish ./dist --access=public` to publish"
+    "postrelease": "echo # then run '`git push --follow-tags origin main && yarn build && npm publish ./dist --access=public`' to publish"
   },
   "dependencies": {
     "big.js": "^7.0.1",
